@@ -315,9 +315,9 @@
                 "accordion_row_xFEFDa": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Return policy",
+                    "heading": "Fit",
                     "open_by_default": true,
-                    "icon": "none",
+                    "icon": "shirt",
                     "width": 12
                   },
                   "blocks": {
@@ -354,9 +354,9 @@
                 "accordion_row_7yCALx": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Shipping",
+                    "heading": "Fabric",
                     "open_by_default": false,
-                    "icon": "none",
+                    "icon": "leather",
                     "width": 20
                   },
                   "blocks": {
@@ -393,9 +393,9 @@
                 "accordion_row_RbHTbr": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Manufacturing",
+                    "heading": "Forever",
                     "open_by_default": false,
-                    "icon": "none",
+                    "icon": "plant",
                     "width": 20
                   },
                   "blocks": {
