@@ -9,6 +9,9 @@
  */
 {
   "current": {
+    "logo": "shopify://shop_images/Heidi_Klein_Logo.svg",
+    "logo_inverse": "shopify://shop_images/Heidi_Klein_Logo_white.svg",
+    "favicon": "shopify://shop_images/Black_palm.png",
     "type_body_font": "dm_sans_n3",
     "type_subheading_font": "dm_sans_n4",
     "type_heading_font": "dm_sans_n4",
