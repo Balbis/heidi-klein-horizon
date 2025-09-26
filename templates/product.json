@@ -44,7 +44,7 @@
           "type": "_product-details",
           "static": true,
           "settings": {
-            "width": "custom",
+            "width": "fill",
             "custom_width": 80,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -450,10 +450,10 @@
         ".details__header {padding: 1.5rem 0;}"
       ],
       "settings": {
-        "content_width": "content-center-aligned",
+        "content_width": "content-full-width",
         "desktop_media_position": "left",
-        "equal_columns": false,
-        "limit_details_width": false,
+        "equal_columns": true,
+        "limit_details_width": true,
         "gap": 48,
         "color_scheme": "",
         "padding-block-start": 0,
