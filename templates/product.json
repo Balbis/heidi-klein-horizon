@@ -446,6 +446,9 @@
           ]
         }
       },
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.details__header {padding: 1.5rem 0; }}"
+      ],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
