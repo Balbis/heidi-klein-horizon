@@ -35,6 +35,7 @@
     "type_size_h6": "14",
     "type_line_height_h6": "display-loose",
     "page_width": "wide",
+    "card_hover_effect": "none",
     "badge_position": "top-right",
     "badge_corner_radius": 2,
     "badge_sale_color_scheme": "scheme-5",
