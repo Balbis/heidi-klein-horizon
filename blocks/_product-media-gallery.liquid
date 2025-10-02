@@ -49,7 +49,7 @@
   if selected_product.media.size <= 1
     assign slideshow_class = 'product-media-gallery__slideshow--single-media slideshow--single-media'
   else
-    assign slideshow_class = ''
+    assign slideshow_class = 'product-media-gallery'
 
     if block_settings.media_presentation == 'carousel'
       assign render_slideshow_arrows = true
@@ -369,6 +369,7 @@
     ref: 'slideshow',
     class: slideshow_class,
     slides: slides,
+    show_arrows: false,
     slide_count: sorted_media.size,
     slideshow_arrows: slideshow_arrows,
     arrows_position: icons_position,
@@ -657,6 +658,33 @@
           object-fit: cover;
         }
       }
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-media-gallery {
+      display: block;
+    }
+
+    .product-media-gallery slideshow-controls[thumbnails]:is([pagination-position='right'], [pagination-position='left']) {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      bottom: 20px;
+      justify-content: center;
+      transform: translateX(-100%);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      .slideshow-controls__thumbnails-container {
+        position: relative;
+      }
+    }
+
+    .product-information__media  .media-gallery--carousel:hover .product-media-gallery slideshow-controls[thumbnails]:is([pagination-position='right'], [pagination-position='left']) {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
     }
   }
 
