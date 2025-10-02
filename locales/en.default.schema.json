@@ -39,6 +39,7 @@
     "background": "Background",
     "background_image": "Background image",
     "background_video": "Background video",
+    "block_link": "Block Link",
     "block_size": "Block size",
     // Typography setting for body text size
     "body_size": "Body size",
@@ -49,6 +50,7 @@
     "carousel": "Carousel",
     "carousel_navigation": "Carousel navigation",
     "carousel_pagination": "Carousel pagination",
+    "cart_features": "Cart features",
     "colors": "Colors",
     "collection_page": "Collection page",
     "complementary_products": "Complementary products must be set up using the Search & Discovery app. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery)",
@@ -61,6 +63,7 @@
     "edit_price_in_theme_settings": "Edit price formatting in [theme settings](/editor?context=theme&category=currency%20code)",
     "edit_variants_in_theme_settings": "Edit variant styling in [theme settings](/editor?context=theme&category=variants)",
     "email_signups_create_customer_profiles": "Signups add [customer profiles](https://help.shopify.com/manual/customers)",
+    "email_signup": "Email signup",
     "follow_on_shop_eligiblity": "For the button to show, the Shop channel must be installed and Shop Pay activated. [Learn more](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/add-shop-buttons)",
     "gift_card_form_description": "Customers can send gift cards to a recipient's email with a personal message. [Learn more](https://help.shopify.com/manual/products/gift-card-products)",
     "fonts": "Fonts",
@@ -126,6 +129,7 @@
     "submissions_are_sent_to_store_email_address": "Submissions are sent to your store's [sender email address](https://admin.shopify.com/settings/notifications)",
     "submit_button": "Submit button",
     "swatches": "Swatches",
+    "submenu_feature": "Submenu feature",
     // Section header for text positioning settings
     "text": "Text",
     "text_presets": "Text presets",
@@ -160,14 +164,15 @@
     "hover_effects": "Applies to product and collection cards",
     "link_info": "Optional: makes icon clickable",
     "logo_font": "Applies only when a logo is not selected",
+    "logo_height": "Only affects header logo",
     "manage_countries_regions": "[Manage countries/regions](/admin/settings/markets)",
     "manage_languages": "[Manage languages](/admin/settings/languages)",
     "transparent_background": "Review each template where transparent background is applied for readability",
     "video_alt_text": "Describe the video for assistive tech users",
     "video_autoplay": "Videos will be muted by default",
     "video_external": "Use a YouTube or Vimeo URL",
-    "pills_usage": "Used for applied filters, discount codes, and search suggestions"
-
+    "pills_usage": "Used for applied filters, discount codes, and search suggestions",
+    "media_type_info": "Features are populated from your menu links"
   },
   "names": {
     "product_title": "Product title",
@@ -703,7 +708,7 @@
     "bottom_padding": "Bottom padding",
     "button": "Button",
     "button_text_case": "Text case",
-    "button_text_weight": "Text weight",
+
     "card_hover_effect": "Card hover effect",
     "card_image_height": "Product image height",
     "card_size": "Card size",
@@ -761,6 +766,7 @@
     "drop_shadow": "Drop shadow",
     // Visual animation effects dropdown for jumbo text
     "effects": "Effects",
+    "empty_cart_button_link": "Empty cart button link",
     // Collection setting for products shown before search input
     "empty_state_collection": "Empty state collection",
     "empty_state_collection_info": "Shown before a search is entered",
@@ -847,6 +853,7 @@
     "limit_product_details_width": "Limit product details width",
     "line_height": "Line height",
     "link": "Link",
+    "custom_link": "Custom link",
     "link_preset": "Link preset",
     "links": "Links",
     "logo": "Logo",
@@ -1007,6 +1014,7 @@
     // Icon line thickness setting label
     "stroke": "Stroke",
     "style": "Style",
+    "submenu_text_style": "Submenu text style",
     "success_color": "Success",
     "swatches": "Swatches",
     "tertiary_font": "Tertiary font",
@@ -1022,6 +1030,7 @@
     "title": "Title",
     // Label for range input controlling top spacing/margin
     "top": "Top",
+    "top_level_size": "Top level size",
     "top_padding": "Top padding",
     "transition_to_main_product": "Product card to product page transition",
     "transparent_background": "Transparent background",

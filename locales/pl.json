@@ -52,7 +52,7 @@
     "scroll_to": "Przewiń do {{ title }}",
     "loading_product_recommendations": "Wczytywanie polecanych produktów",
     "discount": "Zastosuj kod rabatowy",
-    "discount_menu": "Menu rabatów",
+    "discount_menu": "Kody rabatowe",
     "discount_applied": "Zastosowany kod rabatowy: {{ code }}",
     "open_cart_drawer": "Otwórz koszyk",
     "pause_video": "Zatrzymaj film",
@@ -239,7 +239,7 @@
     "recipient_form_fields_hidden": "Pola formularza odbiorcy są teraz ukryte",
     "recipient_form_error": "Wystąpił błąd podczas przesyłania formularza",
     "product_custom_property_character_count": "Użyte znaki: {{ used_chars }}/{{ max_chars }}",
-    "terms_and_policies": "Warunki i zasady"
+    "terms_and_policies": "Warunki i polityki"
   },
   "gift_cards": {
     "issued": {

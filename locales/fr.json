@@ -51,8 +51,8 @@
     "scroll_to": "Faire défiler vers {{ title }}",
     "loading_product_recommendations": "Chargement des recommandations de produits",
     "discount": "Appliquer un code de réduction",
-    "discount_menu": "Menu de remise",
-    "discount_applied": "Code de réduction appliqué : {{ code }}",
+    "discount_menu": "Codes de réduction",
+    "discount_applied": "Code de réduction appliqué : {{ code }}",
     "open_cart_drawer": "Ouvrir le panier",
     "inventory_status": "Statut du stock",
     "pause_video": "Mettre la vidéo en pause",
@@ -234,7 +234,7 @@
     "recipient_form_fields_hidden": "Les champs du formulaire de destinataire sont désormais masqués",
     "recipient_form_error": "La soumission du formulaire présentait une erreur",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} caractères utilisés",
-    "terms_and_policies": "Conditions et politiques"
+    "terms_and_policies": "Conditions générales et politiques"
   },
   "gift_cards": {
     "issued": {

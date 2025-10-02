@@ -167,7 +167,7 @@
     "featured_image": "Wyróżniony obraz",
     "multicolumn": "Wielokolumnowy",
     "product_custom_property": "Instrukcje specjalne",
-    "hero_bottom_aligned": "Hero: Wyrównane do dołu",
+    "hero_bottom_aligned": "Obraz główny: wyrównanie do dołu",
     "blog_card": "Karta bloga",
     "blog_posts_grid": "Posty na blogu: siatka",
     "blog_posts_carousel": "Posty na blogu: karuzela",
@@ -448,7 +448,6 @@
     "border_thickness": "Grubość obramowania",
     "bottom_row": "Wiersz dolny",
     "button_text_case": "Wielkość liter tekstu",
-    "button_text_weight": "Waga tekstu",
     "auto_open_cart_drawer": "„Dodaj do koszyka” automatycznie otwiera szufladę",
     "collection_count": "Liczba kolekcji",
     "custom_liquid": "Kod Liquid",
@@ -506,11 +505,12 @@
     "gift_card_form": "Formularz karty prezentowej",
     "seller_note_open_by_default": "Domyślnie otwórz uwagę dla sprzedawcy",
     "add_to_cart_animation": "Dodaj do koszyka",
+    "custom_link": "Niestandardowy link",
     "product_custom_property": {
       "heading": "Nagłówek",
       "description": "Opis",
       "key": "Nazwa właściwości",
-      "key_info": "Musi być unikatowy dla każdego bloku. Wyświetlany w koszyku, przy kasie i w szczegółach zamówienia.",
+      "key_info": "Musi być unikatowa dla każdego bloku. Wyświetlana w koszyku, podczas realizacji zakupu i w szczegółach zamówienia.",
       "placeholder_text": "Tekst zastępczy",
       "default_heading": "Spersonalizuj produkt",
       "default_placeholder": "Wprowadź instrukcje specjalne",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Etykieta pola wyboru"
     },
     "blog": "Blog",
-    "post_count": "Liczba postów"
+    "post_count": "Liczba postów",
+    "top_level_size": "Rozmiar najwyższego poziomu",
+    "submenu_text_style": "Styl tekstu podmenu",
+    "empty_cart_button_link": "Link przycisku opróżnij koszyk"
   },
   "options": {
     "adapt_to_image": "Dostosuj do obrazu",
@@ -907,7 +910,11 @@
     "section_link": "Link sekcji",
     "gift_card_form_description": "Klienci mogą wysyłać karty prezentowe na adres e-mail odbiorcy wraz z osobistą wiadomością. [Dowiedz się więcej](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Nagłówek",
-    "resource_reference_product_custom_property": "Dodaj konfigurowalne pola wprowadzania danych, aby zbierać niestandardowe informacje, które zostaną dodane do danej pozycji zamówienia i będą później widoczne w szczegółach zamówienia."
+    "resource_reference_product_custom_property": "Dodaj konfigurowalne pola wprowadzania danych, aby zbierać niestandardowe informacje, które zostaną dodane do danej pozycji zamówienia i będą później widoczne w szczegółach zamówienia.",
+    "block_link": "Blokuj link",
+    "submenu_feature": "Funkcja podmenu",
+    "cart_features": "Funkcje koszyka",
+    "email_signup": "Rejestracja – mailing"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Udostępnij klientom informacje o swojej marce. Opisz produkt, udostępnij ogłoszenia lub przywitaj klientów w swoim sklepie.</p>"
@@ -947,7 +954,9 @@
     "applies_on_image_only": "Dotyczy tylko obrazów",
     "hover_effects": "Dotyczy kart produktów i kolekcji",
     "pills_usage": "Używane przez zastosowane filtry, kody rabatowe i sugestie wyszukiwania",
-    "hide_logo_on_home_page_help": "Logo pozostanie widoczne, gdy przypięty nagłówek będzie aktywny"
+    "hide_logo_on_home_page_help": "Logo pozostanie widoczne, gdy przypięty nagłówek będzie aktywny",
+    "media_type_info": "Funkcje są wypełniane na podstawie Twoich linków menu",
+    "logo_height": "Wpływa tylko na logo nagłówka"
   },
   "categories": {
     "product_list": "Polecana kolekcja",

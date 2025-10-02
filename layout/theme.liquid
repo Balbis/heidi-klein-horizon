@@ -4,8 +4,6 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
-    {%- render 'stylesheets' -%}
-
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
@@ -23,6 +21,7 @@
     >
 
     {%- render 'meta-tags' -%}
+    {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}

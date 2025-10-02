@@ -62,7 +62,7 @@
     "quantity": "Mennyiség",
     "rating": "A termék értékelése: {{ rating }} / 5",
     "nested_product": "{{ product_title }} – {{ parent_title }}",
-    "discount_menu": "Kedvezmény kódok"
+    "discount_menu": "Kedvezménykódok"
   },
   "actions": {
     "add_to_cart": "Hozzáadás a kosárhoz",
@@ -229,7 +229,7 @@
     "recipient_form_fields_hidden": "A kedvezményezettre vonatkozó űrlapmezők most el vannak rejtve",
     "recipient_form_error": "Hiba történt az űrlap beküldése során",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} karakter felhasználva",
-    "terms_and_policies": "Feltételek és irányelvek"
+    "terms_and_policies": "Feltételek és szabályzatok"
   },
   "gift_cards": {
     "issued": {

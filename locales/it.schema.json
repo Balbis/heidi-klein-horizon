@@ -167,7 +167,7 @@
     "multicolumn": "Multicolonna",
     "rich_text_section": "Rich text",
     "product_custom_property": "Istruzioni speciali",
-    "hero_bottom_aligned": "Hero: Allineato in basso",
+    "hero_bottom_aligned": "Hero: allineato in basso",
     "blog_card": "Scheda del blog",
     "blog_posts_grid": "Articoli del blog: griglia",
     "blog_posts_carousel": "Articoli del blog: carosello",
@@ -434,7 +434,6 @@
     "read_only": "Sola lettura",
     "always_stack_buttons": "Impila sempre i pulsanti",
     "button_text_case": "Maiuscole/minuscole testo",
-    "button_text_weight": "Spessore testo",
     "custom_mobile_width": "Larghezza personalizzata dispositivo mobile",
     "gradient_direction": "Direzione del gradiente",
     "headings": "Intestazioni",
@@ -506,11 +505,12 @@
     "seller_note_open_by_default": "Apri sempre nota al venditore",
     "gift_card_form": "Modulo buono regalo",
     "add_to_cart_animation": "Aggiungi al carrello",
+    "custom_link": "Link personalizzato",
     "product_custom_property": {
       "heading": "Titolo",
       "description": "Descrizione",
       "key": "Nome proprietà",
-      "key_info": "Deve essere unico per ogni blocco. Mostrato nel carrello, al checkout e nei dettagli dell'ordine.",
+      "key_info": "Deve essere univoco per ogni blocco. Compare nel carrello, al check-out e nei dettagli dell'ordine.",
       "placeholder_text": "Testo segnaposto",
       "default_heading": "Personalizza il tuo prodotto",
       "default_placeholder": "Inserisci le tue istruzioni speciali",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Etichetta casella di spunta"
     },
     "blog": "Blog",
-    "post_count": "Conteggio post"
+    "post_count": "Conteggio post",
+    "top_level_size": "Dimensioni di primo livello",
+    "submenu_text_style": "Stile testo del sottomenu",
+    "empty_cart_button_link": "Link del pulsante svuota carrello"
   },
   "options": {
     "adapt_to_image": "Adatta a immagine",
@@ -907,7 +910,11 @@
     "section_link": "Link alla sezione",
     "gift_card_form_description": "I clienti possono inviare buoni regalo all'indirizzo email del destinatario con un messaggio personale. [Maggiori informazioni](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Titolo",
-    "resource_reference_product_custom_property": "Aggiungi campi di input personalizzabili per raccogliere informazioni personalizzate che verranno aggiunte a questa voce dell'ordine e che saranno visibili in seguito nei dettagli dell'ordine."
+    "resource_reference_product_custom_property": "Aggiungi campi di input personalizzabili per raccogliere informazioni personalizzate che verranno aggiunte a questa voce dell'ordine e che saranno visibili in seguito nei dettagli dell'ordine.",
+    "block_link": "Link al blocco",
+    "submenu_feature": "Funzionalità del sottomenu",
+    "cart_features": "Funzionalità del carrello",
+    "email_signup": "Iscrizione alla newsletter"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Condividi informazioni sul tuo brand con i clienti. Descrivi un prodotto, condividi gli annunci o dai il benvenuto ai clienti nel tuo negozio.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Utilizzato per filtri applicati, codici sconto e suggerimenti di ricerca",
     "applies_on_image_only": "Si applica solo alle immagini",
     "hover_effects": "Si applica alle schede di prodotti e collezioni",
-    "hide_logo_on_home_page_help": "Il logo rimarrà visibile quando l'header fisso è attivo"
+    "hide_logo_on_home_page_help": "Il logo rimarrà visibile quando l'header fisso è attivo",
+    "media_type_info": "Le funzionalità vengono popolate dai link del menu",
+    "logo_height": "Influisce solo sul logo dell'header"
   },
   "categories": {
     "product_list": "Collezione in evidenza",

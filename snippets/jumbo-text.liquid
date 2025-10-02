@@ -2,14 +2,14 @@
   Renders text that stretches to fit the full width of its container.
 
   @param {string} [text] - The text to be rendered.
-  @param {object} [block] - The block object
+  @param {object} [block_settings] - The block settings object, defaults to block.settings
 
   @example
   {% render 'jumbo-text', text: block.settings.text %}
 {%- enddoc -%}
 
 {% liquid
-  assign block_settings = block.settings
+  assign block_settings = block_settings | default: block.settings
   assign shown_text = text | default: block_settings.text
   assign descenders = 'alphabetic'
   assign trim = 'trim-both'
@@ -98,12 +98,12 @@
       {%- endfor -%}
     </jumbo-text>
   {% endif %}
-</div>
 
-<script
-  src="{{ 'jumbo-text.js' | asset_url }}"
-  type="module"
-></script>
+  <script
+    src="{{ 'jumbo-text.js' | asset_url }}"
+    type="module"
+  ></script>
+</div>
 
 {% stylesheet %}
   .jumbo-text__container {

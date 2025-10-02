@@ -120,7 +120,7 @@
     "collections_bento": "Lista de colecciones: Bento",
     "faq_section": "Preguntas frecuentes",
     "hero": "Hero",
-    "hero_bottom_aligned": "Hero: Alineado abajo",
+    "hero_bottom_aligned": "Hero: Parte inferior alineada",
     "jumbo_text": "Texto de Jumbo",
     "video_section": "Video",
     "custom_liquid": "Liquid personalizado",
@@ -450,7 +450,6 @@
     "border_thickness": "Grosor del borde",
     "bottom_row": "Fila inferior",
     "button_text_case": "Caja de texto",
-    "button_text_weight": "Grosor del texto",
     "auto_open_cart_drawer": "\"Agregar al carrito\" abre automáticamente el carrito lateral",
     "collection_count": "Conteo de colecciones",
     "custom_liquid": "Código de Liquid",
@@ -506,11 +505,12 @@
     "gift_card_form": "Formulario de tarjeta de regalo",
     "seller_note_open_by_default": "Abrir nota para el vendedor de forma predeterminada",
     "add_to_cart_animation": "Agregar al carrito",
+    "custom_link": "Enlace personalizado",
     "product_custom_property": {
       "heading": "Encabezado",
       "description": "Descripción",
       "key": "Nombre de la propiedad",
-      "key_info": "Debe ser único para cada bloque. Se muestra en el carrito, el checkout y los detalles del pedido.",
+      "key_info": "Debe ser único para cada bloque. Se muestra en el carrito, la pantalla de pago y la información del pedido.",
       "placeholder_text": "Texto del marcador de posición",
       "default_heading": "Personaliza tu producto",
       "default_placeholder": "Ingresa tus instrucciones especiales",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Etiqueta de casilla de verificación"
     },
     "blog": "Blog",
-    "post_count": "Publicar recuento"
+    "post_count": "Publicar recuento",
+    "top_level_size": "Tamaño del nivel superior",
+    "submenu_text_style": "Estilo de texto del submenú",
+    "empty_cart_button_link": "Enlace de botón para vaciar el carrito"
   },
   "options": {
     "adapt_to_image": "Adaptar a la imagen",
@@ -907,7 +910,11 @@
     "section_link": "Enlace de la sección",
     "gift_card_form_description": "Los clientes pueden enviar tarjetas de regalo al correo electrónico del destinatario junto con un mensaje personal. [Más información](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Encabezado",
-    "resource_reference_product_custom_property": "Añade campos de entrada personalizables para recopilar información personalizada que se agregará a esta línea de artículo y será visible más tarde en la información del pedido."
+    "resource_reference_product_custom_property": "Añade campos de entrada personalizables para recopilar información personalizada que se agregará a esta línea de artículo y será visible más tarde en la información del pedido.",
+    "block_link": "Enlace de bloque",
+    "submenu_feature": "Función del submenú",
+    "cart_features": "Funciones del carrito",
+    "email_signup": "Suscriptor de correo electrónico"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Comparte información sobre tu marca con los clientes. Describe un producto, comparte anuncios o da la bienvenida a los clientes a tu tienda.</p>"
@@ -947,7 +954,9 @@
     "applies_on_image_only": "Solo se aplica a las imágenes",
     "hover_effects": "Aplica a los productos y tarjetas de colección",
     "pills_usage": "Se utiliza para filtros aplicados, códigos de descuento y sugerencias de búsqueda",
-    "hide_logo_on_home_page_help": "El logo será visible si el encabezado fijo está activado"
+    "hide_logo_on_home_page_help": "El logo será visible si el encabezado fijo está activado",
+    "media_type_info": "Las funciones se rellenan a partir de tus enlaces del menú",
+    "logo_height": "Solo afecta al logo del encabezado"
   },
   "categories": {
     "basic": "Básico",

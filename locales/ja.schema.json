@@ -120,7 +120,7 @@
     "collections_bento": "コレクションリスト：Bento",
     "faq_section": "よくある質問",
     "hero": "ヒーロー",
-    "hero_bottom_aligned": "ヒーロー：下揃え",
+    "hero_bottom_aligned": "ヒーロー: 下揃え",
     "jumbo_text": "ジャンボテキスト",
     "read_only": "読み取り専用",
     "search_input": "入力を検索",
@@ -450,7 +450,6 @@
     "border_thickness": "罫線の太さ",
     "bottom_row": "一番下の行",
     "button_text_case": "テキストケース",
-    "button_text_weight": "テキストの太さ",
     "auto_open_cart_drawer": "「カートに追加」すると自動的にドロワーが開きます",
     "collection_count": "コレクション数",
     "custom_liquid": "Liquidコード",
@@ -506,11 +505,12 @@
     "seller_note_open_by_default": "デフォルトで販売者へのメモを開く",
     "gift_card_form": "ギフトカード形式",
     "add_to_cart_animation": "カートに追加する",
+    "custom_link": "カスタムリンク",
     "product_custom_property": {
       "heading": "見出し",
       "description": "説明",
       "key": "プロパティ名",
-      "key_info": "各ブロックで一意である必要があります。カート、チェックアウト、注文詳細に表示されます。",
+      "key_info": "ブロックごとに一意である必要があります。カート、チェックアウト、注文の詳細に表示されます。",
       "placeholder_text": "プレースホルダーテキスト",
       "default_heading": "商品をカスタマイズする",
       "default_placeholder": "特別な指示を入力",
@@ -530,7 +530,10 @@
       "checkbox_preset": "チェックボックスラベル"
     },
     "blog": "ブログ",
-    "post_count": "投稿数"
+    "post_count": "投稿数",
+    "top_level_size": "最上位サイズ",
+    "submenu_text_style": "サブメニューのテキストスタイル",
+    "empty_cart_button_link": "空のカートボタンのリンク"
   },
   "options": {
     "adapt_to_image": "画像に合わせる",
@@ -907,7 +910,11 @@
     "section_link": "セクションリンク",
     "gift_card_form_description": "お客様は受取人に、個人的なメッセージとともにギフトカードを添えて送ることができます。[詳しくはこちら](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "見出し",
-    "resource_reference_product_custom_property": "カスタマイズ入力フィールドを追加することで、この注文の項目に追加される税関情報を徴収し、後で注文詳細で表示されます。"
+    "resource_reference_product_custom_property": "カスタマイズ入力フィールドを追加することで、この注文の項目に追加される税関情報を徴収し、後で注文詳細で表示されます。",
+    "block_link": "リンクをブロックする",
+    "submenu_feature": "サブメニュー機能",
+    "cart_features": "カートの特徴",
+    "email_signup": "メール登録者"
   },
   "html_defaults": {
     "share_information_about_your": "<p>ブランドに関する情報をお客様と共有します。商品を説明したり、告知をしたり、ストアへのお客様を歓迎したりします。</p>"
@@ -947,7 +954,9 @@
     "applies_on_image_only": "画像にのみ適用する",
     "hover_effects": "商品およびコレクションカードに適用する",
     "pills_usage": "適用されたフィルター、割引コード、検索候補に使用されます",
-    "hide_logo_on_home_page_help": "スティッキーヘッダーがアクティブな場合、ロゴは表示されたままになります"
+    "hide_logo_on_home_page_help": "スティッキーヘッダーがアクティブな場合、ロゴは表示されたままになります",
+    "media_type_info": "Featuresはメニューリンクから入力されます",
+    "logo_height": "ヘッダーロゴのみに影響します"
   },
   "categories": {
     "product_list": "特集コレクション",

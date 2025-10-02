@@ -1,5 +1,8 @@
 {% if shop.policies.size > 0 %}
-  <anchored-popover-component data-hover-triggered="true">
+  <anchored-popover-component
+    class="footer-utilities__policy-list footer-utilities__text"
+    data-hover-triggered="true"
+  >
     <button
       class="policy-list-trigger button-unstyled"
       popovertarget="terms-policies-popover"
@@ -187,6 +190,12 @@
         }
       ],
       "default": "none"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.policy_list",
+      "category": "t:categories.footer"
     }
   ]
 }

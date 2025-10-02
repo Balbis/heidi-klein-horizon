@@ -18,6 +18,14 @@ export const requestYieldCallback = (callback) => {
 };
 
 /**
+ * Tells if we are on a low power device based on the number of CPU cores and RAM
+ * @returns {boolean} True if the device is a low power device, false otherwise
+ */
+export function isLowPowerDevice() {
+  return Number(navigator.hardwareConcurrency) <= 2 || Number(navigator.deviceMemory) <= 2;
+}
+
+/**
  * Check if the browser supports View Transitions API
  * @returns {boolean} True if the browser supports View Transitions API, false otherwise
  */

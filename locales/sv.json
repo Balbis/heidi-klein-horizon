@@ -50,7 +50,7 @@
     "scroll_to": "Rulla till {{ title }}",
     "loading_product_recommendations": "Läser in produktrekommendationer",
     "discount": "Använd rabattkod",
-    "discount_menu": "Rabattmeny",
+    "discount_menu": "Rabattkoder",
     "discount_applied": "Tillämpad rabattkod: {{ code }}",
     "open_cart_drawer": "Öppna varukorg",
     "pause_video": "Pausa video",

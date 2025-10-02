@@ -6,6 +6,7 @@ import {
   prefersReducedMotion,
   debounce,
   preloadImage,
+  isLowPowerDevice,
 } from '@theme/utilities';
 import { scrollIntoView } from '@theme/scrolling';
 import { ZoomMediaSelectedEvent } from '@theme/events';
@@ -59,7 +60,7 @@ export class ZoomDialog extends Component {
     /** @type {HTMLElement | null} */
     const sourceImage = event.target instanceof Element ? event.target.closest('li,slideshow-slide') : null;
 
-    if (!supportsViewTransitions || !sourceImage || !targetImage) return open();
+    if (!supportsViewTransitions() || isLowPowerDevice() || !sourceImage || !targetImage) return open();
 
     const transitionName = `gallery-item`;
     sourceImage.style.setProperty('view-transition-name', transitionName);
@@ -131,7 +132,7 @@ export class ZoomDialog extends Component {
   async close() {
     const { dialog, media } = this.refs;
 
-    if (!supportsViewTransitions) return this.closeDialog();
+    if (!supportsViewTransitions() || isLowPowerDevice()) return this.closeDialog();
 
     // Find the most visible image using IntersectionObserver
     const mostVisibleElement = await getMostVisibleElement(media);

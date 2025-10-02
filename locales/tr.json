@@ -50,7 +50,7 @@
     "scroll_to": "{{ title }} bölümüne git",
     "loading_product_recommendations": "Ürün önerileri yükleniyor",
     "discount": "İndirim kodu uygula",
-    "discount_menu": "İndirim Menüsü",
+    "discount_menu": "İndirim Kodları",
     "discount_applied": "Uygulanan indirim kodu: {{ code }}",
     "open_cart_drawer": "Sepeti aç",
     "pause_video": "Videoyu duraklat",
@@ -102,7 +102,7 @@
     "sign_up": "Kaydol",
     "sort": "Sırala",
     "show_all_options": "Tüm seçenekleri göster",
-    "open": "Aç"
+    "open": "Açık"
   },
   "content": {
     "reviews": "değerlendirme",

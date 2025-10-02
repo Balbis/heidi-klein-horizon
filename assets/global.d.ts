@@ -69,4 +69,9 @@ declare global {
     zoom(amount: number): void;
     destroy(): void;
   }
+
+  // Device Memory API - https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory
+  interface Navigator {
+    readonly deviceMemory?: number;
+  }
 }

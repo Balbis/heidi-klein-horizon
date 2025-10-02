@@ -82,7 +82,7 @@
     "header": "Header",
     "heading": "Überschrift",
     "hero": "Hero-Bild",
-    "hero_bottom_aligned": "Hero: Unten ausgerichtet",
+    "hero_bottom_aligned": "Hero: unten ausgerichtet",
     "icons": "Symbole",
     "image_with_text": "Bild mit Text",
     "input": "Eingabe",
@@ -449,7 +449,6 @@
     "border_thickness": "Randdicke",
     "bottom_row": "Unterste Zeile",
     "button_text_case": "Groß- oder Kleinschreibung",
-    "button_text_weight": "Schriftstärke",
     "auto_open_cart_drawer": "Die Aktion „In den Warenkorb legen“ öffnet automatisch den Einschub",
     "collection_count": "Anzahl der Kollektionen",
     "custom_liquid": "Liquid-Code",
@@ -506,6 +505,7 @@
     "seller_note_open_by_default": "Hinweis an Verkäufer standardmäßig öffnen",
     "gift_card_form": "Gutscheinformular",
     "add_to_cart_animation": "In den Warenkorb legen",
+    "custom_link": "Benutzerdefinierter Link",
     "product_custom_property": {
       "heading": "Titel",
       "description": "Beschreibung",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Kontrollkästchen-Etikett"
     },
     "blog": "Blog",
-    "post_count": "Beitragsanzahl"
+    "post_count": "Beitragsanzahl",
+    "top_level_size": "Größe der obersten Ebene",
+    "submenu_text_style": "Textstil für Untermenü",
+    "empty_cart_button_link": "Schaltflächenlink zum Warenkorb leeren"
   },
   "options": {
     "adapt_to_image": "An Bild anpassen",
@@ -907,7 +910,11 @@
     "section_link": "Abschnitts-Link",
     "gift_card_form_description": "Kunden können Gutscheine per E-Mail mit einer persönlichen Nachricht an den Empfänger senden. [Mehr Informationen](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Titel",
-    "resource_reference_product_custom_property": "Füg eigene Eingabefelder hinzu, um individuelle Infos zu sammeln, die später bei diesem Bestellposten hinterlegt und in den Bestelldetails sichtbar werden."
+    "resource_reference_product_custom_property": "Füg eigene Eingabefelder hinzu, um individuelle Infos zu sammeln, die später bei diesem Bestellposten hinterlegt und in den Bestelldetails sichtbar werden.",
+    "block_link": "Block-Link",
+    "submenu_feature": "Untermenü-Funktion",
+    "cart_features": "Warenkorb-Funktionen",
+    "email_signup": "E-Mail-Anmeldung"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Teile Infos über deine Marke mit deinen Kunden. Beschreibe ein Produkt, kündige etwas an oder heiße Kunden willkommen.</p>"
@@ -947,7 +954,9 @@
     "applies_on_image_only": "Gilt nur für Bilder",
     "hover_effects": "Bezieht sich auf Produkt- und Kollektionskarten",
     "pills_usage": "Für angewandte Filter, Rabattcodes und Suchvorschläge",
-    "hide_logo_on_home_page_help": "Das Logo bleibt sichtbar, wenn die Sticky-Header-Funktion aktiv ist"
+    "hide_logo_on_home_page_help": "Das Logo bleibt sichtbar, wenn die Sticky-Header-Funktion aktiv ist",
+    "media_type_info": "Funktionen werden aus deinen Menülinks übernommen.",
+    "logo_height": "Betrifft nur Header-Logo"
   },
   "categories": {
     "product_list": "Vorgestellte Kollektion",

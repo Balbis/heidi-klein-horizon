@@ -54,6 +54,12 @@
           endif
         endif
 
+        for value in product_resource.selected_variant.options
+          if value.swatch
+            assign swatch_to_preselect = value
+          endif
+        endfor
+
         # Identify which option position this swatch option is
         # Use product_option.position which is the actual position among ALL options
         assign swatch_option_position = product_option.position

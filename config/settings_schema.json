@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Horizon",
-    "theme_version": "2.1.6",
+    "theme_version": "3.0.0",
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
@@ -24,6 +24,30 @@
         "id": "logo_inverse",
         "label": "t:settings.inverse_logo",
         "info": "t:content.inverse_logo_info"
+      },
+      {
+        "type": "range",
+        "id": "logo_height",
+        "label": "t:settings.desktop_height",
+        "min": 12,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 36,
+        "visible_if": "{{ settings.logo != blank or settings.logo_inverse != blank }}",
+        "info": "t:info.logo_height"
+      },
+      {
+        "type": "range",
+        "id": "logo_height_mobile",
+        "label": "t:settings.mobile_height",
+        "min": 12,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 28,
+        "visible_if": "{{ settings.logo != blank or settings.logo_inverse != blank }}",
+        "info": "t:info.logo_height"
       },
       {
         "type": "image_picker",
@@ -1544,46 +1568,7 @@
         ],
         "default": "body"
       },
-      {
-        "type": "select",
-        "id": "button_font_weight_primary",
-        "label": "t:settings.button_text_weight",
-        "options": [
-          {
-            "value": "default",
-            "label": "t:options.default"
-          },
-          {
-            "value": "100",
-            "label": "t:options.thin"
-          },
-          {
-            "value": "300",
-            "label": "t:options.light"
-          },
-          {
-            "value": "400",
-            "label": "t:options.regular"
-          },
-          {
-            "value": "500",
-            "label": "t:options.medium"
-          },
-          {
-            "value": "600",
-            "label": "t:options.semibold"
-          },
-          {
-            "value": "700",
-            "label": "t:options.bold"
-          },
-          {
-            "value": "900",
-            "label": "t:options.black"
-          }
-        ],
-        "default": "default"
-      },
+
       {
         "type": "select",
         "id": "button_text_case_primary",
@@ -1640,46 +1625,7 @@
         ],
         "default": "body"
       },
-      {
-        "type": "select",
-        "id": "button_font_weight_secondary",
-        "label": "t:settings.button_text_weight",
-        "options": [
-          {
-            "value": "default",
-            "label": "t:options.default"
-          },
-          {
-            "value": "100",
-            "label": "t:options.thin"
-          },
-          {
-            "value": "300",
-            "label": "t:options.light"
-          },
-          {
-            "value": "400",
-            "label": "t:options.regular"
-          },
-          {
-            "value": "500",
-            "label": "t:options.medium"
-          },
-          {
-            "value": "600",
-            "label": "t:options.semibold"
-          },
-          {
-            "value": "700",
-            "label": "t:options.bold"
-          },
-          {
-            "value": "900",
-            "label": "t:options.black"
-          }
-        ],
-        "default": "default"
-      },
+
       {
         "type": "select",
         "id": "button_text_case_secondary",
@@ -1757,19 +1703,23 @@
         "label": "t:settings.font_price",
         "options": [
           {
-            "value": "primary",
+            "value": "body",
             "label": "t:options.body"
           },
           {
-            "value": "secondary",
+            "value": "subheading",
             "label": "t:options.subheading"
           },
           {
-            "value": "tertiary",
-            "label": "t:options.tertiary"
+            "value": "heading",
+            "label": "t:options.heading"
+          },
+          {
+            "value": "accent",
+            "label": "t:options.accent"
           }
         ],
-        "default": "secondary"
+        "default": "subheading"
       },
       {
         "type": "checkbox",
@@ -1777,6 +1727,10 @@
         "label": "t:settings.auto_open_cart_drawer",
         "default": false,
         "visible_if": "{{ settings.cart_type == 'drawer' }}"
+      },
+      {
+        "type": "header",
+        "content": "t:content.cart_features"
       },
       {
         "type": "checkbox",
@@ -1809,6 +1763,13 @@
         "label": "t:settings.checkout_buttons",
         "info": "t:info.checkout_buttons",
         "default": true
+      },
+
+      {
+        "type": "url",
+        "id": "empty_cart_button_link",
+        "label": "t:settings.empty_cart_button_link",
+        "default": "/collections/all"
       },
       {
         "type": "header",

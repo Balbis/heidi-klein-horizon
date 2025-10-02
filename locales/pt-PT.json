@@ -51,7 +51,7 @@
     "scroll_to": "Percorrer até {{ title }}",
     "loading_product_recommendations": "A carregar recomendações de produto",
     "discount": "Aplicar um código de desconto",
-    "discount_menu": "Menu de desconto",
+    "discount_menu": "Códigos de desconto",
     "discount_applied": "Código de desconto aplicado: {{ code }}",
     "open_cart_drawer": "Abrir carrinho",
     "pause_video": "Colocar vídeo em pausa",

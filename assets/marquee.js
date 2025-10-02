@@ -11,17 +11,18 @@ const ANIMATION_OPTIONS = {
  * @typedef {object} Refs
  * @property {HTMLElement} wrapper - The wrapper element.
  * @property {HTMLElement} content - The content element.
+ * @property {HTMLElement[]} marqueeItems - The marquee items collection.
  *
  * @extends Component<Refs>
  */
 class MarqueeComponent extends Component {
-  requiredRefs = ['wrapper', 'content'];
+  requiredRefs = ['wrapper', 'content', 'marqueeItems'];
 
   connectedCallback() {
     super.connectedCallback();
 
-    const { content } = this.refs;
-    if (content.firstElementChild?.children.length === 0) return;
+    const { marqueeItems } = this.refs;
+    if (marqueeItems.length === 0) return;
 
     this.#addRepeatedItems();
     this.#duplicateContent();
@@ -96,15 +97,19 @@ class MarqueeComponent extends Component {
 
   #calculateSpeed() {
     const speedFactor = Number(this.getAttribute('data-speed-factor'));
+    const { marqueeItems } = this.refs;
     const marqueeWidth = this.offsetWidth;
-    const speed = Math.ceil(marqueeWidth / speedFactor / 2);
+
+    const marqueeRepeatedItemWidth = marqueeItems[0]?.offsetWidth ?? 1;
+    const count = marqueeRepeatedItemWidth === 0 ? 1 : Math.ceil(marqueeWidth / marqueeRepeatedItemWidth);
+    const speed = Math.sqrt(count) * speedFactor;
     return speed;
   }
 
   #handleResize = debounce(() => {
-    const { content } = this.refs;
+    const { marqueeItems } = this.refs;
     const newNumberOfCopies = this.#calculateNumberOfCopies();
-    const currentNumberOfCopies = content.children.length;
+    const currentNumberOfCopies = marqueeItems.length;
 
     if (newNumberOfCopies > currentNumberOfCopies) {
       this.#addRepeatedItems(newNumberOfCopies - currentNumberOfCopies);
@@ -139,13 +144,12 @@ class MarqueeComponent extends Component {
   }
 
   #addRepeatedItems(numberOfCopies = this.#calculateNumberOfCopies()) {
-    const { content } = this.refs;
-    const wrapper = content.firstElementChild;
+    const { content, marqueeItems } = this.refs;
 
-    if (!wrapper) return;
+    if (!marqueeItems[0]) return;
 
     for (let i = 0; i < numberOfCopies - 1; i++) {
-      const clone = wrapper.cloneNode(true);
+      const clone = marqueeItems[0].cloneNode(true);
       content.appendChild(clone);
     }
   }
@@ -159,10 +163,9 @@ class MarqueeComponent extends Component {
   }
 
   #calculateNumberOfCopies() {
-    const { content } = this.refs;
+    const { marqueeItems } = this.refs;
     const marqueeWidth = this.offsetWidth;
-    const marqueeRepeatedItemWidth =
-      content.firstElementChild instanceof HTMLElement ? content.firstElementChild.offsetWidth : 1;
+    const marqueeRepeatedItemWidth = marqueeItems[0]?.offsetWidth ?? 1;
 
     return marqueeRepeatedItemWidth === 0 ? 1 : Math.ceil(marqueeWidth / marqueeRepeatedItemWidth);
   }

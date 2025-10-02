@@ -121,7 +121,7 @@
     "collections_bento": "产品系列列表：Bento",
     "faq_section": "常见问题解答",
     "hero": "主页横幅",
-    "hero_bottom_aligned": "主图：底部对齐",
+    "hero_bottom_aligned": "主页横幅：底部对齐",
     "jumbo_text": "巨型文本",
     "view_all_button": "查看全部",
     "video_section": "视频",
@@ -451,7 +451,6 @@
     "border_thickness": "边框厚度",
     "bottom_row": "底部行",
     "button_text_case": "文本大小写",
-    "button_text_weight": "文本粗细",
     "card_hover_effect": "卡悬停效果",
     "card_size": "卡尺寸",
     "auto_open_cart_drawer": "“添加到购物车”自动打开抽屉",
@@ -506,11 +505,12 @@
     "seller_note_open_by_default": "默认向卖家打开备注",
     "gift_card_form": "礼品卡",
     "add_to_cart_animation": "添加到购物车",
+    "custom_link": "自定义链接",
     "product_custom_property": {
       "heading": "标题",
       "description": "描述",
       "key": "属性名称",
-      "key_info": "必须对每个区块唯一。显示在购物车、结账和订单详情中。",
+      "key_info": "每个区块都必须具有唯一性。在购物车、结账页面和订单详情页中显示。",
       "placeholder_text": "占位符文本",
       "default_heading": "自定义您的产品",
       "default_placeholder": "请输入您的特殊说明",
@@ -530,7 +530,10 @@
       "checkbox_preset": "复选框标签"
     },
     "blog": "博客",
-    "post_count": "帖子数量"
+    "post_count": "帖子数量",
+    "top_level_size": "顶层尺寸",
+    "submenu_text_style": "子菜单文本样式",
+    "empty_cart_button_link": "“清空购物车”按钮链接"
   },
   "options": {
     "adapt_to_image": "适应图片",
@@ -907,7 +910,11 @@
     "section_link": "分区链接",
     "gift_card_form_description": "客户可通过私人消息将礼品卡发送至收件人电子邮件。[详细了解](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "标题",
-    "resource_reference_product_custom_property": "添加可自定义输入字段，用于收集海关信息，这些信息会被添加到该订单项目中，稍后可在订单详情中查看。"
+    "resource_reference_product_custom_property": "添加可自定义输入字段，用于收集海关信息，这些信息会被添加到该订单项目中，稍后可在订单详情中查看。",
+    "block_link": "块链接",
+    "submenu_feature": "子菜单功能",
+    "cart_features": "购物车功能",
+    "email_signup": "电子邮件注册信息"
   },
   "html_defaults": {
     "share_information_about_your": "<p>与客户分享有关您品牌的信息。描述产品、发布公告或欢迎客户访问您的商店。</p>"
@@ -947,7 +954,9 @@
     "hover_effects": "应用于产品和产品系列卡",
     "pills_usage": "用于应用的筛选条件、折扣码和搜索建议",
     "applies_on_image_only": "仅适用于图像",
-    "hide_logo_on_home_page_help": "Logo 将在粘性标头处于激活状态时保持可见"
+    "hide_logo_on_home_page_help": "Logo 将在粘性标头处于激活状态时保持可见",
+    "media_type_info": "从您的菜单链接中填充功能",
+    "logo_height": "仅影响标题徽标"
   },
   "categories": {
     "basic": "Basic",

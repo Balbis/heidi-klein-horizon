@@ -167,7 +167,7 @@
     "featured_image": "Fremhevet bilde",
     "multicolumn": "Flerkolonne",
     "product_custom_property": "Spesialinstruksjoner",
-    "hero_bottom_aligned": "Hero: Bunnjustert",
+    "hero_bottom_aligned": "Hoved: Bunnjustert",
     "blog_card": "Bloggkort",
     "blog_posts_grid": "Blogginnlegg: Rutenett",
     "blog_posts_carousel": "Blogginnlegg: Karusell",
@@ -449,7 +449,6 @@
     "border_thickness": "Tykkelse på kantlinje",
     "bottom_row": "Bunnrad",
     "button_text_case": "Bruk av store og små bokstaver",
-    "button_text_weight": "Tekstvekt",
     "card_size": "Kortstørrelse",
     "auto_open_cart_drawer": "«Legg til i handlekurven» åpner skuffen automatisk",
     "collection_count": "Samlingsantall",
@@ -506,11 +505,12 @@
     "gift_card_form": "Gavekortskjema",
     "seller_note_open_by_default": "Merknaden til selgeren skal åpnes som standard",
     "add_to_cart_animation": "Legg i handlekurv",
+    "custom_link": "Egendefinert lenke",
     "product_custom_property": {
       "heading": "Overskrift",
       "description": "Beskrivelse",
       "key": "Egenskapsnavn",
-      "key_info": "Må være unik for hver blokk. Vises i handlekurv, kasse og ordredetaljer.",
+      "key_info": "Må være unik for hver blokk. Vises i handlekurven, betalingen og bestillingsdetaljer.",
       "placeholder_text": "Plassholdertekst",
       "default_heading": "Tilpass produktet ditt",
       "default_placeholder": "Angi spesialinstruksjonene dine",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Etikett for avmerkingsboks"
     },
     "blog": "Blogg",
-    "post_count": "Antall innlegg"
+    "post_count": "Antall innlegg",
+    "top_level_size": "Størrelse på øverste nivå",
+    "submenu_text_style": "Tekststil for undermenyer",
+    "empty_cart_button_link": "Lenke for tøm handlekurv-knapp"
   },
   "options": {
     "adapt_to_image": "Tilpass til bilde",
@@ -907,7 +910,11 @@
     "section_link": "Seksjonslenke",
     "gift_card_form_description": "Kunder kan sende gavekort til mottakerens e-post med en personlig melding. [Finn ut mer](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Overskrift",
-    "resource_reference_product_custom_property": "Legg til tilpassbare inndatafelt for å samle inn tilpasset informasjon som legges til denne ordreposten, og som senere vises i ordredetaljene."
+    "resource_reference_product_custom_property": "Legg til tilpassbare inndatafelt for å samle inn tilpasset informasjon som legges til denne ordreposten, og som senere vises i ordredetaljene.",
+    "block_link": "Blokklenke",
+    "submenu_feature": "Funksjon i undermeny",
+    "cart_features": "Handlekurvfunksjoner",
+    "email_signup": "E-postregistrering"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Del informasjon om merkevaren din med kundene. Beskriv et produkt, gjør kunngjøringer eller ønsk kundene velkommen til butikken.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Brukes for anvendte filtre, rabattkoder og søkeforslag",
     "applies_on_image_only": "Gjelder bare bilder",
     "hover_effects": "Gjelder produkt- og samlingskort",
-    "hide_logo_on_home_page_help": "Logoen forblir synlig når festet overskrift er aktiv"
+    "hide_logo_on_home_page_help": "Logoen forblir synlig når festet overskrift er aktiv",
+    "media_type_info": "Funksjoner fylles ut fra menykoblingene",
+    "logo_height": "Påvirker kun header logo"
   },
   "categories": {
     "product_list": "Utvalgt samling",

@@ -102,7 +102,7 @@
     "open_image_in_full_screen": "Άνοιγμα εικόνας σε πλήρη οθόνη",
     "sort": "Ταξινόμηση",
     "show_all_options": "Εμφάνιση όλων των επιλογών",
-    "open": "Άνοιγμα"
+    "open": "Σε εξέλιξη"
   },
   "content": {
     "reviews": "κριτικές",
@@ -229,7 +229,7 @@
     "recipient_form_fields_hidden": "Τα πεδία της φόρμας παραλήπτη δεν είναι πλέον ορατά",
     "recipient_form_error": "Προέκυψε σφάλμα κατά την υποβολή της φόρμας",
     "product_custom_property_character_count": "Χρησιμοποιήθηκαν {{ used_chars }}/{{ max_chars }} χαρακτήρες",
-    "terms_and_policies": "Όροι και Πολιτικές"
+    "terms_and_policies": "Όροι και πολιτικές"
   },
   "gift_cards": {
     "issued": {

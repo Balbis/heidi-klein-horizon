@@ -52,7 +52,7 @@
     "scroll_to": "Přejděte na {{ title }}",
     "loading_product_recommendations": "Načítají se doporučené produkty",
     "discount": "Použít slevový kód",
-    "discount_menu": "Nabídka slev",
+    "discount_menu": "Slevové kódy",
     "discount_applied": "Uplatněný slevový kód: {{ code }}",
     "open_cart_drawer": "Otevřít košík",
     "inventory_status": "Stav skladových zásob",
@@ -239,7 +239,7 @@
     "recipient_form_fields_hidden": "Pole formuláře příjemce jsou nyní skrytá",
     "recipient_form_error": "Vyskytla se chyba při odesílání formuláře",
     "product_custom_property_character_count": "Použito {{ used_chars }}/{{ max_chars }} znaků",
-    "terms_and_policies": "Podmínky a zásady"
+    "terms_and_policies": "Podmínky a zásady"
   },
   "gift_cards": {
     "issued": {

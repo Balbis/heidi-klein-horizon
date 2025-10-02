@@ -119,7 +119,7 @@
     "collections_bento": "Liste de collections : Bento",
     "faq_section": "FAQ",
     "hero": "Héros",
-    "hero_bottom_aligned": "Héros : Aligné en bas",
+    "hero_bottom_aligned": "Hero : bas aligné",
     "product_list": "Collection en vedette",
     "spacer": "Espacement",
     "video_section": "Vidéo",
@@ -448,7 +448,6 @@
     "border_thickness": "Épaisseur de la bordure",
     "bottom_row": "Rangée inférieure",
     "button_text_case": "Casse du texte",
-    "button_text_weight": "Épaisseur du texte",
     "card_size": "Taille de carte",
     "auto_open_cart_drawer": "L’option « Ajouter au panier » ouvre automatiquement le panier",
     "collection_count": "Nombre de collections",
@@ -506,11 +505,12 @@
     "gift_card_form": "Formulaire de carte-cadeau",
     "seller_note_open_by_default": "Ouvrir le commentaire au vendeur par défaut",
     "add_to_cart_animation": "Ajouter au panier",
+    "custom_link": "Lien personnalisé",
     "product_custom_property": {
       "heading": "En-tête",
       "description": "Description",
       "key": "Nom de la propriété",
-      "key_info": "Doit être unique pour chaque bloc. S'affiche dans le panier, à la caisse et dans les détails de la commande.",
+      "key_info": "Doit être unique pour chaque bloc. S’affiche dans le panier, le paiement et les détails de la commande.",
       "placeholder_text": "Texte du paramètre fictif",
       "default_heading": "Personnaliser votre produit",
       "default_placeholder": "Saisissez vos instructions spéciales",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Étiquette de la case à cocher"
     },
     "blog": "Blog",
-    "post_count": "Nombre d’articles"
+    "post_count": "Nombre d’articles",
+    "top_level_size": "Taille de premier niveau",
+    "submenu_text_style": "Style du texte du sous-menu",
+    "empty_cart_button_link": "Lien du bouton Vider le panier"
   },
   "options": {
     "adapt_to_image": "Adapter à l’image",
@@ -907,7 +910,11 @@
     "section_link": "Lien vers la section",
     "gift_card_form_description": "Les clients peuvent envoyer des cartes-cadeaux à l’adresse e-mail d’un destinataire avec un message personnel. [En savoir plus](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "En-tête",
-    "resource_reference_product_custom_property": "Ajoutez des champs d’entrée personnalisables pour recueillir des informations douanières qui seront ajoutées à cet article du panier de la commande, visibles ultérieurement dans les détails de la commande."
+    "resource_reference_product_custom_property": "Ajoutez des champs d’entrée personnalisables pour recueillir des informations douanières qui seront ajoutées à cet article du panier de la commande, visibles ultérieurement dans les détails de la commande.",
+    "block_link": "Lien de bloc",
+    "submenu_feature": "Fonctionnalité du sous-menu",
+    "cart_features": "Fonctionnalités du panier",
+    "email_signup": "Inscription à la liste de diffusion"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Partagez des informations sur votre marque. Décrivez un produit, partagez des annonces ou souhaitez la bienvenue à vos clients dans votre boutique.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Utilisée pour les filtres appliqués, les codes de réduction et les suggestions de recherche",
     "applies_on_image_only": "S’applique uniquement aux images",
     "hover_effects": "S’applique à des cartes de produits et de collections",
-    "hide_logo_on_home_page_help": "Le logo reste visible lorsque l’en-tête fixe est activé"
+    "hide_logo_on_home_page_help": "Le logo reste visible lorsque l’en-tête fixe est activé",
+    "media_type_info": "Les fonctionnalités sont renseignées à partir des liens de votre menu",
+    "logo_height": "N'affecte que le logo d'en-tête"
   },
   "categories": {
     "basic": "Basic",

@@ -229,7 +229,7 @@
     "recipient_form_fields_hidden": "Полетата във формуляра за получателя вече са скрити",
     "recipient_form_error": "Възникна грешка при подаването на формуляра",
     "product_custom_property_character_count": "Използвани знаци: {{ used_chars }}/{{ max_chars }}",
-    "terms_and_policies": "Условия и политики"
+    "terms_and_policies": "Правила и условия"
   },
   "gift_cards": {
     "issued": {

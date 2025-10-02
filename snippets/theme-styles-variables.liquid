@@ -376,7 +376,7 @@
     --spacing-scale-default: 1.0;
 
     /* Checkout buttons gap */
-    --checkout-button-gap: 8px;
+    --checkout-button-gap: 10px;
 
     /* Borders */
     --style-border-width: 1px;
@@ -476,10 +476,6 @@
     --button-font-family-primary: var(--font-{{ settings.type_font_button_primary }}--family);
     --button-font-family-secondary: var(--font-{{ settings.type_font_button_secondary }}--family);
 
-    /* Button font-weight */
-    --button-font-weight-primary: {{ settings.button_font_weight_primary }};
-    --button-font-weight-secondary: {{ settings.button_font_weight_secondary }};
-
     /* Button text case */
     --button-text-case: {{ settings.button_text_case }};
     --button-text-case-primary: {{ settings.button_text_case_primary }};
@@ -537,7 +533,9 @@
     /* Buy buttons */
     --height-buy-buttons: calc(var(--padding-lg) * 2 + var(--icon-size-sm));
 
-    /* Card image height variables */
+    /* Card image width and height variables */
+    --card-width-small: 10rem;
+
     --height-small: 10rem;
     --height-medium: 11.5rem;
     --height-large: 13rem;

@@ -167,7 +167,7 @@
     "multicolumn": "Multicoluna",
     "rich_text_section": "Rich text",
     "product_custom_property": "Instruções especiais",
-    "hero_bottom_aligned": "Hero: Alinhado abaixo",
+    "hero_bottom_aligned": "Hero: parte inferior alinhada",
     "blog_card": "Cartão de blog",
     "blog_posts_grid": "Posts do blog: grade",
     "blog_posts_carousel": "Posts do blog: carrossel",
@@ -450,7 +450,6 @@
     "border_thickness": "Espessura da borda",
     "bottom_row": "Linha inferior",
     "button_text_case": "Estilo do texto",
-    "button_text_weight": "Peso do texto",
     "card_size": "Tamanho do cartão",
     "auto_open_cart_drawer": "\"Adicionar ao carrinho\" automaticamente abre o carrinho deslizante",
     "collection_count": "Contagem de coleções",
@@ -506,11 +505,12 @@
     "gift_card_form": "Formulário de cartão-presente",
     "seller_note_open_by_default": "Abrir a observação para o vendedor como padrão",
     "add_to_cart_animation": "Adicionar ao carrinho",
+    "custom_link": "Link personalizado",
     "product_custom_property": {
       "heading": "Título",
       "description": "Descrição",
       "key": "Nome da propriedade",
-      "key_info": "Deve ser único para cada bloco. Mostrado no carrinho, checkout e detalhes do pedido.",
+      "key_info": "Precisa ser exclusivo para cada bloco. Exibido no carrinho, no checkout e nas informações do pedido.",
       "placeholder_text": "Texto do marcador de posição",
       "default_heading": "Personalize seu produto",
       "default_placeholder": "Insira as instruções especiais",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Etiqueta de caixa de seleção"
     },
     "blog": "Blog",
-    "post_count": "Contagem de publicações"
+    "post_count": "Contagem de publicações",
+    "top_level_size": "Tamanho de nível superior",
+    "submenu_text_style": "Estilo de texto de submenu",
+    "empty_cart_button_link": "Link do botão esvaziar carrinho"
   },
   "options": {
     "adapt_to_image": "Adaptar à imagem",
@@ -907,7 +910,11 @@
     "section_link": "Link da seção",
     "gift_card_form_description": "Os clientes podem enviar cartões-presente para o e-mail do destinatário com uma mensagem pessoal. [Saiba mais](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Título",
-    "resource_reference_product_custom_property": "Adicione campos personalizáveis para coletar informações personalizadas que serão adicionadas a este item de linha do pedido, posteriormente visíveis nos detalhes do pedido."
+    "resource_reference_product_custom_property": "Adicione campos personalizáveis para coletar informações personalizadas que serão adicionadas a este item de linha do pedido, posteriormente visíveis nos detalhes do pedido.",
+    "block_link": "Link do bloco",
+    "submenu_feature": "Recurso de submenu",
+    "cart_features": "Recursos do carrinho",
+    "email_signup": "Assinante de e-mail"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Compartilhe informações sobre a marca com clientes. Descreva um produto, faça comunicados ou dê as boas-vindas aos clientes na loja.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Usado para filtros aplicados, códigos de desconto e sugestões de pesquisa",
     "applies_on_image_only": "Aplica-se apenas a imagens",
     "hover_effects": "Aplica-se a cartões de produto e coleção",
-    "hide_logo_on_home_page_help": "O logo permanecerá visível quando o cabeçalho fixo estiver ativo"
+    "hide_logo_on_home_page_help": "O logo permanecerá visível quando o cabeçalho fixo estiver ativo",
+    "media_type_info": "Os recursos são preenchidos com base nos seus links de menu",
+    "logo_height": "Afeta apenas o logo do cabeçalho"
   },
   "categories": {
     "basic": "Basic",

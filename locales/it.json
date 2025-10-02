@@ -51,7 +51,7 @@
     "scroll_to": "Scorri fino a {{ title }}",
     "loading_product_recommendations": "Caricamento delle raccomandazioni sui prodotti",
     "discount": "Applica un codice sconto",
-    "discount_menu": "Menu sconti",
+    "discount_menu": "Codici sconto",
     "discount_applied": "Codice sconto applicato: {{ code }}",
     "open_cart_drawer": "Apri carrello",
     "inventory_status": "Stato delle scorte",
@@ -234,7 +234,7 @@
     "recipient_form_fields_hidden": "I campi del modulo destinatario sono ora nascosti",
     "recipient_form_error": "Si è verificato un errore durante l'invio del modulo",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} caratteri utilizzati",
-    "terms_and_policies": "Termini e politiche"
+    "terms_and_policies": "Termini e informative"
   },
   "gift_cards": {
     "issued": {

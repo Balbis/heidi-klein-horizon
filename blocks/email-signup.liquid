@@ -1,5 +1,5 @@
 {% assign block_settings = block.settings %}
-<div
+<email-signup-block
   class="email-signup-block size-style spacing-style"
   style="{% render 'size-style', settings: block_settings %}{% render 'spacing-style', settings: block_settings %}"
   {{ block.shopify_attributes }}
@@ -93,12 +93,24 @@
       </div>
     {%- endif -%}
   {% endform %}
-</div>
+
+  <script
+    src="{{ 'email-signup.js' | asset_url }}"
+    defer
+  ></script>
+</email-signup-block>
 
 {% stylesheet %}
+  email-signup-block {
+    display: block;
+  }
+
   .email-signup-block {
+    min-width: fit-content;
+
     @media screen and (max-width: 749px) {
       width: 100%;
+      min-width: unset;
     }
   }
 
@@ -185,8 +197,21 @@
     border: none;
   }
 
-  .email-signup__input:has(+ .email-signup__button--arrow),
-  .email-signup__input:has(+ .email-signup__button--integrated) {
+  .email-signup__input-group {
+    --button-actual-width: var(--button-size);
+  }
+
+  .email-signup__input:has(+ .email-signup__button--arrow.email-signup__button--integrated) {
+    padding-inline-end: calc(var(--button-size) + var(--padding-sm));
+
+    @media screen and (max-width: 749px) {
+      text-align: left;
+    }
+  }
+
+  .email-signup__input:has(+ .email-signup__button--integrated.email-signup__button--text) {
+    padding-inline-end: calc(var(--button-actual-width) + var(--padding-xs) + var(--margin-xs));
+
     @media screen and (max-width: 749px) {
       text-align: left;
     }
@@ -221,6 +246,7 @@
     height: calc(100% - (var(--button-offset) * 2) - (var(--border-width) * 2));
     right: calc(var(--button-offset) + var(--border-width));
     top: calc(var(--button-offset) + var(--border-width));
+    width: max-content;
 
     @media screen and (max-width: 749px) {
       width: fit-content;
@@ -260,12 +286,10 @@
   .email-signup__button:not(.button-unstyled) {
     background-color: var(--button-background-color);
     color: var(--button-color);
-    font-weight: var(--button-font-weight-primary);
     text-transform: var(--button-text-case-primary);
   }
 
   .email-signup__button.button-secondary {
-    font-weight: var(--button-font-weight-secondary);
     text-transform: var(--button-text-case-secondary);
   }
 
@@ -319,7 +343,7 @@
       "type": "range",
       "id": "custom_width",
       "label": "t:settings.custom_width",
-      "min": 0,
+      "min": 20,
       "max": 100,
       "step": 1,
       "unit": "%",

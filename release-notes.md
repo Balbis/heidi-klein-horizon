@@ -1,31 +1,34 @@
-# Release Notes - Version 2.1.6
+# Release Notes - Version 3.0.0
 
-This release introduces a new "Blog posts" section and a new Hero layout preset. It also implements fixes for several sections and features, as well as performance improvements for images and animations.
+This release introduces performance improvements, creates standalone sections for the logo and footer utilities, and simplifies settings all around the theme, along with bugfixing.
 
 ## What's Changed
 
 ### Added
 
-- [Hero] Added new layout preset
-- [Blog posts] Added new section
+- [Cart] Added empty cart button link setting
+- [Footer] Added footer utilities section
+- [Footer] Added logo section
 
 ### Changed
 
-- [Cart] Adjusted animation on initial page load
-- [Cart] Adjusted discount code disclosure panel for accessibility
-- [Footer] Adjusted policies display, now showing in a disclosure
-- [Header] Adjusted localization feature position in Header when left
+- [Footer] Simplified settings
+- [Cart] Allowed horizontal accelerated checkout buttons
+- [Cart] Updated typography settings
+- [Header] Moved logo size controls to Theme settings
 
 ### Fixes and improvements
 
-- [Header] Fixed mega menu to scroll when using long menu lists
-- [Header] Fixed menus images in mega menus with 5+ collection columns
-- [Header] Fixed logic displaying featured products in menus and search modals to improve consistency
-- [Hero] Fixed section height when header is transparent
-- [Hero] Fixed Hero section media positioning
-- [Product card] Fixed to display correct image for variants
-- [Product card] Fixed product title display in quick add modal
-- [Product page] Fixed iOS double-tap functionality for product page zoom
-- [Global] Fixed focal point for product images
-- [Performance] Reduced the amount of medias in the product card image gallery to a maximum of 5
-- [Performance] Improved performance of background images
+- [Performance] Lowered the priority of font preloads in favor of more critical resources
+- [Performance] Improved image zoom transition performance on low power devices
+- [Menu] Improved long text support
+- [Menu] Improved settings organization and naming
+- [Hero] Fixed horizontal scroll caused by the marquee
+- [Header] Fixed transparent header positioning when announcement bars are present
+- [Cart drawer] Fixed quantity alignment in iOS devices
+- [Group] Fixed content alignment issues on smaller screens
+- [Product recommendations] Fixed error in Theme Editor when adding the block
+- [Marquee] Improved marquee speed across screen sizes
+- [Product card] Fixed incorrect variant image when filter was applied
+- [Theme settings] Removed unnecessary button text weight settings
+- [Email signup] Fixed input layout issues

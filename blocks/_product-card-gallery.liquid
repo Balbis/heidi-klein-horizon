@@ -1,13 +1,14 @@
-{% assign has_applied_colour_filter = false %}
-{% if collection.filters %}
-  {% for filter in collection.filters %}
-    {% if filter.type == 'list' and filter.param_name contains 'color' %}
-      {% if filter.active_values.size > 0 %}
-        {% assign has_applied_colour_filter = true %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
+{% liquid
+  assign has_applied_colour_filter = false
+  assign filters_to_check = collection.filters | default: search.filters
+
+  for filter in filters_to_check
+    if filter.type == 'list' and filter.param_name contains 'color' and filter.active_values.size > 0
+      assign has_applied_colour_filter = true
+      break
+    endif
+  endfor
+%}
 
 {% capture children %}
   {% unless closest.product == blank %}

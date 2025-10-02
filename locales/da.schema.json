@@ -167,7 +167,7 @@
     "multicolumn": "Flere kolonner",
     "rich_text_section": "RTF",
     "product_custom_property": "Særlige instruktioner",
-    "hero_bottom_aligned": "Hero: Bundtjusteret",
+    "hero_bottom_aligned": "Hero: Justeret efter bunden",
     "blog_card": "Blogkort",
     "blog_posts_grid": "Blogopslag: Gitter",
     "blog_posts_carousel": "Blogopslag: Karrusel",
@@ -449,7 +449,6 @@
     "border_thickness": "Kanttykkelse",
     "bottom_row": "Nederste række",
     "button_text_case": "Små og store bogstaver",
-    "button_text_weight": "Tekstvægt",
     "card_size": "Kortstørrelse",
     "auto_open_cart_drawer": "“Læg i indkøbskurven” åbner automatisk skuffen",
     "collection_count": "Antal i kollektionen",
@@ -506,11 +505,12 @@
     "gift_card_form": "Gavekortformular",
     "seller_note_open_by_default": "Aktivér som standard besked til sælger",
     "add_to_cart_animation": "Læg i indkøbskurven",
+    "custom_link": "Tilpasset link",
     "product_custom_property": {
       "heading": "Overskrift",
       "description": "Beskrivelse",
       "key": "Egenskabsnavn",
-      "key_info": "Skal være unik for hvert blok. Vises i kurv, kasse og ordredetaljer.",
+      "key_info": "Skal være unik for hver blok. Vises i indkøbskurv, ved betaling og i ordreoplysninger.",
       "placeholder_text": "Pladsholdertekst",
       "default_heading": "Tilpas dit produkt",
       "default_placeholder": "Angiv dine særlige instruktioner",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Label for afkrydsningsfelt"
     },
     "blog": "Blog",
-    "post_count": "Antal opslag"
+    "post_count": "Antal opslag",
+    "top_level_size": "Størrelse på øverste del",
+    "submenu_text_style": "Typografi i undermenu",
+    "empty_cart_button_link": "Link til tøm kurv-knap"
   },
   "options": {
     "adapt_to_image": "Tilpas til billede",
@@ -907,7 +910,11 @@
     "section_link": "Afsnitslink",
     "gift_card_form_description": "Kunder kan sende gavekort til en modtagers mailadresse med en personlig besked. [Få mere at vide](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Overskrift",
-    "resource_reference_product_custom_property": "Tilføj tilpassede inputfelter for at indsamle tilpassede oplysninger, der vil blive føjet til denne varelinje og senere være synlige i ordreoplysningerne."
+    "resource_reference_product_custom_property": "Tilføj tilpassede inputfelter for at indsamle tilpassede oplysninger, der vil blive føjet til denne varelinje og senere være synlige i ordreoplysningerne.",
+    "block_link": "Bloklink",
+    "submenu_feature": "Undermenufunktion",
+    "cart_features": "Kurv funktioner",
+    "email_signup": "Tilmelding med mail"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Del oplysninger om dit brand med dine kunder. Beskriv et produkt, del meddelelser, eller byd velkommen til din butik.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Bruges til anvendte filtre, rabatkoder og søgeforslag",
     "applies_on_image_only": "Gælder kun for billeder",
     "hover_effects": "Gælder for produkter og kollektionskort",
-    "hide_logo_on_home_page_help": "Logoet forbliver synligt, når et fastgjort sidehoved er aktiveret"
+    "hide_logo_on_home_page_help": "Logoet forbliver synligt, når et fastgjort sidehoved er aktiveret",
+    "media_type_info": "Funktionerne udfyldes fra dine menulinks",
+    "logo_height": "Påvirker kun header logo"
   },
   "categories": {
     "basic": "Basic",

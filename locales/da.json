@@ -50,7 +50,7 @@
     "scroll_to": "Scroll til {{ title }}",
     "loading_product_recommendations": "Indlæser produktanbefalinger",
     "discount": "Anvend en rabatkode",
-    "discount_menu": "Rabatmenu",
+    "discount_menu": "Rabatkoder",
     "discount_applied": "Anvendt rabatkode: {{ code }}",
     "open_cart_drawer": "Åbn indkøbskurv",
     "pause_video": "Sæt video på pause",

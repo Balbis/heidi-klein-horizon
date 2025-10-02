@@ -50,7 +50,7 @@
     "scroll_to": "滚动到 {{ title }}",
     "loading_product_recommendations": "加载产品推荐",
     "discount": "应用折扣码",
-    "discount_menu": "折扣菜单",
+    "discount_menu": "折扣码",
     "discount_applied": "已应用折扣码：{{ code }}",
     "open_cart_drawer": "打开购物车",
     "inventory_status": "库存状态",

@@ -50,7 +50,7 @@
     "scroll_to": "{{ title }}(으)로 스크롤",
     "loading_product_recommendations": "제품 추천 로드 중",
     "discount": "할인 코드 적용",
-    "discount_menu": "할인 메뉴",
+    "discount_menu": "할인 코드",
     "discount_applied": "적용된 할인 코드: {{ code }}",
     "open_cart_drawer": "카트 열기",
     "pause_video": "동영상 일시 중지",

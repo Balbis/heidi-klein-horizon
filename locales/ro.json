@@ -63,7 +63,7 @@
     "quantity": "Cantitate",
     "rating": "Evaluarea acestui produs este de {{ rating }} din 5",
     "nested_product": "{{ product_title }} pentru {{ parent_title }}",
-    "discount_menu": "Coduri de reducere"
+    "discount_menu": "Coduri de reduceri"
   },
   "actions": {
     "add_to_cart": "Adaugă în coș",
@@ -104,7 +104,7 @@
     "sign_up": "Înscrie-te",
     "sort": "Sortează",
     "show_all_options": "Afișează toate opțiunile",
-    "open": "Deschide"
+    "open": "Deschidere"
   },
   "content": {
     "reviews": "recenzii",

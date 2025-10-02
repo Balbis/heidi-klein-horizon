@@ -164,10 +164,10 @@
     "product_inventory": "Produktlager",
     "description": "Beskrivning",
     "featured_image": "Utvald bild",
-    "multicolumn": "Flerkolumn",
+    "multicolumn": "Multikolumn",
     "rich_text_section": "RTF",
     "product_custom_property": "Särskilda instruktioner",
-    "hero_bottom_aligned": "Hero: Bottenjusterad",
+    "hero_bottom_aligned": "Hero: bottenjusterad",
     "blog_card": "Bloggkort",
     "blog_posts_grid": "Bloggposter: rutnät",
     "blog_posts_carousel": "Bloggposter: karusell",
@@ -452,7 +452,6 @@
     "border_thickness": "Kanttjocklek",
     "bottom_row": "Understa rad",
     "button_text_case": "Skiftläge",
-    "button_text_weight": "Typsnittsvikt",
     "card_size": "Kortstorlek",
     "auto_open_cart_drawer": "\"Lägg till i varukorg\" öppnar varukorgspanelen automatiskt",
     "collection_count": "Antal produktserier",
@@ -506,11 +505,12 @@
     "seller_note_open_by_default": "Öppna anteckning till säljare som standard",
     "gift_card_form": "Presentkortsformulär",
     "add_to_cart_animation": "Lägg till i varukorgen",
+    "custom_link": "Anpassad länk",
     "product_custom_property": {
       "heading": "Rubrik",
       "description": "Beskrivning",
       "key": "Egenskapsnamn",
-      "key_info": "Måste vara unik för varje block. Visas i kundvagn, kassa och orderdetaljer.",
+      "key_info": "Måste vara unikt för varje block. Visas i varukorg, kassa och orderuppgifter.",
       "placeholder_text": "Platshållartext",
       "default_heading": "Anpassa din produkt",
       "default_placeholder": "Ange dina särskilda instruktioner",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Etikett för kryssruta"
     },
     "blog": "Blogg",
-    "post_count": "Postantal"
+    "post_count": "Postantal",
+    "top_level_size": "Storlek högst upp",
+    "submenu_text_style": "Textstil för undermeny",
+    "empty_cart_button_link": "Knapplänk för att tömma varukorg"
   },
   "options": {
     "adapt_to_image": "Anpassa till bild",
@@ -907,7 +910,11 @@
     "section_link": "Länk till avsnitt",
     "gift_card_form_description": "Kunder kan skicka presentkort till en mottagares e-postadress med ett personligt meddelande. [Mer information](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Rubrik",
-    "resource_reference_product_custom_property": "Lägg till anpassningsbara inmatningsfält för att samla in kundinformation som kommer att läggas till för orderposten, och senare visas i orderuppgifterna."
+    "resource_reference_product_custom_property": "Lägg till anpassningsbara inmatningsfält för att samla in kundinformation som kommer att läggas till för orderposten, och senare visas i orderuppgifterna.",
+    "block_link": "Blocklänk",
+    "submenu_feature": "Funktionen undermeny",
+    "cart_features": "Varukorgsfunktioner",
+    "email_signup": "E-postregistrering"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Dela information om ditt varumärke med dina kunder. Beskriv en produkt, gör tillkännagivanden eller välkomna kunder till din butik.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Används för använda filter, rabattkoder och sökförslag",
     "applies_on_image_only": "Gäller endast för bilder",
     "hover_effects": "Gäller produkt- och produktseriekort",
-    "hide_logo_on_home_page_help": "Logotypen förblir synlig när fast sidhuvud är aktivt"
+    "hide_logo_on_home_page_help": "Logotypen förblir synlig när fast sidhuvud är aktivt",
+    "media_type_info": "Funktioner fylls i från dina menylänkar",
+    "logo_height": "Påverkar endast header logotyp"
   },
   "categories": {
     "basic": "Basic",

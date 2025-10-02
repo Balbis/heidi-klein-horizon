@@ -51,7 +51,7 @@
     "scroll_to": "Rolar até {{ title }}",
     "loading_product_recommendations": "Carregando recomendações de produtos",
     "discount": "Aplicar um código de desconto",
-    "discount_menu": "Menu de desconto",
+    "discount_menu": "Códigos de desconto",
     "discount_applied": "Código de desconto aplicado: {{ code }}",
     "open_cart_drawer": "Abrir carrinho",
     "inventory_status": "Status do estoque",

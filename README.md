@@ -19,7 +19,7 @@ We recommend using the Skeleton Theme as a starting point for theme development.
 
 > If you're building a theme for the Shopify Theme Store, then do not use Horizon as a starting point. Themes based on, derived from, or incorporating Horizon are not eligible for submission to to the Shopify Theme Store. Use the [Skeleton Theme](https://github.com/Shopify/skeleton-theme) instead. Learn about the [theme developer tools](https://shopify.dev/docs/storefronts/themes/tools).
 
-Please note that the main branch may include code for features not yet released. The "stable" version of Horizon is available in the theme store.
+Please note that the develop branch may include code for features not yet released. The "stable" version of Horizon is available in the theme store and the [public repository](https://github.com/Shopify/horizon).
 
 ## Staying up to date with Horizon changes
 
@@ -35,14 +35,14 @@ git remote -v
 3. If you don't see an `upstream`, you can add one that points to Shopify's Horizon repository:
 
 ```sh
-git remote add upstream https://github.com/Shopify/horizon.git
+git remote add upstream https://github.com/Shopify/horizon-private.git
 ```
 
 4. Pull in the latest Horizon changes into your repository:
 
 ```sh
 git fetch upstream
-git pull upstream main
+git pull upstream develop
 ```
 
 ## Developer tools

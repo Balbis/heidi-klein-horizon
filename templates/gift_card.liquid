@@ -60,18 +60,6 @@
       >
     {%- endif -%}
 
-    {%- unless settings.type_body_font.system?
-      and settings.type_subheading_font.system?
-      and settings.type_heading_font.system?
-      and settings.type_accent_font.system?
-    -%}
-      <link
-        rel="preconnect"
-        href="https://fonts.shopifycdn.com"
-        crossorigin
-      >
-    {%- endunless -%}
-
     {%- assign formatted_balance = gift_card.balance | money_without_trailing_zeros | strip_html -%}
 
     <title>{{ 'gift_cards.issued.title' | t: value: formatted_balance, shop: shop.name }}</title>
@@ -91,6 +79,7 @@
         href="{{ settings.type_body_font | font_url }}"
         type="font/woff2"
         crossorigin
+        fetchpriority="low"
       >
     {%- endunless -%}
     {%- unless settings.type_subheading_font.system? -%}
@@ -100,6 +89,7 @@
         href="{{ settings.type_subheading_font | font_url }}"
         type="font/woff2"
         crossorigin
+        fetchpriority="low"
       >
     {%- endunless -%}
     {%- unless settings.type_heading_font.system? -%}
@@ -109,6 +99,7 @@
         href="{{ settings.type_heading_font | font_url }}"
         type="font/woff2"
         crossorigin
+        fetchpriority="low"
       >
     {%- endunless -%}
     {%- unless settings.type_accent_font.system? -%}
@@ -118,6 +109,7 @@
         href="{{ settings.type_accent_font | font_url }}"
         type="font/woff2"
         crossorigin
+        fetchpriority="low"
       >
     {%- endunless -%}
     {% # theme-check-enable AssetPreload %}

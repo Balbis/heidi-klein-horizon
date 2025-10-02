@@ -167,7 +167,7 @@
     "rich_text_section": "Tekst met opmaak",
     "product_custom_property": "Speciale instructies",
     "multicolumn": "Meerdere kolommen",
-    "hero_bottom_aligned": "Hero: Onderaan uitgelijnd",
+    "hero_bottom_aligned": "Hero: Onder uitgelijnd",
     "blog_card": "Blogkaart",
     "blog_posts_grid": "Blogposts: grid",
     "blog_posts_carousel": "Blogposts: carousel",
@@ -450,7 +450,6 @@
     "border_thickness": "Randdikte",
     "bottom_row": "Onderste rij",
     "button_text_case": "Hoofd- of kleine letters",
-    "button_text_weight": "Tekstdikte",
     "card_size": "Maat kaart",
     "auto_open_cart_drawer": "Met Toevoegen aan winkelwagen wordt de optie automatisch geopend",
     "collection_count": "Aantal collecties",
@@ -506,11 +505,12 @@
     "seller_note_open_by_default": "Notitie aan verkoper standaard openen",
     "gift_card_form": "Cadeaubonformulier",
     "add_to_cart_animation": "Toevoegen aan winkelwagen",
+    "custom_link": "Aangepaste link",
     "product_custom_property": {
       "heading": "Koptekst",
       "description": "Beschrijving",
       "key": "Naam eigenschap",
-      "key_info": "Moet uniek zijn voor elk blok. Wordt weergegeven in winkelwagen, checkout en bestelgegevens.",
+      "key_info": "Moet voor elk blok uniek zijn. Wordt weergegeven in winkelwagen, checkout en bestelgegevens.",
       "placeholder_text": "Tijdelijke tekst",
       "default_heading": "Je product aanpassen",
       "default_placeholder": "Voer je speciale instructies in",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Label selectievakje"
     },
     "blog": "Blog",
-    "post_count": "Aantal posts"
+    "post_count": "Aantal posts",
+    "top_level_size": "Grootte bovenste niveau",
+    "submenu_text_style": "Tekststijl submenu",
+    "empty_cart_button_link": "Knoplink lege winkelwagen"
   },
   "options": {
     "adapt_to_image": "Aanpassen aan afbeelding",
@@ -907,7 +910,11 @@
     "section_link": "Sectielink",
     "gift_card_form_description": "Klanten kunnen cadeaubonnen met een persoonlijk bericht naar het e-mailadres van een ontvanger sturen. [Meer informatie](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Koptekst",
-    "resource_reference_product_custom_property": "Aanpasbare invoervelden toevoegen om aangepaste informatie te verzamelen die wordt toegevoegd aan dit orderregelitem en later zichtbaar is in de bestelgegevens."
+    "resource_reference_product_custom_property": "Aanpasbare invoervelden toevoegen om aangepaste informatie te verzamelen die wordt toegevoegd aan dit orderregelitem en later zichtbaar is in de bestelgegevens.",
+    "block_link": "Bloklink",
+    "submenu_feature": "Functie in submenu",
+    "cart_features": "Functies winkelwagen",
+    "email_signup": "Aanmelding(en) voor het ontvangen van e-mail"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Deel informatie over je merk met klanten. Beschrijf een product, doe aankondigingen of verwelkom klanten in je winkel.</p>"
@@ -947,7 +954,9 @@
     "pills_usage": "Gebruikt voor toegepaste filters, kortingscodes en zoeksuggesties",
     "applies_on_image_only": "Uitsluitend van toepassing op afbeeldingen",
     "hover_effects": "Van toepassing op product- en collectiekaarten",
-    "hide_logo_on_home_page_help": "Logo blijft zichtbaar wanneer sticky header actief is"
+    "hide_logo_on_home_page_help": "Logo blijft zichtbaar wanneer sticky header actief is",
+    "media_type_info": "Functies worden ingevuld vanuit je menulinks",
+    "logo_height": "Beïnvloedt alleen header logo"
   },
   "categories": {
     "product_list": "Uitgelichte collectie",

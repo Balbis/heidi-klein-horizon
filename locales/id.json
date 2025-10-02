@@ -229,7 +229,7 @@
     "recipient_form_fields_hidden": "Kolom formulir penerima sekarang disembunyikan",
     "recipient_form_error": "Terjadi kesalahan saat pengiriman formulir",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} karakter digunakan",
-    "terms_and_policies": "Syarat dan Kebijakan"
+    "terms_and_policies": "Ketentuan dan Kebijakan"
   },
   "gift_cards": {
     "issued": {

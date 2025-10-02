@@ -1,5 +1,7 @@
 {%- doc -%}
   Renders the cart summary totals.
+
+  @param {string} [accelerated_checkout_buttons_layout] - { 'vertical' } Forced layout of the additional checkout buttons, instead of relying on platform's layout.
 {%- enddoc -%}
 
 <div class="cart__summary-totals">
@@ -100,7 +102,12 @@
   </button>
 
   {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons %}
-    <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
+    <div
+      class="
+        additional-checkout-buttons
+        {% if accelerated_checkout_buttons_layout == 'vertical' %}additional-checkout-buttons--vertical{% endif %}
+      "
+    >
       {{ content_for_additional_checkout_buttons }}
     </div>
   {% endif %}

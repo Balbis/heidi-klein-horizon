@@ -35,7 +35,7 @@
     "inputs": "Vstupy",
     "primary_button": "Primární tlačítko",
     "secondary_button": "Sekundární tlačítko",
-    "popovers_and_modals": "Místní okna a modály",
+    "popovers_and_modals": "Místní okna a modální okna",
     "products_carousel": "Propagovaná kolekce: karusel",
     "products_grid": "Propagovaná kolekce: mřížka",
     "marquee": "Běžící text",
@@ -164,10 +164,10 @@
     "pills": "Kulaté přepínače",
     "description": "Popis",
     "featured_image": "Propagovaný obrázek",
-    "multicolumn": "Vícesloupec",
+    "multicolumn": "Více sloupců",
     "rich_text_section": "Formát RTF",
     "product_custom_property": "Zvláštní pokyny",
-    "hero_bottom_aligned": "Hero: Zarovnáno dolů",
+    "hero_bottom_aligned": "Hlavní banner: zarovnán dolů",
     "blog_card": "Karta blogu",
     "blog_posts_grid": "Blogové příspěvky: Mřížka",
     "blog_posts_carousel": "Blogové příspěvky: Karusel",
@@ -448,7 +448,6 @@
     "border_thickness": "Tloušťka hranice",
     "bottom_row": "Spodní řádek",
     "button_text_case": "Malá/velká písmena v textu",
-    "button_text_weight": "Tloušťka textu",
     "auto_open_cart_drawer": "Funkce „Přidat do košíku“ automaticky otevírá výsuvný košík",
     "collection_count": "Počet kolekcí",
     "custom_liquid": "Kód Liquidu",
@@ -506,11 +505,12 @@
     "gift_card_form": "Formulář dárkové karty",
     "seller_note_open_by_default": "Otevřít poznámku pro prodejce ve výchozím nastavení",
     "add_to_cart_animation": "Přidat do košíku",
+    "custom_link": "Vlastní odkaz",
     "product_custom_property": {
       "heading": "Nadpis",
       "description": "Popis",
       "key": "Název vlastnosti",
-      "key_info": "Musí být jedinečný pro každý blok. Zobrazuje se v košíku, při pokladně a v detailech objednávky.",
+      "key_info": "Musí být pro každý blok unikátní. Zobrazuje se v košíku, na pokladně a v podrobnostech objednávky.",
       "placeholder_text": "Zástupný text",
       "default_heading": "Přizpůsobte svůj produkt",
       "default_placeholder": "Zadejte zvláštní pokyny",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Popisek zaškrtávacího pole"
     },
     "blog": "Blog",
-    "post_count": "Počet příspěvků"
+    "post_count": "Počet příspěvků",
+    "top_level_size": "Velikost nejvyšší úrovně",
+    "submenu_text_style": "Styl textu podnabídky",
+    "empty_cart_button_link": "Odkaz na tlačítko vyprázdnit košík"
   },
   "options": {
     "adapt_to_image": "Přizpůsobení obrázku",
@@ -907,7 +910,11 @@
     "section_link": "Odkaz na sekci",
     "gift_card_form_description": "Zákazníci můžou zaslat dárkové karty s osobním vzkazem na e-mail příjemce. [Zjistit více](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Nadpis",
-    "resource_reference_product_custom_property": "Přidejte přizpůsobitelná vstupní pole pro shromažďování vlastních informací, které budou přidány k této položce objednávky a později viditelné v jejích podrobnostech."
+    "resource_reference_product_custom_property": "Přidejte přizpůsobitelná vstupní pole pro shromažďování vlastních informací, které budou přidány k této položce objednávky a později viditelné v jejích podrobnostech.",
+    "block_link": "Odkaz bloku",
+    "submenu_feature": "Prvek podnabídky",
+    "cart_features": "Funkce košíku",
+    "email_signup": "Přihlášení k odběru e-mailů"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Informujte zákazníky o své značce. Zároveň můžete popsat některý z produktů, oznámit důležité informace nebo přivítat zákazníky ve svém obchodě.</p>"
@@ -947,7 +954,9 @@
     "applies_on_image_only": "Platí pouze pro obrázky",
     "hover_effects": "Platí pro karty produktů a kolekcí",
     "pills_usage": "Používá se pro použité filtry, slevové kódy a návrhy vyhledávání",
-    "hide_logo_on_home_page_help": "Pokud je aktivní plovoucí záhlaví, logo zůstane viditelné."
+    "hide_logo_on_home_page_help": "Pokud je aktivní plovoucí záhlaví, logo zůstane viditelné.",
+    "media_type_info": "Prvky se načítají z odkazů v nabídce",
+    "logo_height": "Ovlivňuje pouze logo v hlavičce"
   },
   "categories": {
     "product_list": "Propagovaná kolekce",

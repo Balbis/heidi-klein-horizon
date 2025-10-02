@@ -71,69 +71,26 @@ export class Slideshow extends Component {
       if (!this.isConnected) return;
     }
 
-    const { scroller } = this.refs;
-    this.#scroll = new Scroller(scroller, {
-      onScroll: this.#handleScroll,
-      onScrollStart: this.#onTransitionInit,
-      onScrollEnd: this.#onTransitionEnd,
-    });
-
-    scroller.addEventListener('mousedown', this.#handleMouseDown);
-
-    this.addEventListener('mouseenter', this.suspend);
-    this.addEventListener('mouseleave', this.resume);
-    this.addEventListener('pointerenter', this.#handlePointerEnter);
-    document.addEventListener('visibilitychange', this.#handleVisibilityChange);
-
-    this.#updateControlsVisibility();
-
-    this.disabled = this.isNested || this.disabled;
-
-    this.resume();
-
-    this.current = this.initialSlideIndex;
-
-    // Batch reads and writes to the DOM
-    scheduler.schedule(() => {
-      let visibleSlidesAmount = 0;
-      const initialSlideId = this.initialSlide?.getAttribute('slide-id');
-      if (this.initialSlideIndex !== 0 && initialSlideId) {
-        this.select({ id: initialSlideId }, undefined, { animate: false });
-        visibleSlidesAmount = 1;
-      } else {
-        visibleSlidesAmount = this.#updateVisibleSlides();
-        if (visibleSlidesAmount === 0) {
-          this.select(0, undefined, { animate: false });
-          visibleSlidesAmount = 1;
-        }
-      }
-
-      this.#resizeObserver = new ResizeObserver(async () => {
-        if (viewTransition.current) await viewTransition.current;
-
-        if (visibleSlidesAmount > 1) {
-          this.#updateVisibleSlides();
-        }
-
-        if (this.hasAttribute('auto-hide-controls')) {
-          this.#updateControlsVisibility();
-        }
-      });
-
-      this.#resizeObserver.observe(this.refs.slideshowContainer);
-    });
+    const slideCount = this.slides?.length || 0;
+    slideCount <= 1 ? this.#setupSlideshowWithoutControls() : this.#setupSlideshow();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    const { scroller } = this.refs;
 
-    scroller.removeEventListener('mousedown', this.#handleMouseDown);
-    this.removeEventListener('mouseenter', this.suspend);
-    this.removeEventListener('mouseleave', this.resume);
-    this.removeEventListener('pointerenter', this.#handlePointerEnter);
-    document.removeEventListener('visibilitychange', this.#handleVisibilityChange);
-    this.#scroll?.destroy();
+    if (this.#scroll) {
+      const { scroller } = this.refs;
+      scroller.removeEventListener('mousedown', this.#handleMouseDown);
+      this.#scroll.destroy();
+    }
+
+    const slideCount = this.slides?.length || 0;
+    if (slideCount > 1) {
+      this.removeEventListener('mouseenter', this.suspend);
+      this.removeEventListener('mouseleave', this.resume);
+      this.removeEventListener('pointerenter', this.#handlePointerEnter);
+      document.removeEventListener('visibilitychange', this.#handleVisibilityChange);
+    }
 
     if (this.#resizeObserver) {
       this.#resizeObserver.disconnect();
@@ -158,6 +115,7 @@ export class Slideshow extends Component {
    */
   async select(input, event, options = {}) {
     if (this.#disabled || !this.refs.slides?.length) return;
+    if (!this.#scroll) return;
 
     for (const slide of this.refs.slides) {
       if (slide.hasAttribute('reveal')) {
@@ -251,7 +209,11 @@ export class Slideshow extends Component {
     const previousIndex = this.current;
 
     slide.setAttribute('aria-hidden', 'false');
-    this.#scroll.to(slide, { instant });
+
+    if (this.#scroll) {
+      this.#scroll.to(slide, { instant });
+    }
+
     this.current = this.slides?.indexOf(slide) || 0;
 
     this.#centerSelectedThumbnail(index, instant ? 'instant' : 'smooth');
@@ -462,6 +424,81 @@ export class Slideshow extends Component {
   #resizeObserver;
 
   /**
+   * Setup the slideshow without controls for zero or one slides
+   */
+  #setupSlideshowWithoutControls() {
+    this.current = 0;
+    if (this.hasAttribute('auto-hide-controls')) {
+      const { slideshowControls } = this.refs;
+      if (slideshowControls instanceof HTMLElement) {
+        slideshowControls.hidden = true;
+      }
+    }
+
+    if (this.refs.slides?.[0]) {
+      this.refs.slides[0].setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  /**
+   * Setup the slideshow with controls for when there are multiple slides
+   */
+  #setupSlideshow() {
+    // Setup the scroll instance
+    const { scroller } = this.refs;
+    this.#scroll = new Scroller(scroller, {
+      onScroll: this.#handleScroll,
+      onScrollStart: this.#onTransitionInit,
+      onScrollEnd: this.#onTransitionEnd,
+    });
+
+    scroller.addEventListener('mousedown', this.#handleMouseDown);
+
+    this.addEventListener('mouseenter', this.suspend);
+    this.addEventListener('mouseleave', this.resume);
+    this.addEventListener('pointerenter', this.#handlePointerEnter);
+    document.addEventListener('visibilitychange', this.#handleVisibilityChange);
+
+    this.#updateControlsVisibility();
+
+    this.disabled = this.isNested || this.disabled;
+
+    this.resume();
+
+    this.current = this.initialSlideIndex;
+
+    // Batch reads and writes to the DOM
+    scheduler.schedule(() => {
+      let visibleSlidesAmount = 0;
+      const initialSlideId = this.initialSlide?.getAttribute('slide-id');
+      if (this.initialSlideIndex !== 0 && initialSlideId) {
+        this.select({ id: initialSlideId }, undefined, { animate: false });
+        visibleSlidesAmount = 1;
+      } else {
+        visibleSlidesAmount = this.#updateVisibleSlides();
+        if (visibleSlidesAmount === 0) {
+          this.select(0, undefined, { animate: false });
+          visibleSlidesAmount = 1;
+        }
+      }
+
+      this.#resizeObserver = new ResizeObserver(async () => {
+        if (viewTransition.current) await viewTransition.current;
+
+        if (visibleSlidesAmount > 1) {
+          this.#updateVisibleSlides();
+        }
+
+        if (this.hasAttribute('auto-hide-controls')) {
+          this.#updateControlsVisibility();
+        }
+      });
+
+      this.#resizeObserver.observe(this.refs.slideshowContainer);
+    });
+  }
+
+  /**
    * Callback invoked on user initiated scroll to sync the current slide index
    * and emit a slide change event if the index has changed.
    */
@@ -502,6 +539,8 @@ export class Slideshow extends Component {
   #sync = () => {
     const { slides } = this;
     if (!slides) return (this.current = 0);
+
+    if (!this.#scroll) return (this.current = 0);
 
     const visibleSlides = this.visibleSlides;
 

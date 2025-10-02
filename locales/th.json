@@ -50,7 +50,7 @@
     "scroll_to": "เลื่อนไปที่ {{ title }}",
     "loading_product_recommendations": "กำลังโหลดการแนะนำสินค้า",
     "discount": "ใช้รหัสส่วนลด",
-    "discount_menu": "เมนูส่วนลด",
+    "discount_menu": "รหัสส่วนลด",
     "discount_applied": "ใช้รหัสส่วนลดแล้ว: {{ code }}",
     "open_cart_drawer": "เปิดตะกร้าสินค้า",
     "inventory_status": "สถานะสินค้าคงคลัง",

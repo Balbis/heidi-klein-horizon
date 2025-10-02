@@ -239,7 +239,7 @@
     "recipient_form_fields_hidden": "Polia formulára príjemcu sú teraz skryté",
     "recipient_form_error": "There was an error with the form submission",
     "product_custom_property_character_count": "Počet použitých znakov: {{ used_chars }} z {{ max_chars }}",
-    "terms_and_policies": "Podmienky a zásady"
+    "terms_and_policies": "Pravidlá a podmienky"
   },
   "gift_cards": {
     "issued": {

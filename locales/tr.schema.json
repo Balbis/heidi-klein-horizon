@@ -167,7 +167,7 @@
     "featured_image": "Öne çıkan görsel",
     "multicolumn": "Çoklu sütun",
     "product_custom_property": "Özel talimatlar",
-    "hero_bottom_aligned": "Hero: Alt hizalı",
+    "hero_bottom_aligned": "Hero: Alta hizalanmış",
     "blog_card": "Blog kartı",
     "blog_posts_grid": "Blog gönderileri: Izgara",
     "blog_posts_carousel": "Blog gönderileri: Döngü",
@@ -453,7 +453,6 @@
     "border_thickness": "Kenarlık kalınlığı",
     "bottom_row": "Alt satır",
     "button_text_case": "Metin büyük/küçük harfi",
-    "button_text_weight": "Metin ağırlığı",
     "auto_open_cart_drawer": "\"Sepete ekle\", çekmeceyi otomatik olarak açar",
     "collection_count": "Koleksiyon sayısı",
     "custom_liquid": "Liquid kodu",
@@ -506,11 +505,12 @@
     "seller_note_open_by_default": "Varsayılan olarak satıcıya notu aç",
     "gift_card_form": "Hediye kartı formu",
     "add_to_cart_animation": "Sepete ekle",
+    "custom_link": "Özel bağlantı",
     "product_custom_property": {
       "heading": "Başlık",
       "description": "Açıklama",
       "key": "Özellik adı",
-      "key_info": "Her blok için benzersiz olmalı. Sepet, ödeme ve sipariş detaylarında gösterilir.",
+      "key_info": "Her blok için benzersiz olmalıdır. Sepette, ödeme sayfasında ve sipariş bilgilerinde gösterilir.",
       "placeholder_text": "Yer tutucu metni",
       "default_heading": "Ürününüzü özelleştirin",
       "default_placeholder": "Özel talimatlarınızı girin",
@@ -530,7 +530,10 @@
       "checkbox_preset": "Onay kutusu etiketi"
     },
     "blog": "Blog",
-    "post_count": "Gönderi sayısı"
+    "post_count": "Gönderi sayısı",
+    "top_level_size": "En üst düzey boyut",
+    "submenu_text_style": "Alt menü metin stili",
+    "empty_cart_button_link": "Sepeti boşalt düğme bağlantısı"
   },
   "options": {
     "adapt_to_image": "Görsele uyarla",
@@ -907,7 +910,11 @@
     "section_link": "Bölüm bağlantısı",
     "gift_card_form_description": "Müşteriler kişisel mesaj ekleyerek alıcının e-posta adresine hediye kartı gönderebilir. [Daha fazla bilgi edinin](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Başlık",
-    "resource_reference_product_custom_property": "Bu sipariş satır öğesine eklenecek ve daha sonra sipariş detaylarında görülebilecek gümrük bilgilerini toplamak için özelleştirilebilir giriş alanları ekleyin."
+    "resource_reference_product_custom_property": "Bu sipariş satır öğesine eklenecek ve daha sonra sipariş detaylarında görülebilecek gümrük bilgilerini toplamak için özelleştirilebilir giriş alanları ekleyin.",
+    "block_link": "Blok Bağlantısı",
+    "submenu_feature": "Alt menü özelliği",
+    "cart_features": "Sepet özellikleri",
+    "email_signup": "E-posta kaydı"
   },
   "html_defaults": {
     "share_information_about_your": "<p>Müşterilerinizle markanız hakkında bilgi paylaşın. Ürün açıklaması girin, duyuru paylaşın veya mağazanıza gelen müşterileri karşılayın.</p>"
@@ -947,7 +954,9 @@
     "applies_on_image_only": "Yalnızca görseller için geçerlidir",
     "hover_effects": "Ürün ve koleksiyon kartları için geçerlidir",
     "pills_usage": "Uygulanan filtreler, indirim kodları ve arama önerileri için kullanılır",
-    "hide_logo_on_home_page_help": "Sabit üstbilgi etkin olduğunda logo görünür kalır"
+    "hide_logo_on_home_page_help": "Sabit üstbilgi etkin olduğunda logo görünür kalır",
+    "media_type_info": "Özellikler, menü bağlantılarınızdan doldurulur",
+    "logo_height": "Yalnızca başlık logosunu etkiler"
   },
   "categories": {
     "product_list": "Öne çıkan koleksiyon",

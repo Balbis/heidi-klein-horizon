@@ -50,7 +50,7 @@
     "scroll_to": "Scrol naar {{ title }}",
     "loading_product_recommendations": "Productaanbevelingen laden",
     "discount": "Kortingscode toepassen",
-    "discount_menu": "Kortingsmenu",
+    "discount_menu": "Kortingscodes",
     "discount_applied": "Toegepaste kortingscode: {{ code }}",
     "open_cart_drawer": "Winkelwagen openen",
     "inventory_status": "Voorraadstatus",

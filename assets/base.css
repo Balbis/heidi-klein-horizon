@@ -200,6 +200,12 @@ h6 {
   overflow-wrap: break-word;
 }
 
+.wrap-text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
 p:empty {
   display: none;
 }
@@ -948,6 +954,19 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+/* When header is transparent, pull the first main content section up to sit under the floating header */
+body:has(.header[transparent]) .content-for-layout > .shopify-section:first-child {
+  margin-top: calc(var(--header-group-height) * -1);
+}
+
+body:has(.header[transparent]) #header-group > *:not(.header-section) {
+  z-index: 1;
+}
+
+body:has(.header[transparent]) #header-group > .header-section {
+  z-index: var(--layer-sticky);
+}
+
 /* Featured collection block */
 .featured-collection-block {
   width: 100%;
@@ -1291,7 +1310,6 @@ button.shopify-payment-button__button--unbranded {
 
 .button {
   font-family: var(--button-font-family-primary);
-  font-weight: var(--button-font-weight-primary);
   text-transform: var(--button-text-case-primary);
   border-radius: var(--style-border-radius-buttons-primary);
 }
@@ -1302,14 +1320,12 @@ button.shopify-payment-button__button--unbranded {
 
 .button-secondary {
   font-family: var(--button-font-family-secondary);
-  font-weight: var(--button-font-weight-secondary);
   text-transform: var(--button-text-case-secondary);
   border-radius: var(--style-border-radius-buttons-secondary);
 }
 
 button.shopify-payment-button__button--unbranded {
   font-family: var(--button-font-family-primary);
-  font-weight: var(--button-font-weight-primary);
   text-transform: var(--button-text-case-primary);
 }
 
@@ -2317,15 +2333,17 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 
   .layout-panel-flex--row:not(.mobile-column) {
-    .text-block {
+    flex-wrap: var(--flex-wrap-mobile);
+
+    > .text-block {
       flex: 1 1 var(--max-width--display-tight);
     }
 
-    .image-block {
+    > .image-block {
       flex: 1 1 var(--size-style-width-mobile-min);
     }
 
-    .button {
+    > .button {
       flex: 0 0 fit-content;
     }
   }
@@ -2561,9 +2579,10 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   aspect-ratio: 1;
   border-radius: 50%;
   border-width: 0;
-  display: grid;
+  display: flex;
   line-height: normal;
-  place-content: center;
+  align-items: center;
+  justify-content: center;
   color: var(--color-primary-button-text);
   padding-inline: var(--cart-padding);
 }

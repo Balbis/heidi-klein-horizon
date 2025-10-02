@@ -50,7 +50,7 @@
     "scroll_to": "Bla til {{ title }}",
     "loading_product_recommendations": "Laster inn produktanbefalinger",
     "discount": "Bruk en rabattkode",
-    "discount_menu": "Rabattmeny",
+    "discount_menu": "Rabattkoder",
     "discount_applied": "Brukt rabattkode: {{ code }}",
     "open_cart_drawer": "Åpne handlekurven",
     "pause_video": "Sett videoen på pause",
@@ -102,7 +102,7 @@
     "sign_up": "Registrer deg",
     "sort": "Sorter",
     "show_all_options": "Vis alle alternativer",
-    "open": "Åpne"
+    "open": "Åpen"
   },
   "content": {
     "reviews": "anmeldelser",
@@ -229,7 +229,7 @@
     "recipient_form_fields_hidden": "Feltene i mottakerskjemaet er nå skjult",
     "recipient_form_error": "Det oppsto en feil ved innsendingen av skjemaet",
     "product_custom_property_character_count": "{{ used_chars }}/{{ max_chars }} tegn er brukt",
-    "terms_and_policies": "Vilkår og retningslinjer"
+    "terms_and_policies": "Vilkår og betingelser"
   },
   "gift_cards": {
     "issued": {

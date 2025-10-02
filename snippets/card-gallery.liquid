@@ -116,7 +116,7 @@
       assign generic_media_size = all_media.size | minus: variant_images.size
       assign combined_listing_count = product.options_with_values | map: 'values' | map: 'product_url' | compact | size
 
-      if combined_listing_count > 0
+      if combined_listing_count > 0 or has_applied_colour_filter
         # Sort media so selected variant image comes first
         assign selected_media = all_media | where: 'src', selected_variant_image
         assign other_media = all_media | reject: 'src', selected_variant_image
