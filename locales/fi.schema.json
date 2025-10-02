@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "names": {
     "404": "404",
@@ -167,7 +176,7 @@
     "multicolumn": "Monisarakkeinen",
     "rich_text_section": "Rich text",
     "product_custom_property": "Erityisohjeet",
-    "hero_bottom_aligned": "Hero: tasaus alas",
+    "hero_bottom_aligned": "Hero: Alareunaan tasattu",
     "blog_card": "Blogikortti",
     "blog_posts_grid": "Blogipostaukset: Ruudukko",
     "blog_posts_carousel": "Blogipostaukset: Karuselli",
@@ -450,6 +459,7 @@
     "border_thickness": "Reunan paksuus",
     "bottom_row": "Alin rivi",
     "button_text_case": "Tekstin kirjasinkoko",
+    "button_text_weight": "Tekstin paksuus",
     "card_size": "Kortin koko",
     "auto_open_cart_drawer": "”Lisää ostoskoriin” avaa ostoskorin automaattisesti",
     "collection_count": "Kokoelman määrä",
@@ -505,12 +515,11 @@
     "seller_note_open_by_default": "Avaa huomautus myyjälle oletusarvoisesti",
     "gift_card_form": "Lahjakorttilomake",
     "add_to_cart_animation": "Lisää ostoskoriin",
-    "custom_link": "Mukautettu linkki",
     "product_custom_property": {
       "heading": "Otsikko",
       "description": "Kuvaus",
       "key": "Ominaisuuden nimi",
-      "key_info": "Tämän täytyy olla yksilöllinen kunkin lohkon osalta. Tämä näytetään ostoskorissa, kassalla ja tilaustiedoissa.",
+      "key_info": "Tulee olla ainutlaatuinen kullekin lohkolle. Näkyy ostoskorissa, kassalla ja tilauksen tiedoissa.",
       "placeholder_text": "Paikkamerkin teksti",
       "default_heading": "Mukauta tuotettasi",
       "default_placeholder": "Kirjoita erityisohjeet",
@@ -530,10 +539,7 @@
       "checkbox_preset": "Valintaruudun merkintä"
     },
     "blog": "Blogi",
-    "post_count": "Postausten määrä",
-    "top_level_size": "Ylätason koko",
-    "submenu_text_style": "Alivalikon tekstityyli",
-    "empty_cart_button_link": "Tyhjennä ostoskori -painikkeen linkki"
+    "post_count": "Postausten määrä"
   },
   "options": {
     "adapt_to_image": "Sovita kuvaan",
@@ -910,11 +916,7 @@
     "section_link": "Osiolinkki",
     "gift_card_form_description": "Asiakkaat voivat lähettää lahjakortteja vastaanottajille sähköpostitse henkilökohtaisen viestin kera. [Lue lisää](https://help.shopify.com/manual/products/gift-card-products)",
     "heading": "Otsikko",
-    "resource_reference_product_custom_property": "Lisää mukautettavat syötekentät, joilla kerätään mukautettuja tietoja. Tiedot lisätään tämän tilauksen rivikohtaan ja ne näkyvät myöhemmin tilaustiedoissa.",
-    "block_link": "Lohkolinkki",
-    "submenu_feature": "Alivalikko-ominaisuus",
-    "cart_features": "Ostoskorin ominaisuudet",
-    "email_signup": "Sähköpostirekisteröityminen"
+    "resource_reference_product_custom_property": "Lisää mukautettavat syötekentät, joilla kerätään mukautettuja tietoja. Tiedot lisätään tämän tilauksen rivikohtaan ja ne näkyvät myöhemmin tilaustiedoissa."
   },
   "html_defaults": {
     "share_information_about_your": "<p>Kerro brändiäsi koskevia tietoja asiakkaillesi. Kuvaile tuotetta, jaa ilmoituksia tai toivota asiakkaat tervetulleiksi kauppaasi.</p>"
@@ -954,9 +956,7 @@
     "pills_usage": "Käyttökohteita käytetyt suodattimet, alennuskoodit ja hakuehdotukset",
     "applies_on_image_only": "Koskee vain kuvia",
     "hover_effects": "Käytetään tuote- ja kokoelmakorteissa",
-    "hide_logo_on_home_page_help": "Logo pysyy näkyvissä, kun paikallaan pysyvä ylätunniste on aktiivinen",
-    "media_type_info": "Ominaisuudet täytetään valikkolinkeistäsi",
-    "logo_height": "Vaikuttaa vain otsikon logo"
+    "hide_logo_on_home_page_help": "Logo pysyy näkyvissä, kun paikallaan pysyvä ylätunniste on aktiivinen"
   },
   "categories": {
     "basic": "Basic",
