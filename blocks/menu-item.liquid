@@ -4,7 +4,7 @@
   {% content_for 'blocks' %}
 {% endcapture %}
 
-<div class="mega-menu__content-block"data-menu-index="{{ block.settings.menu_index }}">
+<div class="mega-menu__content-block" data-menu-index="{{ block.settings.menu_index }}">
   {% render 'group', children: children, settings: block.settings, shopify_attributes: block.shopify_attributes %}
 </div><!--@split-->
 
