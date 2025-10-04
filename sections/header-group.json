@@ -129,6 +129,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/Chelsea-shirt-dress.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "width": "fill",
@@ -224,6 +225,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/Chelsea-shirt-dress_4.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "width": "fill",
@@ -319,6 +321,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/Screenshot_2025-10-03_at_15.25.00.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "width": "fill",
@@ -414,6 +417,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/Chelsea-shirt-dress_4.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "width": "fill",
@@ -509,6 +513,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
+                    "image": "shopify://shop_images/Chelsea-shirt-dress_2.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "width": "fill",
