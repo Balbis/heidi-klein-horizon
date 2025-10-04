@@ -352,28 +352,8 @@
         "content": "t:content.fonts"
       },
       {
-        "type": "font_picker",
-        "id": "type_body_font",
-        "default": "work_sans_n4",
-        "label": "t:options.body"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_subheading_font",
-        "default": "work_sans_n5",
-        "label": "t:options.subheading"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_heading_font",
-        "default": "anonymous_pro_n4",
-        "label": "t:options.heading"
-      },
-      {
-        "type": "font_picker",
-        "id": "type_accent_font",
-        "default": "anonymous_pro_n4",
-        "label": "t:options.accent"
+        "type": "paragraph",
+        "content": "Heidi Klein uses a custom font stack so customizer access is not possible."
       },
       {
         "type": "header",
