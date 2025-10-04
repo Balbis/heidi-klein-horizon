@@ -572,24 +572,19 @@
   }
 
   .mega-menu__content {
-    grid-column: 4 / 6;
+    /* Use CSS custom properties for dynamic positioning */
+    grid-column: var(--content-start-column, 4) / var(--content-end-column, 6);
 
     @media screen and (min-width: 990px) {
-      grid-column: 4 / 7;
+      grid-column: var(--content-start-column, 4) / var(--content-end-column, 7);
       display: flex;
       justify-content: flex-end;
       align-items: flex-start;
       gap: var(--menu-horizontal-gap);
     }
-  }
 
-  [data-menu-list-id] {
-    &[style*="--menu-columns-desktop: 5"] ~ .mega-menu__content {
-      grid-column: 5 / 6;
-
-      @media screen and (min-width: 990px) {
-        grid-column: 5 / 6;
-      }
+    @media screen and (min-width: 1250px) {
+      grid-column: var(--content-start-column-wide, 4) / var(--content-end-column-wide, 7);
     }
   }
 
@@ -605,6 +600,27 @@
 
   .mega-menu__content[style*="--menu-content-columns-desktop: 1"] .mega-menu__content-block {
     max-width: 100%;
+  }
+
+  /* Wide breakpoint: hide content when wide columns are 0 */
+  @media screen and (min-width: 1250px) {
+    .mega-menu__content[style*="--menu-content-columns-wide: 0"] {
+      display: none;
+    }
+
+    /* Wide breakpoint: adjust content block width based on wide columns */
+    .mega-menu__content[style*="--menu-content-columns-wide: 1"] .mega-menu__content-block {
+      max-width: 100%;
+    }
+
+    .mega-menu__content[style*="--menu-content-columns-wide: 2"] .mega-menu__content-block {
+      max-width: 50%;
+    }
+
+    /* For 3+ menu items, maintain original flexbox behavior */
+    .mega-menu__content[style*="--menu-content-columns-wide: 3"] .mega-menu__content-block {
+      max-width: 33.333%;
+    }
   }
 
   .menu-list__list-item[slot='overflow'] .section {

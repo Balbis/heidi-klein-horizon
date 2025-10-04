@@ -217,8 +217,13 @@
       assign menu_blocks_columns = 1
       assign max_menu_columns = 5
       assign max_menu_columns_tablet = 4
-    elsif parent_link.links.size >= 5
-      # For 5+ parent links: don't show menu items on desktop or tablet
+    elsif parent_link.links.size == 5
+      # For 5 parent links: don't show menu items on desktop or tablet below 1250px
+      assign menu_blocks_columns = 0
+      assign max_menu_columns = 6
+      assign max_menu_columns_tablet = 4
+    elsif parent_link.links.size >= 6
+      # For 6+ parent links: don't show menu items on desktop or tablet
       assign menu_blocks_columns = 0
       assign max_menu_columns = 6
       assign max_menu_columns_tablet = 4
@@ -308,6 +313,34 @@
       --menu-columns-tablet: {{ max_menu_columns_tablet }};
     {% endif %}
   }
+
+  /* Override grid columns for special parent link counts */
+  [data-menu-grid-id="{{ id }}"] {
+    {% if parent_link.links.size == 4 %}
+      --menu-columns-desktop: 5;
+      --content-start-column: 5;
+      --content-end-column: 6;
+      --content-start-column-wide: 4;
+      --content-end-column-wide: 6;
+    {% elsif parent_link.links.size == 5 %}
+      --menu-columns-desktop: 6;
+      --content-start-column: 1;
+      --content-end-column: 1;
+      --content-start-column-wide: 5;
+      --content-end-column-wide: 6;
+    {% elsif parent_link.links.size >= 6 %}
+      --menu-columns-desktop: 6;
+      --content-start-column: 1;
+      --content-end-column: 1;
+      --content-start-column-wide: 1;
+      --content-end-column-wide: 1;
+    {% else %}
+      --content-start-column: 4;
+      --content-end-column: 6;
+      --content-start-column-wide: 4;
+      --content-end-column-wide: 6;
+    {% endif %}
+  }
 {% endstyle %}
 
 {% if menu_blocks != blank %}
@@ -324,9 +357,21 @@
     endif
   %}
 
+  {% liquid
+    # Set wide breakpoint menu content columns
+    assign menu_blocks_columns_wide = menu_blocks_columns
+    if parent_link.links.size == 4
+      assign menu_blocks_columns_wide = 2
+    elsif parent_link.links.size == 5
+      assign menu_blocks_columns_wide = 1
+    elsif parent_link.links.size >= 6
+      assign menu_blocks_columns_wide = 0
+    endif
+  %}
+
   <div
     class="mega-menu__content"
-    style="--menu-content-columns-desktop: {{ menu_blocks_columns }}; --menu-content-columns-tablet: {{ menu_blocks_columns_tablet }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
+    style="--menu-content-columns-desktop: {{ menu_blocks_columns }}; --menu-content-columns-tablet: {{ menu_blocks_columns_tablet }}; --menu-content-columns-wide: {{ menu_blocks_columns_wide }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
   >
     {{ menu_blocks }}
   </div>
