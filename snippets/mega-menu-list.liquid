@@ -2,6 +2,7 @@
   Renders mega menu list markup and optional featured content.
 
   @param {object} parent_link - The linklist to render.
+  @param {number} [parent_index] - The index of the parent menu item.
   @param {string} id - Unique ID to assign to the `<ul>` element.
   @param {number} [grid_columns_count] - Number of grid columns for the mega menu.
   @param {number} [grid_columns_count_tablet] - Number of grid columns for the mega menu on tablets.
@@ -10,6 +11,7 @@
   @param {number} [content_aspect_ratio] - Aspect ratio for content images.
   @param {number} [image_border_radius] - Border radius for content images.
   @param {object} [section] - The section object.
+  @param {object} [menu_items] - The menu items to render.
 
   @example
   {% render 'mega-menu-list', parent_link: link, id: 'MegaMenuList-1', grid_columns_count: 6, menu_content_type: 'featured_products' %}
@@ -70,6 +72,16 @@
       assign menu_content_type = 'text'
     endif
   endif
+
+  assign menu_blocks = ''
+  assign blocks_array = menu_items | split: '<!--@split-->'
+  for block_html in blocks_array
+    assign target_attr = 'data-menu-index="' | append: parent_index | append: '"'
+    if block_html contains target_attr
+      assign menu_blocks = menu_blocks | append: block_html
+    endif
+  endfor
+
 %}
 <ul
   data-menu-list-id="{{ id }}"
@@ -133,7 +145,7 @@
           {% render 'link-featured-image', link: link, class: 'mega-menu__link-image', sizes: collection_image_sizes %}
         {% endif %}
         <span
-          class="mega-menu__link-title wrap-text"
+          class="mega-menu__link-title"
         >
           {{- link.title -}}
         </span>
@@ -156,7 +168,7 @@
                 href="{{ childLink.url }}"
                 class="mega-menu__link"
               >
-                <span class="mega-menu__link-title wrap-text">{{- childLink.title -}}</span>
+                <span class="mega-menu__link-title">{{- childLink.title -}}</span>
               </a>
             </li>
           {% endfor %}
@@ -194,7 +206,23 @@
   assign max_products_tablet = 3
   assign min_collections = 1
 
-  if menu_content_type == 'featured_products'
+  if menu_blocks != blank
+    # When menu blocks are present, they replace featured content entirely
+    # Calculate columns based on number of blocks (1-2 columns max)
+    assign menu_blocks_count = menu_blocks | split: '<!--@split-->' | size
+    assign menu_blocks_columns = menu_blocks_count | at_most: 3
+
+    # Reserve columns for menu blocks
+    assign max_menu_columns = max_menu_columns | minus: 3
+    assign max_menu_columns_tablet = max_menu_columns_tablet | minus: 2
+
+    # Set featured content columns to 0 since blocks replace them
+    assign max_product_columns = 0
+    assign max_product_columns_tablet = 0
+    assign max_collection_columns = 0
+    assign max_collection_columns_tablet = 0
+
+  elsif menu_content_type == 'featured_products'
     # desktop breakpoint
     assign temp_column_count = column_count | plus: min_products
 
@@ -226,9 +254,8 @@
 
     assign max_featured_products_tablet = max_product_columns_tablet
     assign max_menu_columns_tablet = max_menu_columns_tablet | minus: max_product_columns_tablet
-  endif
 
-  if menu_content_type == 'featured_collections'
+  elsif menu_content_type == 'featured_collections'
     # desktop breakpoint
     assign min_featured_collection_columns = min_collections | times: 2
     assign temp_column_count = column_count | plus: min_featured_collection_columns
@@ -271,78 +298,94 @@
   }
 {% endstyle %}
 
-{% case menu_content_type %}
-  {% when 'featured_products' %}
-    {%- capture image_sizes -%}
-      {%- render 'util-mega-menu-img-sizes-attr',
-        menu_content_type: 'featured_products',
-        settings: settings,
-        grid_columns: grid_columns_count,
-        grid_columns_tablet: grid_columns_count_tablet
-      -%}
-    {%- endcapture -%}
+{% if menu_blocks != blank %}
+  {% liquid
+    # Count the actual number of menu blocks and set column count accordingly
+    assign menu_blocks_count = menu_blocks | split: '<!--@split-->' | size
+    assign menu_blocks_columns = menu_blocks_count | at_most: 2
+    assign menu_blocks_columns_tablet = 1
+  %}
 
-    <span
-      class="mega-menu__content"
-      style="--menu-content-columns-desktop: {{ max_product_columns }}; --menu-content-columns-tablet: {{ max_product_columns_tablet }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
-    >
-      <ul
-        class="mega-menu__content-list mega-menu__content-list--products list-unstyled"
+  <div
+    class="mega-menu__content"
+    style="--menu-content-columns-desktop: {{ menu_blocks_columns }}; --menu-content-columns-tablet: {{ menu_blocks_columns_tablet }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
+  >
+    {{ menu_blocks }}
+  </div>
+{% else %}
+  {% case menu_content_type %}
+    {% when 'featured_products' %}
+      {%- capture image_sizes -%}
+        {%- render 'util-mega-menu-img-sizes-attr',
+          menu_content_type: 'featured_products',
+          settings: settings,
+          grid_columns: grid_columns_count,
+          grid_columns_tablet: grid_columns_count_tablet
+        -%}
+      {%- endcapture -%}
+
+      <span
+        class="mega-menu__content"
+        style="--menu-content-columns-desktop: {{ max_product_columns }}; --menu-content-columns-tablet: {{ max_product_columns_tablet }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
       >
-        {% if eager_loading %}
-          {% paginate collection_object.products by max_featured_products %}
-            {% for item in collection_object.products %}
-              <li class="mega-menu__content-list-item {% if forloop.index > max_featured_products_tablet %} mega-menu__content-list-item--hidden-tablet{% endif %}">
-                {% render 'resource-card',
-                  resource: item,
-                  resource_type: 'product',
-                  image_hover: true,
-                  image_aspect_ratio: content_aspect_ratio,
-                  image_sizes: image_sizes
-                %}
-              </li>
-            {% endfor %}
-          {% endpaginate %}
-        {% endif %}
-      </ul>
-    </span>
-  {% when 'featured_collections' %}
-    {% assign collection_handles = collection_handles | split: ',' | uniq %}
-    {%- capture image_sizes -%}
-      {%- render 'util-mega-menu-img-sizes-attr',
-        menu_content_type: 'featured_collections',
-        settings: settings
-      -%}
-    {%- endcapture -%}
-
-    {% if collection_handles.size == 1 %}
-      {% assign max_featured_collections = 1 %}
-    {% endif %}
-
-    <span
-      class="mega-menu__content"
-      style="--menu-content-columns-desktop: {{ max_collection_columns }}; --menu-content-columns-tablet: {{ max_collection_columns_tablet }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
-    >
-      <ul
-        class="mega-menu__content-list mega-menu__content-list--collections list-unstyled"
-        style="--menu-content-columns-desktop: {{ max_featured_collections }}; --menu-content-columns-tablet: {{ max_featured_collections_tablet }};"
-      >
-        {% for handle in collection_handles limit: max_featured_collections %}
-          {% if handle == 'all' %}
-            {% assign collection_object = collections.all %}
-          {% else %}
-            {% assign collection_object = collections[handle] %}
+        <ul
+          class="mega-menu__content-list mega-menu__content-list--products list-unstyled"
+        >
+          {% if eager_loading %}
+            {% paginate collection_object.products by max_featured_products %}
+              {% for item in collection_object.products %}
+                <li class="mega-menu__content-list-item {% if forloop.index > max_featured_products_tablet %} mega-menu__content-list-item--hidden-tablet{% endif %}">
+                  {% render 'resource-card',
+                    resource: item,
+                    resource_type: 'product',
+                    image_hover: true,
+                    image_aspect_ratio: content_aspect_ratio,
+                    image_sizes: image_sizes
+                  %}
+                </li>
+              {% endfor %}
+            {% endpaginate %}
           {% endif %}
-          <li class="mega-menu__content-list-item{% if forloop.index > max_featured_collections_tablet %} mega-menu__content-list-item--hidden-tablet{% endif %}">
-            {% render 'resource-card',
-              resource: collection_object,
-              resource_type: 'collection',
-              style: 'overlay',
-              image_aspect_ratio: content_aspect_ratio,
-              image_sizes: image_sizes
-            %}
-          </li>
-        {% endfor %}
-      </ul>
-    </span>
-{% endcase %}
+        </ul>
+      </span>
+    {% when 'featured_collections' %}
+      {% assign collection_handles = collection_handles | split: ',' | uniq %}
+      {%- capture image_sizes -%}
+        {%- render 'util-mega-menu-img-sizes-attr',
+          menu_content_type: 'featured_collections',
+          settings: settings
+        -%}
+      {%- endcapture -%}
+
+      {% if collection_handles.size == 1 %}
+        {% assign max_featured_collections = 1 %}
+      {% endif %}
+
+      <span
+        class="mega-menu__content"
+        style="--menu-content-columns-desktop: {{ max_collection_columns }}; --menu-content-columns-tablet: {{ max_collection_columns_tablet }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
+      >
+        <ul
+          class="mega-menu__content-list mega-menu__content-list--collections list-unstyled"
+          style="--menu-content-columns-desktop: {{ max_featured_collections }}; --menu-content-columns-tablet: {{ max_featured_collections_tablet }};"
+        >
+          {% for handle in collection_handles limit: max_featured_collections %}
+            {% if handle == 'all' %}
+              {% assign collection_object = collections.all %}
+            {% else %}
+              {% assign collection_object = collections[handle] %}
+            {% endif %}
+            <li class="mega-menu__content-list-item{% if forloop.index > max_featured_collections_tablet %} mega-menu__content-list-item--hidden-tablet{% endif %}">
+              {% render 'resource-card',
+                resource: collection_object,
+                resource_type: 'collection',
+                style: 'overlay',
+                image_aspect_ratio: content_aspect_ratio,
+                image_sizes: image_sizes
+              %}
+            </li>
+          {% endfor %}
+        </ul>
+      </span>
+  {% endcase %}
+{% endif %}

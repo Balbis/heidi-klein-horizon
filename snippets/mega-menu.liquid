@@ -8,6 +8,7 @@
   @param {string} [menu_content_type] - The type of content to render, options: ['featured_products', 'featured_collections', 'collection_images', 'text'] (default: 'text')
   @param {number} [content_aspect_ratio] - The aspect ratio to display the content if applicable
   @param {number} [image_border_radius] - The border radius used for the content images
+  @param {array} [menu_items] - The menu items to render
 {%- enddoc -%}
 
 <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
@@ -24,7 +25,8 @@
       grid_columns_count_collection_images: 8,
       menu_content_type: menu_content_type,
       content_aspect_ratio: content_aspect_ratio,
-      image_border_radius: image_border_radius
+      image_border_radius: image_border_radius,
+      menu_items: menu_items
     %}
   </div>
 </div>

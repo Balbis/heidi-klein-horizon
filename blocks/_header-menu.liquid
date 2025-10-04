@@ -8,6 +8,18 @@
 {% liquid
   assign block_settings = block.settings
   assign animation_speed = 200
+
+  if block_settings.menu_style == 'featured_products' and block_settings.product_title_case == 'uppercase'
+    assign title_case_style = ' --title-case: uppercase;'
+  elsif block_settings.menu_style == 'featured_collections' and block_settings.collection_title_case == 'uppercase'
+    assign title_case_style = ' --title-case: uppercase;'
+  elsif block_settings.menu_style == 'collection_images' and block_settings.collection_title_case == 'uppercase'
+    assign title_case_style = ' --title-case: uppercase;'
+  endif
+
+  capture menu_items
+    content_for 'blocks'
+  endcapture
 %}
 
 {% case variant %}
@@ -15,6 +27,7 @@
     <div
       class="header__drawer desktop:hidden"
       ref="headerDrawerContainer"
+      style="{{ title_case_style }}"
       {{ block.shopify_attributes }}
     >
       {% render 'header-drawer',
@@ -28,7 +41,7 @@
     {% if block_settings.navigation_bar == true %}
       <div
         class="menu-list menu-list--mobile{% if transparent == blank %} color-{{ block_settings.color_scheme_navigation_bar }}{% endif %}"
-        style="--menu-horizontal-gap: 15px; --mobile-nav-margin: auto;"
+        style="--menu-horizontal-gap: 15px; --mobile-nav-margin: auto;{{ title_case_style }}"
       >
         <div class="menu-list__scroll-container">
           <ul
@@ -59,10 +72,10 @@
       class="header-menu mobile:hidden"
       data-animation-delay="{{ animation_speed }}"
       {{ block.shopify_attributes }}
-      style="--submenu-animation-speed: {{ animation_speed }}ms;"
+      style="--submenu-animation-speed: {{ animation_speed }}ms;{{ title_case_style }}"
     >
       <div class="header-menu__inner">
-        {%- render 'header-menu' %}
+        {%- render 'header-menu', menu_items: menu_items %}
       </div>
 
       <script
@@ -151,6 +164,12 @@
     margin-inline-end: var(--margin-xl);
   }
 
+  /* Apply title case to drawer menu featured content */
+  .menu-drawer__featured-content-list-item--product .resource-card__title,
+  .menu-drawer__featured-content-list-item--collection .resource-card__title {
+    text-transform: var(--title-case);
+  }
+
   .menu-list {
     --menu-horizontal-gap: var(--gap-xl);
     --menu-vertical-gap: var(--gap-xl);
@@ -185,6 +204,7 @@
     display: flex;
     min-height: var(--minimum-touch-target);
     align-items: center;
+    letter-spacing: calc(var(--letter-spacing--body-loose) * 2);
 
     &:hover,
     &:focus {
@@ -512,6 +532,12 @@
     grid-column: span 1;
   }
 
+  /* Apply title case to featured products and collections */
+  .mega-menu__content-list--products .resource-card__title,
+  .mega-menu__content-list--collections .resource-card__title {
+    text-transform: var(--title-case);
+  }
+
   .mega-menu__content-list {
     display: grid;
     justify-content: end;
@@ -546,11 +572,21 @@
   }
 
   .mega-menu__content {
-    grid-column: span var(--menu-content-columns-tablet) / -1;
+    grid-column: 4 / 6;
 
     @media screen and (min-width: 990px) {
-      grid-column: span var(--menu-content-columns-desktop) / -1;
+      grid-column: 4 / 7;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: var(--menu-horizontal-gap);
     }
+  }
+
+  .mega-menu__content-block {
+    max-width: 50%;
+    width: 100%;
+    height: 100%;
   }
 
   .menu-list__list-item[slot='overflow'] .section {
@@ -567,7 +603,7 @@
 
   /* mega more menu */
   .mega-menu__more-list {
-    --menu-child-font-size: var(--font-size--xl);
+    --menu-child-font-size: var(--font-size--paragraph);
 
     width: 200px;
   }
@@ -594,6 +630,11 @@
 {
   "name": "t:names.menu",
   "tag": null,
+  "blocks": [
+    {
+      "type": "menu-item"
+    }
+  ],
   "settings": [
     {
       "type": "link_list",
@@ -602,116 +643,13 @@
       "default": "main-menu"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:settings.color_scheme",
-      "default": "primary"
-    },
-    {
-      "type": "header",
-      "content": "t:content.typography"
-    },
-    {
-      "type": "select",
-      "id": "type_font_primary_size",
-      "label": "t:settings.top_level_size",
-      "options": [
-        {
-          "value": "0.625rem",
-          "label": "10px"
-        },
-        {
-          "value": "0.75rem",
-          "label": "12px"
-        },
-        {
-          "value": "0.875rem",
-          "label": "14px"
-        },
-        {
-          "value": "1rem",
-          "label": "16px"
-        },
-        {
-          "value": "1.125rem",
-          "label": "18px"
-        }
-      ],
-      "default": "1rem"
-    },
-    {
-      "type": "select",
-      "id": "menu_font_style",
-      "label": "t:settings.submenu_text_style",
-      "options": [
-        {
-          "value": "regular",
-          "label": "t:options.small"
-        },
-        {
-          "value": "inverse",
-          "label": "t:options.medium"
-        },
-        {
-          "value": "inverse_large",
-          "label": "t:options.large"
-        }
-      ],
-      "default": "inverse"
-    },
-    {
-      "type": "select",
-      "id": "type_font_primary_link",
-      "label": "t:settings.font",
-      "options": [
-        {
-          "value": "body",
-          "label": "t:options.body"
-        },
-        {
-          "value": "subheading",
-          "label": "t:options.subheading"
-        },
-        {
-          "value": "heading",
-          "label": "t:options.heading"
-        },
-        {
-          "value": "accent",
-          "label": "t:options.accent"
-        }
-      ],
-      "default": "heading"
-    },
-    {
-      "type": "select",
-      "id": "type_case_primary_link",
-      "label": "t:settings.text_case",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:options.default"
-        },
-        {
-          "value": "uppercase",
-          "label": "t:options.uppercase"
-        }
-      ],
-      "default": "none"
-    },
-    {
-      "type": "header",
-      "content": "t:content.submenu_feature"
-    },
-    {
       "type": "select",
       "id": "menu_style",
-      "label": "t:settings.media_type",
-      "info": "t:info.media_type_info",
+      "label": "t:settings.style",
       "options": [
         {
           "value": "text",
-          "label": "t:options.none"
+          "label": "t:options.text_only"
         },
         {
           "value": "collection_images",
@@ -780,6 +718,270 @@
       "unit": "px",
       "default": 0,
       "visible_if": "{{ block.settings.menu_style != 'text' }}"
+    },
+    {
+      "type": "select",
+      "id": "product_title_case",
+      "label": "t:settings.product_title_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "default",
+      "visible_if": "{{ block.settings.menu_style == 'featured_products' }}"
+    },
+    {
+      "type": "select",
+      "id": "collection_title_case",
+      "label": "t:settings.collection_title_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "default",
+      "visible_if": "{{ block.settings.menu_style == 'featured_collections' or block.settings.menu_style == 'collection_images' }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "primary"
+    },
+    {
+      "type": "select",
+      "id": "menu_font_style",
+      "label": "t:settings.text_hierarchy",
+      "options": [
+        {
+          "value": "regular",
+          "label": "t:options.classic"
+        },
+        {
+          "value": "inverse",
+          "label": "t:options.inverse"
+        },
+        {
+          "value": "inverse_large",
+          "label": "t:options.inverse_large"
+        }
+      ],
+      "default": "inverse"
+    },
+    {
+      "type": "header",
+      "content": "t:content.typography_primary"
+    },
+    {
+      "type": "select",
+      "id": "type_font_primary_link",
+      "label": "t:settings.font",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:options.body"
+        },
+        {
+          "value": "subheading",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "heading",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "accent",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "heading"
+    },
+    {
+      "type": "select",
+      "id": "type_font_primary_size",
+      "label": "t:settings.size",
+      "options": [
+        {
+          "value": "0.625rem",
+          "label": "10px"
+        },
+        {
+          "value": "0.75rem",
+          "label": "12px"
+        },
+        {
+          "value": "0.875rem",
+          "label": "14px"
+        },
+        {
+          "value": "1rem",
+          "label": "16px"
+        },
+        {
+          "value": "1.125rem",
+          "label": "18px"
+        },
+        {
+          "value": "1.25rem",
+          "label": "20px"
+        },
+        {
+          "value": "1.5rem",
+          "label": "24px"
+        },
+        {
+          "value": "2rem",
+          "label": "32px"
+        },
+        {
+          "value": "2.5rem",
+          "label": "40px"
+        },
+        {
+          "value": "3rem",
+          "label": "48px"
+        },
+        {
+          "value": "3.5rem",
+          "label": "56px"
+        },
+        {
+          "value": "4.5rem",
+          "label": "72px"
+        },
+        {
+          "value": "5.5rem",
+          "label": "88px"
+        },
+        {
+          "value": "7.5rem",
+          "label": "120px"
+        },
+        {
+          "value": "9.5rem",
+          "label": "152px"
+        },
+        {
+          "value": "11.5rem",
+          "label": "184px"
+        }
+      ],
+      "default": "1rem"
+    },
+    {
+      "type": "select",
+      "id": "type_case_primary_link",
+      "label": "t:settings.text_case",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "t:content.typography_secondary"
+    },
+    {
+      "type": "select",
+      "id": "type_font_secondary_link",
+      "label": "t:settings.font",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:options.body"
+        },
+        {
+          "value": "subheading",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "heading",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "accent",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "subheading"
+    },
+    {
+      "type": "select",
+      "id": "type_case_secondary_link",
+      "label": "t:settings.text_case",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "t:content.typography_tertiary"
+    },
+    {
+      "type": "select",
+      "id": "type_font_tertiary_link",
+      "label": "t:settings.font",
+      "options": [
+        {
+          "value": "body",
+          "label": "t:options.body"
+        },
+        {
+          "value": "subheading",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "heading",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "accent",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "select",
+      "id": "type_case_tertiary_link",
+      "label": "t:settings.text_case",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.default"
+        },
+        {
+          "value": "uppercase",
+          "label": "t:options.uppercase"
+        }
+      ],
+      "default": "none"
     },
     {
       "type": "header",
