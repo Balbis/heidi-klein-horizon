@@ -8,7 +8,8 @@
   @param {string} [menu_content_type] - The type of content to render, options: ['featured_products', 'featured_collections', 'collection_images', 'text'] (default: 'text')
   @param {number} [content_aspect_ratio] - The aspect ratio to display the content if applicable
   @param {number} [image_border_radius] - The border radius used for the content images
-  @param {array} [menu_items] - The menu items to render
+  @param {object} [menu_items] - The menu items to render
+  @param {number} [parent_index] - The index of the parent menu item
 {%- enddoc -%}
 
 <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
@@ -18,6 +19,7 @@
   >
     {% render 'mega-menu-list',
       parent_link: parent_link,
+      parent_index: parent_index,
       id: id,
       section: section,
       grid_columns_count: 6,
