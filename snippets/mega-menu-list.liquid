@@ -309,8 +309,19 @@
       --menu-columns-desktop: {{ grid_columns_count_collection_images }};
       --menu-columns-tablet: {{ max_menu_columns_tablet }};
     {% else %}
-      --menu-columns-desktop: {{ max_menu_columns }};
+      --menu-columns-desktop: {{ grid_columns_count }};
       --menu-columns-tablet: {{ max_menu_columns_tablet }};
+    {% endif %}
+  }
+
+  /* Override menu list columns to match parent link count */
+  [data-menu-list-id="{{ id }}"] {
+    {% if parent_link.links.size == 4 %}
+      --menu-columns-desktop: 4;
+    {% elsif parent_link.links.size == 5 %}
+      --menu-columns-desktop: 5;
+    {% elsif parent_link.links.size >= 6 %}
+      --menu-columns-desktop: 6;
     {% endif %}
   }
 
@@ -320,25 +331,29 @@
       --menu-columns-desktop: 5;
       --content-start-column: 5;
       --content-end-column: 6;
+      --menu-columns-wide: 6;
       --content-start-column-wide: 4;
-      --content-end-column-wide: 6;
+      --content-end-column-wide: 7;
     {% elsif parent_link.links.size == 5 %}
       --menu-columns-desktop: 6;
-      --content-start-column: 1;
-      --content-end-column: 1;
+      --content-start-column: 6;
+      --content-end-column: 7;
+      --menu-columns-wide: 6;
       --content-start-column-wide: 5;
-      --content-end-column-wide: 6;
+      --content-end-column-wide: 7;
     {% elsif parent_link.links.size >= 6 %}
       --menu-columns-desktop: 6;
       --content-start-column: 1;
       --content-end-column: 1;
+      --menu-columns-wide: 6;
       --content-start-column-wide: 1;
       --content-end-column-wide: 1;
     {% else %}
       --content-start-column: 4;
       --content-end-column: 6;
+      --menu-columns-wide: 6;
       --content-start-column-wide: 4;
-      --content-end-column-wide: 6;
+      --content-end-column-wide: 7;
     {% endif %}
   }
 {% endstyle %}
@@ -369,9 +384,34 @@
     endif
   %}
 
+  {% liquid
+    # Set content positioning CSS custom properties
+    assign content_start = 4
+    assign content_end = 6
+    assign content_start_wide = 4
+    assign content_end_wide = 7
+    
+    if parent_link.links.size == 4
+      assign content_start = 5
+      assign content_end = 6
+      assign content_start_wide = 5
+      assign content_end_wide = 7
+    elsif parent_link.links.size == 5
+      assign content_start = 6
+      assign content_end = 7
+      assign content_start_wide = 6
+      assign content_end_wide = 7
+    elsif parent_link.links.size >= 6
+      assign content_start = 1
+      assign content_end = 1
+      assign content_start_wide = 1
+      assign content_end_wide = 1
+    endif
+  %}
+
   <div
     class="mega-menu__content"
-    style="--menu-content-columns-desktop: {{ menu_blocks_columns }}; --menu-content-columns-tablet: {{ menu_blocks_columns_tablet }}; --menu-content-columns-wide: {{ menu_blocks_columns_wide }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
+    style="--menu-content-columns-desktop: {{ menu_blocks_columns }}; --menu-content-columns-tablet: {{ menu_blocks_columns_tablet }}; --menu-content-columns-wide: {{ menu_blocks_columns_wide }}; --content-start-column: {{ content_start }}; --content-end-column: {{ content_end }}; --content-start-column-wide: {{ content_start_wide }}; --content-end-column-wide: {{ content_end_wide }}; --resource-card-corner-radius: {{ image_border_radius }}px;"
   >
     {{ menu_blocks }}
   </div>

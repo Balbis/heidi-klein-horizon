@@ -502,6 +502,10 @@
     @media screen and (min-width: 990px) {
       grid-template-columns: repeat(var(--menu-columns-desktop), minmax(0, 1fr));
     }
+
+    @media screen and (min-width: 1250px) {
+      grid-template-columns: repeat(var(--menu-columns-wide, var(--menu-columns-desktop)), minmax(0, 1fr));
+    }
   }
 
   .mega-menu__column {
@@ -573,10 +577,10 @@
 
   .mega-menu__content {
     /* Use CSS custom properties for dynamic positioning */
-    grid-column: var(--content-start-column, 4) / var(--content-end-column, 6);
+    grid-column: var(--content-start-column) / var(--content-end-column);
 
     @media screen and (min-width: 990px) {
-      grid-column: var(--content-start-column, 4) / var(--content-end-column, 7);
+      grid-column: var(--content-start-column) / var(--content-end-column);
       display: flex;
       justify-content: flex-end;
       align-items: flex-start;
@@ -584,7 +588,7 @@
     }
 
     @media screen and (min-width: 1250px) {
-      grid-column: var(--content-start-column-wide, 4) / var(--content-end-column-wide, 7);
+      grid-column: var(--content-start-column-wide) / var(--content-end-column-wide);
     }
   }
 
@@ -620,6 +624,15 @@
     /* For 3+ menu items, maintain original flexbox behavior */
     .mega-menu__content[style*="--menu-content-columns-wide: 3"] .mega-menu__content-block {
       max-width: 33.333%;
+    }
+
+    /* For 1 menu item in 2-column span, position at flex-end with 50% width */
+    .mega-menu__content[style*="--menu-content-columns-wide: 1"] {
+      justify-content: flex-end;
+    }
+
+    .mega-menu__content[style*="--menu-content-columns-wide: 1"] .mega-menu__content-block {
+      max-width: 50%;
     }
   }
 
