@@ -212,9 +212,21 @@
     assign menu_blocks_count = menu_blocks | split: '<!--@split-->' | size
     assign menu_blocks_columns = menu_blocks_count | at_most: 3
 
-    # Reserve columns for menu blocks
-    assign max_menu_columns = max_menu_columns | minus: 3
-    assign max_menu_columns_tablet = max_menu_columns_tablet | minus: 2
+    # Special handling for 4 parent links: limit to 1 menu item and adjust columns
+    if parent_link.links.size == 4
+      assign menu_blocks_columns = 1
+      assign max_menu_columns = 5
+      assign max_menu_columns_tablet = 4
+    elsif parent_link.links.size >= 5
+      # For 5+ parent links: don't show menu items on desktop or tablet
+      assign menu_blocks_columns = 0
+      assign max_menu_columns = 6
+      assign max_menu_columns_tablet = 4
+    else
+      # Reserve columns for menu blocks
+      assign max_menu_columns = max_menu_columns | minus: 3
+      assign max_menu_columns_tablet = max_menu_columns_tablet | minus: 2
+    endif
 
     # Set featured content columns to 0 since blocks replace them
     assign max_product_columns = 0
@@ -303,7 +315,13 @@
     # Count the actual number of menu blocks and set column count accordingly
     assign menu_blocks_count = menu_blocks | split: '<!--@split-->' | size
     assign menu_blocks_columns = menu_blocks_count | at_most: 2
-    assign menu_blocks_columns_tablet = 1
+    
+    # Special handling for 4+ parent links on tablet: don't show menu items
+    if parent_link.links.size >= 4
+      assign menu_blocks_columns_tablet = 0
+    else
+      assign menu_blocks_columns_tablet = 1
+    endif
   %}
 
   <div
