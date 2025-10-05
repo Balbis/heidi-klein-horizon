@@ -211,4 +211,9 @@
   ::view-transition-new(gallery-item) {
     animation-duration: 0ms;
   }
+
+  /* If the header is sticky, make product details content stick underneath the header */
+  body:has(#header-group #header-component[data-sticky-state='active']) .sticky-content {
+    --sticky-header-offset: var(--header-height);
+  }
 {% endstylesheet %}
