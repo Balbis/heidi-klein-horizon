@@ -1,0 +1,58 @@
+{%- doc -%}
+  Renders a vertical slideshow component.
+  Similar to zoom-dialog functionality but for regular slideshow content.
+  Images are stacked vertically and controlled by thumbnails.
+
+  @param {object[]} slides - the slides of the slideshow
+  @param {string} [ref] - the ref of the slideshow component
+  @param {string} [class] - HTML class attribute of the slideshow component
+  @param {string} [style] - HTML style attribute of the slideshow component
+  @param {number} [slide_count] - the total number of slides
+  @param {string} [attributes] - Additional attributes to add to the slideshow component
+  @param {boolean} [show_thumbnails] - whether to show thumbnail navigation
+
+  @example
+  {% render 'vertical-slideshow', slides: slides, slide_count: collection.products.size, ref: 'verticalSlideshow' %}
+{%- enddoc -%}
+
+{% assign class = class | strip %}
+{% assign style = style | strip %}
+
+<vertical-slideshow-component
+  {% if ref != blank %}
+    ref="{{ ref }}"
+  {% endif %}
+  {% if class != blank %}
+    class="vertical-slideshow {{ class }}"
+  {% else %}
+    class="vertical-slideshow"
+  {% endif %}
+  style="{{ style }}"
+  {{ attributes }}
+>
+  <div class="vertical-slideshow__container">
+    <div class="vertical-slideshow__media" ref="mediaContainer">
+      {{ slides }}
+    </div>
+    
+    {% if show_thumbnails != false and slide_count > 1 %}
+      <div class="vertical-slideshow__thumbnails" ref="thumbnails">
+        {% for slide in (1..slide_count) %}
+          <button
+            type="button"
+            class="vertical-slideshow__thumbnail"
+            {% if forloop.first %}
+              aria-selected="true"
+            {% else %}
+              aria-selected="false"
+            {% endif %}
+            data-index="{{ forloop.index0 }}"
+            aria-label="View slide {{ forloop.index }}"
+          >
+            {%- comment -%} Thumbnail content will be populated by JavaScript {%- endcomment -%}
+          </button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</vertical-slideshow-component>

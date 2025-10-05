@@ -365,16 +365,25 @@
     {% endcapture %}
   {% endif %}
 
-  {% render 'slideshow',
-    ref: 'slideshow',
-    class: slideshow_class,
-    slides: slides,
-    show_arrows: false,
-    slide_count: sorted_media.size,
-    slideshow_arrows: slideshow_arrows,
-    arrows_position: icons_position,
-    controls: controls
-  %}
+  {% if block_settings.slideshow_direction == 'vertical' %}
+    {% render 'vertical-slideshow',
+      ref: 'slideshow',
+      class: slideshow_class,
+      slides: slides,
+      slide_count: sorted_media.size
+    %}
+  {% else %}
+    {% render 'slideshow',
+      ref: 'slideshow',
+      class: slideshow_class,
+      slides: slides,
+      show_arrows: false,
+      slide_count: sorted_media.size,
+      slideshow_arrows: slideshow_arrows,
+      arrows_position: icons_position,
+      controls: controls
+    %}
+  {% endif %}
 
   {% if block_settings.media_presentation == 'grid' %}
     <ul
@@ -783,6 +792,22 @@
     {
       "type": "header",
       "content": "t:content.carousel"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_direction",
+      "label": "Slideshow direction",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        }
+      ],
+      "default": "horizontal"
     },
     {
       "type": "select",
