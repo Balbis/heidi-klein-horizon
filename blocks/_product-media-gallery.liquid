@@ -51,7 +51,7 @@
   else
     assign slideshow_class = 'product-media-gallery'
 
-    if block_settings.media_presentation == 'carousel'
+    if block_settings.media_presentation == 'carousel' and block_settings.slideshow_arrows == 'true'
       assign render_slideshow_arrows = true
     endif
   endif
@@ -807,6 +807,13 @@
         }
       ],
       "default": "arrow",
+      "visible_if": "{{ block.settings.media_presentation == 'carousel' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "slideshow_arrows",
+      "label": "Show slideshow arrows",
+      "default": true,
       "visible_if": "{{ block.settings.media_presentation == 'carousel' }}"
     },
     {
