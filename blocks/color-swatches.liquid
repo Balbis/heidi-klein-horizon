@@ -1,0 +1,420 @@
+{%- doc -%}
+  Renders color swatches for related products in a collection group.
+  Each swatch links to a different product page instead of selecting variants.
+  
+  Supports custom color_swatch_image metafield for custom swatch images.
+  Falls back to variant swatches, then product images if no custom image is set.
+{%- enddoc -%}
+
+{%- liquid
+  assign block_settings = block.settings
+  assign group_prefix = 'group-'
+  assign collection_match = false
+  assign collection_parent = null
+  
+  # Find the collection that contains this product
+  for collection in collections
+    if collection.handle contains group_prefix
+      for product_inner in collection.products
+        if product.handle == product_inner.handle
+          assign collection_match = true
+          assign collection_parent = collection
+          break
+        endif
+      endfor
+      if collection_match
+        break
+      endif
+    endif
+  endfor
+-%}
+
+{% if collection_match and collection_parent.products.size > 1 %}
+  <color-swatches
+    style="
+      --overflow-list-alignment: {{ block_settings.color_swatches_alignment }};
+      --overflow-list-alignment-mobile: {{ block_settings.color_swatches_alignment_mobile }};
+      --product-swatches-alignment: {% if block_settings.color_swatches_alignment == 'flex-start' %}start{% elsif block_settings.color_swatches_alignment == 'flex-end' %}end{% else %}center{% endif %};
+      --product-swatches-alignment-mobile: {% if block_settings.color_swatches_alignment_mobile == 'flex-start' %}start{% elsif block_settings.color_swatches_alignment_mobile == 'flex-end' %}end{% else %}center{% endif %};
+      --product-swatches-padding-block-start: {{ block_settings.color_swatches_padding_top }}px;
+      --product-swatches-padding-block-end: {{ block_settings.color_swatches_padding_bottom }}px;
+      --product-swatches-padding-inline-start: {{ block_settings.color_swatches_padding_left }}px;
+      --product-swatches-padding-inline-end: {{ block_settings.color_swatches_padding_right }}px;
+    "
+    {{ block.shopify_attributes }}
+  >
+    <div class="color-swatches__container">
+      <fieldset class="variant-option variant-option--buttons variant-option--swatches">
+        <legend class="color-swatches__legend">
+          {{ block_settings.legend_text | default: 'Available Colors' | escape }}
+        </legend>
+        
+        {% capture children %}
+          {%- for related_product in collection_parent.products -%}
+            {%- liquid
+              # Get the color option for this product
+              assign color_option = null
+              assign color_value = null
+              
+              for option in related_product.options_with_values
+                assign option_name_lower = option.name | downcase
+                if option_name_lower == 'color' or option_name_lower == 'colour'
+                  assign color_option = option
+                  assign color_value = option.selected_value
+                  break
+                endif
+              endfor
+              
+              # Get the swatch for the selected color
+              assign product_swatch = null
+              assign custom_swatch_image = null
+              
+              # Check for custom color_swatch_image metafield first
+              if related_product.metafields.custom.color_swatch_image
+                assign custom_swatch_image = related_product.metafields.custom.color_swatch_image
+              endif
+              
+              # Fall back to variant swatch if no custom metafield
+              if custom_swatch_image == null and color_option
+                for option_value in color_option.values
+                  if option_value.selected and option_value.swatch
+                    assign product_swatch = option_value.swatch
+                    break
+                  endif
+                endfor
+              endif
+              
+              # Get featured media for hover preview
+              assign featured_media = related_product.featured_media
+              if color_option
+                for option_value in color_option.values
+                  if option_value.selected and option_value.variant.featured_media
+                    assign featured_media = option_value.variant.featured_media
+                    break
+                  endif
+                endfor
+              endif
+              
+              # Determine if this is the current product
+              assign is_current_product = false
+              if related_product.handle == product.handle
+                assign is_current_product = true
+              endif
+            -%}
+            
+            <li class="variant-option__swatch">
+              <a
+                href="{{ related_product.url }}"
+                class="variant-option__button-label variant-option__button-label--has-swatch swatch-rounded color-swatches__link{% if is_current_product %} color-swatches__link--current{% endif %}"
+                data-media-id="{{ featured_media.id }}"
+                aria-label="{{ related_product.title | escape }} - {{ color_value | escape }}"
+                on:pointerenter="product-card/previewVariant/{{ featured_media.id }}"
+                on:pointerleave="product-card/resetVariant"
+              >
+                {% if custom_swatch_image %}
+                  {% comment %} Use custom metafield image as swatch {% endcomment %}
+                  <span class="swatch swatch--unscaled" style="--swatch-background: url('{{ custom_swatch_image | image_url: width: 80 }}');"></span>
+                {% elsif product_swatch %}
+                  {% render 'swatch',
+                    swatch: product_swatch,
+                    variant_image: featured_media,
+                    mode: 'unscaled'
+                  %}
+                {% else %}
+                  {% comment %} Fallback to product image if no swatch available {% endcomment %}
+                  <span class="swatch swatch--unscaled" style="--swatch-background: url('{{ related_product.featured_image | image_url: width: 80 }}');"></span>
+                {% endif %}
+                
+                {% if is_current_product %}
+                  <span class="color-swatches__current-indicator" aria-hidden="true">
+                    <svg class="icon icon-checkmark" viewBox="0 0 10 8" aria-hidden="true">
+                      <path d="M1.5 4.5L3.5 6.5L8.5 1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
+                  </span>
+                {% endif %}
+              </a>
+            </li>
+          {%- endfor -%}
+          
+          <li slot="more">
+            <button
+              class="hidden-swatches__count"
+              aria-label="{{ 'actions.show_all_options' | t }}"
+              on:click="/showAllSwatches"
+            ></button>
+          </li>
+        {% endcapture %}
+        
+        {% render 'overflow-list', children: children, ref: 'overflowList', defer: true %}
+      </fieldset>
+    </div>
+  </color-swatches>
+{% endif %}
+
+{% # theme-check-disable %}
+{% stylesheet %}
+  color-swatches {
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  .color-swatches__container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: var(--product-swatches-alignment-mobile);
+
+    @media (min-width: 750px) {
+      justify-content: var(--product-swatches-alignment);
+    }
+  }
+
+  .color-swatches__legend {
+    padding: 0;
+    margin-block-end: var(--margin-xs);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .color-swatches__link {
+    --variant-picker-stroke-color: var(--color-variant-border);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    border: var(--style-border-width) solid var(--color-variant-border);
+    border-radius: var(--variant-picker-swatch-radius);
+    border-width: var(--variant-picker-button-border-width);
+    overflow: clip;
+    min-height: var(--variant-picker-swatch-height);
+    min-width: var(--variant-picker-swatch-width);
+    background-color: var(--color-variant-background);
+    color: var(--color-variant-text);
+    text-decoration: none;
+    transition: background-color var(--animation-speed) var(--animation-easing),
+      border-color var(--animation-speed) var(--animation-easing),
+      transform var(--animation-speed) var(--animation-easing);
+
+    &:hover {
+      background-color: var(--color-variant-hover-background);
+      border-color: var(--color-variant-hover-border);
+      color: var(--color-variant-hover-text);
+      transform: scale(1.05);
+    }
+
+    &:focus-visible {
+      --variant-picker-stroke-color: var(--color-foreground);
+      
+      border-color: var(--color-foreground);
+      outline: var(--focus-outline-width) solid var(--color-foreground);
+      outline-offset: var(--focus-outline-offset);
+    }
+  }
+
+  .color-swatches__link--current {
+    color: var(--color-selected-variant-text);
+    background-color: var(--color-selected-variant-background);
+    border-color: var(--color-selected-variant-border);
+    
+    &:hover {
+      background-color: var(--color-selected-variant-hover-background);
+      border-color: var(--color-selected-variant-hover-border);
+      color: var(--color-selected-variant-hover-text);
+    }
+  }
+
+  .color-swatches__current-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-foreground);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-background);
+    z-index: 1;
+  }
+
+  .color-swatches__current-indicator .icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .variant-option--swatches {
+    padding-block: calc(
+        var(--product-swatches-padding-block-start) + var(--focus-outline-offset) + var(--focus-outline-width)
+      )
+      calc(var(--product-swatches-padding-block-end) + var(--focus-outline-offset) + var(--focus-outline-width));
+    padding-inline: calc(
+        var(--product-swatches-padding-inline-start) + var(--focus-outline-offset) + (1.5 * var(--focus-outline-width))
+      )
+      calc(var(--product-swatches-padding-inline-end) + var(--focus-outline-offset) + var(--focus-outline-width));
+  }
+
+  .variant-option--swatches {
+    overflow-list::part(list) {
+      gap: var(--gap-sm);
+    }
+
+    overflow-list[defer]::part(list) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .hidden-swatches__count {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-40-60));
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+
+    &::before {
+      counter-reset: overflow-count var(--overflow-count);
+      content: '+' counter(overflow-count);
+      line-height: 1;
+      cursor: pointer;
+    }
+  }
+
+  .hidden-swatches__count:hover {
+    color: var(--color-foreground-rgb);
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: more) {
+    .color-swatches__link {
+      border-width: 2px;
+    }
+    
+    .color-swatches__link:focus-visible {
+      outline-width: 3px;
+    }
+    
+    .color-swatches__current-indicator {
+      border: 2px solid var(--color-foreground);
+    }
+  }
+{% endstylesheet %}
+{% # theme-check-enable %}
+
+{% schema %}
+{
+  "name": "Color Swatches",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays color swatches for related products in the same collection group. Each swatch links to a different product page. Supports custom color_swatch_image metafield for custom swatch images."
+    },
+    {
+      "type": "text",
+      "id": "legend_text",
+      "label": "Legend Text",
+      "default": "Available Colors",
+      "info": "Text displayed above the color swatches"
+    },
+    {
+      "type": "select",
+      "id": "color_swatches_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "select",
+      "id": "color_swatches_alignment_mobile",
+      "label": "Mobile Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "color_swatches_padding_top",
+      "label": "Top",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "color_swatches_padding_bottom",
+      "label": "Bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "color_swatches_padding_left",
+      "label": "Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "color_swatches_padding_right",
+      "label": "Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Color Swatches",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
