@@ -1,9 +1,5 @@
 import { Component } from '@theme/component';
-import {
-  debounce,
-  prefersReducedMotion,
-} from '@theme/utilities';
-import { scrollIntoView } from '@theme/scrolling';
+import { debounce } from '@theme/utilities';
 
 /**
  * A custom element that renders a vertical slideshow.
@@ -22,9 +18,12 @@ export class VerticalSlideshow extends Component {
 
   #isScrolling = false;
   #scrollTimeout = null;
+  #slideHeight = null;
+  #thumbnailClickHandlers = new Map();
 
   connectedCallback() {
     super.connectedCallback();
+    
     
     // Initialize slides and thumbnails
     this.#initializeSlides();
@@ -32,9 +31,6 @@ export class VerticalSlideshow extends Component {
     
     // Add scroll event listener
     this.refs.mediaContainer.addEventListener('scroll', this.handleScroll);
-    
-    // Add mouse wheel event listener for snapping
-    this.refs.mediaContainer.addEventListener('wheel', this.handleWheel, { passive: false });
     
     // Add thumbnail click handlers
     this.#addThumbnailHandlers();
@@ -44,7 +40,6 @@ export class VerticalSlideshow extends Component {
     super.disconnectedCallback();
     
     this.refs.mediaContainer.removeEventListener('scroll', this.handleScroll);
-    this.refs.mediaContainer.removeEventListener('wheel', this.handleWheel);
     this.#removeThumbnailHandlers();
     
     if (this.#scrollTimeout) {
@@ -57,6 +52,11 @@ export class VerticalSlideshow extends Component {
    */
   #initializeSlides() {
     this.refs.slides = Array.from(this.refs.mediaContainer.children);
+    
+    // Cache slide height for performance
+    if (this.refs.slides.length > 0) {
+      this.#slideHeight = this.refs.slides[0].offsetHeight;
+    }
     
     // Set up initial visibility
     this.refs.slides.forEach((slide, index) => {
@@ -110,8 +110,14 @@ export class VerticalSlideshow extends Component {
     if (!this.refs.thumbnailButtons) return;
     
     this.refs.thumbnailButtons.forEach((button, index) => {
-      button.addEventListener('click', () => this.selectSlide(index));
-      button.addEventListener('pointerenter', () => this.#loadSlideContent(index));
+      const clickHandler = () => this.selectSlide(index);
+      const pointerHandler = () => this.#loadSlideContent(index);
+      
+      // Store handlers for proper removal
+      this.#thumbnailClickHandlers.set(button, { clickHandler, pointerHandler });
+      
+      button.addEventListener('click', clickHandler);
+      button.addEventListener('pointerenter', pointerHandler);
     });
   }
 
@@ -121,9 +127,13 @@ export class VerticalSlideshow extends Component {
   #removeThumbnailHandlers() {
     if (!this.refs.thumbnailButtons) return;
     
-    this.refs.thumbnailButtons.forEach((button, index) => {
-      button.removeEventListener('click', () => this.selectSlide(index));
-      button.removeEventListener('pointerenter', () => this.#loadSlideContent(index));
+    this.refs.thumbnailButtons.forEach((button) => {
+      const handlers = this.#thumbnailClickHandlers.get(button);
+      if (handlers) {
+        button.removeEventListener('click', handlers.clickHandler);
+        button.removeEventListener('pointerenter', handlers.pointerHandler);
+        this.#thumbnailClickHandlers.delete(button);
+      }
     });
   }
 
@@ -142,29 +152,8 @@ export class VerticalSlideshow extends Component {
     
     this.#updateActiveThumbnail(activeIndex);
     this.#updateSlideVisibility(activeIndex);
-  }, 50);
+  }, 16);
 
-  /**
-   * Handle wheel event for snapping behavior
-   */
-  handleWheel = (event) => {
-    if (prefersReducedMotion()) return;
-    
-    event.preventDefault();
-    
-    if (this.#isScrolling) return;
-    
-    const { slides } = this.refs;
-    if (!slides || slides.length <= 1) return;
-    
-    const currentIndex = this.#getCurrentSlideIndex();
-    const direction = event.deltaY > 0 ? 1 : -1;
-    const nextIndex = Math.max(0, Math.min(slides.length - 1, currentIndex + direction));
-    
-    if (nextIndex !== currentIndex) {
-      this.selectSlide(nextIndex, { behavior: 'smooth' });
-    }
-  };
 
   /**
    * Select a specific slide
@@ -186,11 +175,17 @@ export class VerticalSlideshow extends Component {
     this.#updateActiveThumbnail(index);
     this.#updateSlideVisibility(index);
     
-    // Scroll to the target slide
-    targetSlide.scrollIntoView({
-      behavior: options.behavior,
-      block: 'center',
-    });
+    // Scroll to the target slide within the container
+    const scrollTop = index * (this.#slideHeight || targetSlide.offsetHeight);
+    
+    if (options.behavior === 'instant') {
+      mediaContainer.scrollTop = scrollTop;
+    } else {
+      mediaContainer.scrollTo({
+        top: scrollTop,
+        behavior: 'smooth'
+      });
+    }
     
     // Clear scrolling flag after animation
     this.#scrollTimeout = setTimeout(() => {
@@ -225,33 +220,6 @@ export class VerticalSlideshow extends Component {
     });
   }
 
-  /**
-   * Get the current slide index based on scroll position
-   * @returns {number} The current slide index
-   */
-  #getCurrentSlideIndex() {
-    const { slides } = this.refs;
-    if (!slides || !slides.length) return 0;
-    
-    const containerRect = this.refs.mediaContainer.getBoundingClientRect();
-    const containerCenter = containerRect.top + containerRect.height / 2;
-    
-    let closestIndex = 0;
-    let closestDistance = Infinity;
-    
-    slides.forEach((slide, index) => {
-      const slideRect = slide.getBoundingClientRect();
-      const slideCenter = slideRect.top + slideRect.height / 2;
-      const distance = Math.abs(slideCenter - containerCenter);
-      
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestIndex = index;
-      }
-    });
-    
-    return closestIndex;
-  }
 
   /**
    * Load content for a specific slide (for lazy loading, etc.)
@@ -303,39 +271,11 @@ export class VerticalSlideshow extends Component {
   }
 
   /**
-   * Get the current slide index
-   * @returns {number} The current slide index
-   */
-  get currentIndex() {
-    return this.#getCurrentSlideIndex();
-  }
-
-  /**
    * Get the total number of slides
    * @returns {number} The total number of slides
    */
   get slideCount() {
     return this.refs.slides?.length || 0;
-  }
-
-  /**
-   * Navigate to the next slide
-   */
-  next() {
-    const currentIndex = this.currentIndex;
-    if (currentIndex < this.slideCount - 1) {
-      this.selectSlide(currentIndex + 1);
-    }
-  }
-
-  /**
-   * Navigate to the previous slide
-   */
-  previous() {
-    const currentIndex = this.currentIndex;
-    if (currentIndex > 0) {
-      this.selectSlide(currentIndex - 1);
-    }
   }
 }
 

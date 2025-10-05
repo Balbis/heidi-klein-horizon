@@ -26,62 +26,78 @@
     overflow: hidden;
     }
 
+    /* Make vertical slideshow sticky like product-details */
+    @media screen and (min-width: 750px) {
+        .vertical-slideshow {
+            position: sticky;
+            top: var(--header-group-height, 0px);
+            z-index: var(--layer-flat);
+        }
+    }
+
     .vertical-slideshow__container {
-    display: flex;
     width: 100%;
     height: 100%;
-    gap: 1rem;
+    position: relative;
     }
 
     .vertical-slideshow__media {
     flex: 1;
+    height: 100%;
     overflow-y: auto;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
     }
 
     .vertical-slideshow__media > * {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     scroll-snap-stop: always;
-    min-height: 100vh;
+    height: calc(100vh - var(--header-group-height, 0px));
+    min-height: calc(100vh - var(--header-group-height, 0px));
     display: flex;
     align-items: center;
     justify-content: center;
-    }
-
-    .vertical-slideshow__media > *:first-child {
-    scroll-snap-align: start;
-    }
-
-    .vertical-slideshow__media > *:last-child {
-    scroll-snap-align: end;
+    flex-shrink: 0;
     }
 
     .vertical-slideshow__thumbnails {
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1rem 0;
+    padding: 1rem;
     width: 80px;
-    flex-shrink: 0;
-    overflow-y: auto;
-    scroll-behavior: smooth;
+    transition: left 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    }
+
+    .vertical-slideshow:hover .vertical-slideshow__thumbnails {
+        left: 0;
+        opacity: 1;
+        visibility: visible;
     }
 
     .vertical-slideshow__thumbnail {
     position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    background: #f8f9fa;
+    aspect-ratio: unset;
+    border: 1px solid transparent;
     cursor: pointer;
     transition: border-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    padding: 0;
     }
 
     .vertical-slideshow__thumbnail:hover {
@@ -89,13 +105,11 @@
     }
 
     .vertical-slideshow__thumbnail[aria-selected="true"] {
-    border-color: #007bff;
-    background: #e3f2fd;
+        border-color: var(--color-active);
     }
 
     .vertical-slideshow__thumbnail:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
+    outline: none;
     }
 
     .vertical-slideshow__thumbnail-image {
@@ -127,15 +141,34 @@
         min-height: 70vh;
     }
     
-    .vertical-slideshow__thumbnails {
-        flex-direction: row;
-        width: 100%;
-        height: 80px;
-        padding: 0.5rem 1rem;
-        overflow-x: auto;
-        overflow-y: hidden;
-        gap: 0.5rem;
-    }
+     .vertical-slideshow__thumbnails {
+         position: absolute;
+         top: auto;
+         bottom: -80px;
+         left: 0;
+         right: 0;
+         transform: none;
+         flex-direction: row;
+         width: 100%;
+         height: 80px;
+         padding: 0.5rem 1rem;
+         overflow-x: auto;
+         overflow-y: hidden;
+         gap: 0.5rem;
+         background: rgba(255, 255, 255, 0.95);
+         backdrop-filter: blur(10px);
+         border-radius: 8px 8px 0 0;
+         box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+         transition: bottom 0.3s ease;
+         opacity: 0;
+         visibility: hidden;
+     }
+
+     .vertical-slideshow:hover .vertical-slideshow__thumbnails {
+         bottom: 0;
+         opacity: 1;
+         visibility: visible;
+     }
     
     .vertical-slideshow__thumbnail {
         width: 60px;
@@ -188,25 +221,25 @@
     <div class="vertical-slideshow__media" ref="mediaContainer">
       {{ slides }}
     </div>
-    
-    {% if show_thumbnails != false and slide_count > 1 %}
-      <div class="vertical-slideshow__thumbnails" ref="thumbnails">
-        {% for slide in (1..slide_count) %}
-          <button
-            type="button"
-            class="vertical-slideshow__thumbnail"
-            {% if forloop.first %}
-              aria-selected="true"
-            {% else %}
-              aria-selected="false"
-            {% endif %}
-            data-index="{{ forloop.index0 }}"
-            aria-label="View slide {{ forloop.index }}"
-          >
-            {%- comment -%} Thumbnail content will be populated by JavaScript {%- endcomment -%}
-          </button>
-        {% endfor %}
-      </div>
-    {% endif %}
   </div>
+  
+  {% if show_thumbnails != false and slide_count > 1 %}
+    <div class="vertical-slideshow__thumbnails" ref="thumbnails">
+      {% for slide in (1..slide_count) %}
+        <button
+          type="button"
+          class="vertical-slideshow__thumbnail"
+          {% if forloop.first %}
+            aria-selected="true"
+          {% else %}
+            aria-selected="false"
+          {% endif %}
+          data-index="{{ forloop.index0 }}"
+          aria-label="View slide {{ forloop.index }}"
+        >
+          {%- comment -%} Thumbnail content will be populated by JavaScript {%- endcomment -%}
+        </button>
+      {% endfor %}
+    </div>
+  {% endif %}
 </vertical-slideshow-component>
