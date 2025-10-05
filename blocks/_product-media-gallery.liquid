@@ -365,14 +365,20 @@
     {% endcapture %}
   {% endif %}
 
-  {% if block_settings.slideshow_direction == 'vertical' %}
+  {% liquid
+    if block_settings.slideshow_direction == 'vertical'
+      assign vertical_slideshow_class = slideshow_class | append: ' hidden--mobile'
+      assign slideshow_class = slideshow_class | append: ' hidden--desktop'
+    endif
+  %}
+
     {% render 'vertical-slideshow',
       ref: 'slideshow',
-      class: slideshow_class,
+      class: vertical_slideshow_class,
       slides: slides,
       slide_count: sorted_media.size
     %}
-  {% else %}
+
     {% render 'slideshow',
       ref: 'slideshow',
       class: slideshow_class,
@@ -383,7 +389,6 @@
       arrows_position: icons_position,
       controls: controls
     %}
-  {% endif %}
 
   {% if block_settings.media_presentation == 'grid' %}
     <ul

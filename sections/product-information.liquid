@@ -274,11 +274,6 @@
   .product-information__grid--limit-details .product-details > .group-block {
     max-width: var(--sidebar-width);
   }
-
-  /* If the header is sticky, make product details content stick underneath the header */
-  body:has(#header-group #header-component[data-sticky-state='active']) .product-details.sticky-content--desktop {
-    --sticky-header-offset: var(--header-height);
-  }
 {% endstylesheet %}
 
 {% schema %}
