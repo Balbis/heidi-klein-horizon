@@ -124,14 +124,6 @@
                   {% comment %} Fallback to product image if no swatch available {% endcomment %}
                   <span class="swatch swatch--unscaled" style="--swatch-background: url('{{ related_product.featured_image | image_url: width: 80 }}');"></span>
                 {% endif %}
-                
-                {% if is_current_product %}
-                  <span class="color-swatches__current-indicator" aria-hidden="true">
-                    <svg class="icon icon-checkmark" viewBox="0 0 10 8" aria-hidden="true">
-                      <path d="M1.5 4.5L3.5 6.5L8.5 1.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    </svg>
-                  </span>
-                {% endif %}
               </a>
             </li>
           {%- endfor -%}
@@ -179,7 +171,7 @@
     font-weight: var(--font-weight-medium);
   }
 
-  .color-swatches__link {
+  color-swatches .color-swatches__link.variant-option__button-label {
     --variant-picker-stroke-color: var(--color-variant-border);
     
     display: flex;
@@ -188,14 +180,15 @@
     position: relative;
     padding: 0;
     border: var(--style-border-width) solid var(--color-variant-border);
-    border-radius: var(--variant-picker-swatch-radius);
+    border-radius: 100%;
     border-width: var(--variant-picker-button-border-width);
     overflow: clip;
-    min-height: var(--variant-picker-swatch-height);
-    min-width: var(--variant-picker-swatch-width);
+    max-height: calc(var(--variant-picker-swatch-height) * 0.9);
+    max-width: calc(var(--variant-picker-swatch-width) * 0.9);
     background-color: var(--color-variant-background);
     color: var(--color-variant-text);
     text-decoration: none;
+    transform: scale(1.05);
     transition: background-color var(--animation-speed) var(--animation-easing),
       border-color var(--animation-speed) var(--animation-easing),
       transform var(--animation-speed) var(--animation-easing);
@@ -204,49 +197,26 @@
       background-color: var(--color-variant-hover-background);
       border-color: var(--color-variant-hover-border);
       color: var(--color-variant-hover-text);
-      transform: scale(1.05);
+      transform: scale(1.15);
+      outline: none;
     }
 
     &:focus-visible {
-      --variant-picker-stroke-color: var(--color-foreground);
-      
-      border-color: var(--color-foreground);
-      outline: var(--focus-outline-width) solid var(--color-foreground);
-      outline-offset: var(--focus-outline-offset);
+      outline: none !important;
     }
   }
 
-  .color-swatches__link--current {
-    color: var(--color-selected-variant-text);
-    background-color: var(--color-selected-variant-background);
-    border-color: var(--color-selected-variant-border);
+  color-swatches .color-swatches__link--current.variant-option__button-label {
+    color: var(--color-selected-variant-text) !important;
+    background-color: var(--color-selected-variant-background) !important;
+    border-color: var(--color-selected-variant-border) !important;
+    outline: none;
     
     &:hover {
-      background-color: var(--color-selected-variant-hover-background);
-      border-color: var(--color-selected-variant-hover-border);
-      color: var(--color-selected-variant-hover-text);
+      background-color: var(--color-selected-variant-hover-background) !important;
+      border-color: var(--color-selected-variant-hover-border) !important;
+      color: var(--color-selected-variant-hover-text) !important;
     }
-  }
-
-  .color-swatches__current-indicator {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 16px;
-    height: 16px;
-    background-color: var(--color-foreground);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-background);
-    z-index: 1;
-  }
-
-  .color-swatches__current-indicator .icon {
-    width: 10px;
-    height: 10px;
   }
 
   .variant-option--swatches {
@@ -293,19 +263,20 @@
     color: var(--color-foreground-rgb);
   }
 
+  .color-swatches__link .swatch.swatch--unscaled {
+    scale: 1.9;
+  }
+
   /* High contrast mode support */
   @media (prefers-contrast: more) {
-    .color-swatches__link {
+    color-swatches .color-swatches__link.variant-option__button-label {
       border-width: 2px;
     }
     
-    .color-swatches__link:focus-visible {
+    color-swatches .color-swatches__link--current.variant-option__button-label {
       outline-width: 3px;
     }
-    
-    .color-swatches__current-indicator {
-      border: 2px solid var(--color-foreground);
-    }
+
   }
 {% endstylesheet %}
 {% # theme-check-enable %}
