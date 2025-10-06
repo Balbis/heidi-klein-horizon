@@ -90,7 +90,7 @@
               "name": "Menu Item",
               "settings": {
                 "menu_index": 2,
-                "link": "",
+                "link": "shopify://collections/new-arrivals",
                 "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -186,7 +186,7 @@
               "name": "Menu Item",
               "settings": {
                 "menu_index": 1,
-                "link": "",
+                "link": "shopify://collections/new-arrivals",
                 "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -282,7 +282,7 @@
               "name": "Menu Item",
               "settings": {
                 "menu_index": 2,
-                "link": "",
+                "link": "shopify://collections/new-arrivals",
                 "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -378,7 +378,7 @@
               "name": "Menu Item",
               "settings": {
                 "menu_index": 1,
-                "link": "",
+                "link": "shopify://collections/new-arrivals",
                 "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -474,7 +474,7 @@
               "name": "Menu Item",
               "settings": {
                 "menu_index": 3,
-                "link": "",
+                "link": "shopify://collections/new-arrivals",
                 "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
