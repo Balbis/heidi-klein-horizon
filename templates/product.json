@@ -310,7 +310,7 @@
                     "text_L4Xqkm": {
                       "type": "text",
                       "settings": {
-                        "text": "{{ closest.product.metafields.custom.size_fit | metafield_tag }}",
+                        "text": "<p>Text</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
