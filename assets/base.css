@@ -4019,11 +4019,13 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   scroll-snap-align: start;
   min-width: 0;
 }
-
-.section-resource-list.carousel-layout--horizontal {
-  display: flex;
-  gap: var(--gap);
-}  
+@media screen and (min-width: 750px) {
+  .section-resource-list.carousel-layout--horizontal {
+    display: flex;
+    gap: var(--gap);
+    padding-left: var(--util-page-margin-offset);
+  }
+}
 
 /* Base styles */
 .group-block,
