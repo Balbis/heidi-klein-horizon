@@ -226,9 +226,36 @@
               },
               "block_order": []
             },
+            "text_JEfyUM": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Made with Liberty fabric. The Oscar's Palace print halterneck slider swimsuit adorned with gold slider hardware can be moved up and down to provide different levels of coverage and create the perfect fit.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "text_aEtTtq": {
               "type": "text",
               "name": "Product description",
+              "disabled": true,
               "settings": {
                 "text": "{{ closest.product.description }}",
                 "width": "100%",
@@ -251,6 +278,149 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "accordion_3f9itz": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_A8Q3ha": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Fit",
+                    "open_by_default": true,
+                    "icon": "shirt",
+                    "width": 18
+                  },
+                  "blocks": {
+                    "text_L4Xqkm": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.metafields.custom.size_fit | metafield_tag }}",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_L4Xqkm"
+                  ]
+                },
+                "accordion_row_yFGyJF": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Material",
+                    "open_by_default": false,
+                    "icon": "leather",
+                    "width": 18
+                  },
+                  "blocks": {
+                    "text_9ryCeC": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Text</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_9ryCeC"
+                  ]
+                },
+                "accordion_row_HCPbaV": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Planet",
+                    "open_by_default": false,
+                    "icon": "plant",
+                    "width": 18
+                  },
+                  "blocks": {
+                    "text_PzyAyQ": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Text</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_PzyAyQ"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_A8Q3ha",
+                "accordion_row_yFGyJF",
+                "accordion_row_HCPbaV"
+              ]
             }
           },
           "block_order": [
@@ -258,7 +428,9 @@
             "color_swatches_8J7zCK",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_JEfyUM",
+            "text_aEtTtq",
+            "accordion_3f9itz"
           ]
         }
       },
