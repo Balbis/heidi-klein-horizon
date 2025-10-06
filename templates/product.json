@@ -249,11 +249,20 @@
                     "waitForElementSelector": "",
                     "waitForElementDelay": 5
                   }
+                },
+                "custom_liquid_z9DgEW": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<!-- START KiwiSizing code !-->\n<div id=\"KiwiSizingChart\"\n                      data-collections=\"{{ product.collections | map: 'id' | join: ','}}\"\n                      data-tags=\"{{ product.tags | join: ',' | escape}}\"\n                      data-product=\"{{product.id}}\"\n                      data-vendor=\"{{product.vendor | escape}}\"\n                      data-product-name=\"{{product.title}}\"\n                      data-product-images=\"{{product.images | json| escape}}\"\n                      data-type=\"{{product.type | escape}}\">\n                    </div>\n<!-- END KiwiSizing code !-->"
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_VJ89EC",
-                "kiwi_size_chart_recommender_kiwi_sizing_VfX99r"
+                "kiwi_size_chart_recommender_kiwi_sizing_VfX99r",
+                "custom_liquid_z9DgEW"
               ]
             },
             "variant_picker_R3rGDr": {
