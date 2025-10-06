@@ -104,7 +104,7 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 25,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -170,7 +170,7 @@
                 "color_swatches_alignment": "flex-start",
                 "color_swatches_alignment_mobile": "flex-start",
                 "color_swatches_padding_top": 4,
-                "color_swatches_padding_bottom": 0,
+                "color_swatches_padding_bottom": 25,
                 "color_swatches_padding_left": 0,
                 "color_swatches_padding_right": 0
               },
@@ -224,9 +224,9 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "0.75rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -264,7 +264,7 @@
                 "show_labels": false,
                 "alignment": "left",
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 25,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -277,7 +277,7 @@
                 "show_pickup_availability": false,
                 "gift_card_form": true,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 25,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -327,7 +327,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 25,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
