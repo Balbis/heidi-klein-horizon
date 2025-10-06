@@ -27,7 +27,7 @@
 
 --flex-direction: {{ settings.content_direction | default: 'column' }}; --flex-wrap: nowrap; --flex-wrap-mobile: wrap;
 
---grid-column: {{ settings.grid_column | default: 4 }}; --grid-mobile-column: {{ settings.grid_mobile_column | default: 4 }}; --gap-grid: {{ settings.gap_grid | default: 12 }}px; --gap-grid-mobile: {{ settings.gap_grid | times: 0.8 | round }}px;
+--grid-column: {{ settings.grid_column | default: 4 }}; --grid-mobile-column: {{ settings.grid_mobile_column | default: 4 }}; --gap-grid: {{ settings.gap | default: 12 }}px; --gap-grid-mobile: {{ settings.gap| times: 0.8 | round }}px;
 
 {% render 'gap-style', value: settings.gap %}
 
