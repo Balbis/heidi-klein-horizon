@@ -128,11 +128,89 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "icon_mhGh3z": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "none",
+            "image_upload": "shopify://shop_images/harpers_bazaar_logo_1719581256.svg",
+            "width": 76,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_LfdfNp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>\"CLASSIC CUTS AND A TIMELESS INVESTMENT\"</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "1.375rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "icon_CgyEyb": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "none",
+            "image_upload": "shopify://shop_images/the_times_masthead_1719581623.svg",
+            "width": 94,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_VqbFdF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>\"THE BEST COMPRESSION FABRICS TO REALLY CHANGE YOUR SHAPE\"</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "1.375rem",
+            "line_height": "tight",
+            "letter_spacing": "loose",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "icon_VR3kfF",
-        "text_Cb4nb7"
+        "text_Cb4nb7",
+        "icon_mhGh3z",
+        "text_LfdfNp",
+        "icon_CgyEyb",
+        "text_VqbFdF"
       ],
       "name": "t:names.marquee_section",
       "settings": {
