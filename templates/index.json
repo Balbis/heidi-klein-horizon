@@ -425,6 +425,7 @@
       "settings": {
         "collection": "new-arrivals",
         "layout_type": "carousel",
+        "carousel_layout": "horizontal",
         "carousel_on_mobile": false,
         "max_products": 16,
         "columns": 4,
