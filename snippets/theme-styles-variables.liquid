@@ -15,6 +15,18 @@
     font-display: swap;
   }
 
+  {% if settings.type_accent_font != settings.type_body_font and settings.type_accent_font != settings.type_subheading_font and settings.type_accent_font != settings.type_heading_font %}
+    {%- liquid
+      assign accent_font_bold = settings.type_accent_font | font_modify: 'weight', 'bold'
+      assign accent_font_italic = settings.type_accent_font | font_modify: 'style', 'italic'
+      assign accent_font_bold_italic = accent_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    {{ settings.type_accent_font | font_face: font_display: 'swap' }}
+    {{ accent_font_bold | font_face: font_display: 'swap' }}
+    {{ accent_font_italic | font_face: font_display: 'swap' }}
+    {{ accent_font_bold_italic | font_face: font_display: 'swap' }}
+  {% endif %}
 
   :root {
     /* Page Layout */
@@ -57,8 +69,9 @@
     --font-heading--family: 'ABCDiatype', sans-serif;
     --font-heading--style: normal;
     --font-heading--weight: bold;
-    --font-accent--family: 'ABCDiatype', sans-serif;
-    --font-accent--style: normal;
+    --font-accent--family: {{ settings.type_accent_font.family }}, {{ settings.type_accent_font.fallback_families }};
+    --font-accent--style: {{ settings.type_accent_font.style }};
+    --font-accent--weight: {{ settings.type_accent_font.weight }};
 
     /* Margin sizes */
     --font-h1--spacing: 0.25em;
