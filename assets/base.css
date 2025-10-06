@@ -4020,6 +4020,11 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
   min-width: 0;
 }
 
+.section-resource-list.carousel-layout--horizontal {
+  display: flex;
+  gap: var(--gap);
+}  
+
 /* Base styles */
 .group-block,
 .group-block-content {

@@ -11,6 +11,9 @@
     section-resource-list
     spacing-style
     gap-style
+    {% if section.settings.layout_type == 'carousel' %}
+      carousel-layout--{{ section.settings.carousel_layout }}
+    {% endif %}
   "
   style="
     {% render 'spacing-style', settings: section.settings %}
@@ -120,6 +123,23 @@
         }
       ],
       "default": "grid"
+    },
+    {
+      "type": "select",
+      "id": "carousel_layout",
+      "label": "Carousel layout",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        }
+      ],
+      "default": "vertical",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
     },
     {
       "type": "checkbox",
