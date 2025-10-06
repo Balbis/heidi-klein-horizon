@@ -36,6 +36,10 @@
         {
           "value": "row",
           "label": "t:options.horizontal"
+        },
+        {
+          "value": "grid",
+          "label": "t:options.grid"
         }
       ],
       "default": "column"
@@ -145,6 +149,39 @@
       ],
       "default": "center",
       "visible_if": "{{ block.settings.content_direction == 'column' }}"
+    },
+    {
+      "type": "range",
+      "id": "grid_column",
+      "label": "Grid columns",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "col",
+      "default": 4,
+      "visible_if": "{{ block.settings.content_direction == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "grid_mobile_column",
+      "label": "Grid mobile columns",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "col",
+      "default": 4,
+      "visible_if": "{{ block.settings.content_direction == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap_grid",
+      "label": "t:settings.gap_grid",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ block.settings.content_direction == 'grid' }}"
     },
     {
       "type": "range",

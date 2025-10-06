@@ -2325,6 +2325,12 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   justify-content: var(--vertical-alignment);
 }
 
+.layout-panel-flex--grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-column), 1fr);
+  gap: var(--gap-grid);
+}
+
 @media screen and (max-width: 749px) {
   .mobile-column {
     flex-flow: column nowrap;
@@ -2346,6 +2352,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
     > .button {
       flex: 0 0 fit-content;
     }
+  }
+
+  .layout-panel-flex--grid {
+    grid-template-columns: repeat(var(--grid-mobile-column), 1fr);
+    gap: var(--gap-grid-mobile);
   }
 }
 
