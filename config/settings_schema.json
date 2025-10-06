@@ -353,7 +353,13 @@
       },
       {
         "type": "paragraph",
-        "content": "Heidi Klein uses a custom font stack so customizer access is not possible."
+        "content": "Heidi Klein uses a custom font stack so customizer access is not possible except for the accent font."
+      },
+      {
+        "type": "font_picker",
+        "id": "type_accent_font",
+        "default": "anonymous_pro_n4",
+        "label": "t:options.accent"
       },
       {
         "type": "header",
