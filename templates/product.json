@@ -247,7 +247,7 @@
                   "settings": {
                     "product": "{{closest.product}}",
                     "waitForElementSelector": "",
-                    "waitForElementDelay": 5
+                    "waitForElementDelay": 1
                   }
                 },
                 "custom_liquid_z9DgEW": {
