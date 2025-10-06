@@ -89,6 +89,60 @@
         "padding-block-end": 72
       }
     },
+    "marquee_MBBGLj": {
+      "type": "marquee",
+      "blocks": {
+        "icon_VR3kfF": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "none",
+            "image_upload": "shopify://shop_images/1200px-VOGUE_revista_-_logo_Black.png",
+            "width": 76,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_Cb4nb7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>\"BRITAIN'S MOST ICONIC SWIMWEAR\"</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-accent--family)",
+            "font_size": "1.25rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "icon_VR3kfF",
+        "text_Cb4nb7"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -287,6 +341,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "marquee_MBBGLj",
     "product_list_fa6P9H"
   ]
 }
