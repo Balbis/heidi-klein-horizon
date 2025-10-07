@@ -60,6 +60,7 @@
         "text_YLPk4p",
         "button_H9gpTf"
       ],
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "video",
@@ -745,10 +746,10 @@
   },
   "order": [
     "hero_jVaWmY",
+    "section_x8yHPF",
     "marquee_MBBGLj",
     "product_list_znjVyn",
     "collection_list_YGcdfX",
-    "1759787272ba9374dd",
-    "section_x8yHPF"
+    "1759787272ba9374dd"
   ]
 }
