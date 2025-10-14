@@ -2193,6 +2193,12 @@
         "info": "t:settings.empty_state_collection_info"
       },
       {
+        "type": "collection_list",
+        "id": "empty_state_collection_list",
+        "label": "Empty state collection list",
+        "info": "Choose collections to display in the empty state"
+      },
+      {
         "type": "header",
         "content": "t:names.predictive_search"
       },
