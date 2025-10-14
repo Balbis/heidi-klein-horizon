@@ -48,14 +48,14 @@
           aria-label="{{ title }}"
         >
           {% liquid
-            assign limit = limit | default: 2
+            assign limit = limit | default: 8
           %}
           {% comment %}
             If we're searching for recently viewed products by id, we need to reorder the products.
             The order here comes from the search terms, and we display the products in the order of the ids.
           {% endcomment %}
           {% if order_ids != blank %}
-            {% for _id in order_ids limit: 3 %}
+            {% for _id in order_ids %}
               {% assign int_id = _id | times: 1 %}
               {% assign product = products | find: 'id', int_id %}
               <li
@@ -72,7 +72,7 @@
               </li>
             {% endfor %}
           {% else %}
-            {% for product in products limit: 3 %}
+            {% for product in products limit: limit %}
               <li
                 class="predictive-search-results__card predictive-search-results__card--product"
                 ref="recentlyViewedItems[]"
