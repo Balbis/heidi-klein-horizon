@@ -101,8 +101,14 @@
     gap: var(--gap-md);
     transition: height var(--animation-speed-medium) var(--animation-easing);
 
-    @container (min-width: 550px) {
+    @container (min-width: 750px) {
       grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .predictive-search-results__wrapper-products--recent {
+    @container (min-width: 750px) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

@@ -22,6 +22,7 @@
         assign collection = settings.empty_state_collection | default: collections.all
         assign default_title = 'content.search_results_resource_products' | t
         assign title = settings.empty_state_collection.title | default: default_title
+        assign empty_state_collections = settings.empty_state_collection_list
       %}
       {% paginate collection.products by 4 %}
         {% assign products = collection.products %}
@@ -30,6 +31,7 @@
           {% render 'predictive-search-products-list',
             products_test_id: products_test_id,
             title: title,
+            empty_state_collections: empty_state_collections,
             products: products,
             limit: 4
           %}

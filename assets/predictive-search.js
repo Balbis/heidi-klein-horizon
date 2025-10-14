@@ -317,6 +317,17 @@ class PredictiveSearchComponent extends Component {
 
         morph(predictiveSearchResults, resultsMarkup);
 
+        // Hide empty state collections and show search results
+        const emptyStateCollections = this.querySelector('.empty-state-collections');
+        const collectionProducts = this.querySelector('.predictive-search-results__wrapper-collection-products');
+        
+        if (emptyStateCollections) {
+          emptyStateCollections.classList.add('hidden');
+        }
+        if (collectionProducts) {
+          collectionProducts.classList.remove('hidden');
+        }
+
         this.#resetScrollPositions();
       })
       .catch((error) => {
@@ -408,6 +419,18 @@ class PredictiveSearchComponent extends Component {
     if (abortController.signal.aborted) return;
 
     morph(predictiveSearchResults, parsedEmptySectionMarkup);
+    
+    // Show empty state collections and hide search results
+    const emptyStateCollections = this.querySelector('.empty-state-collections');
+    const collectionProducts = this.querySelector('.predictive-search-results__wrapper-collection-products');
+    
+    if (emptyStateCollections) {
+      emptyStateCollections.classList.remove('hidden');
+    }
+    if (collectionProducts) {
+      collectionProducts.classList.add('hidden');
+    }
+    
     this.#resetScrollPositions();
   };
 }
