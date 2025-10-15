@@ -73,11 +73,11 @@
     "currency_code_enabled_product_cards": true,
     "currency_code_enabled_cart_items": false,
     "mobile_quick_add": true,
-    "empty_state_collection": "new-arrivals",
     "empty_state_collection_list": [
       "new-arrivals",
       "all-accessories"
     ],
+    "search_modal_terms": "search-modal-links",
     "product_corner_radius": 0,
     "card_corner_radius": 0,
     "show_variant_image": false,
@@ -87,6 +87,7 @@
     "variant_button_border_width": 1,
     "variant_button_radius": 4,
     "variant_button_width": "equal-width-buttons",
+    "empty_state_collection": "new-arrivals",
     "type_body_font": "sans_serif_n4",
     "type_subheading_font": "sans_serif_n4",
     "type_heading_font": "sans_serif_n4",
