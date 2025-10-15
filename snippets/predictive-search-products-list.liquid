@@ -20,25 +20,30 @@
 >
   {% if title == recently_viewed_title_text %}
     <div class="search-modal-left">
-      <div class="search-modal-terms-wrapper">
-        <ul class="search-modal-terms"
-        role="listbox"
-        aria-label="Search modal terms"
-        ref="searchModalTerms">
-          {% for link in settings.search_modal_terms %}
-            <li class="search-modal-term">
-              <a href="{{ link.url }}">
-                {{ link.title }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if settings.search_modal_terms != blank %}
+        <div class="search-modal-terms-wrapper">
+          <h3 class="predictive-search-results__title">
+            Popular collections
+          </h3>
+          <ul class="search-modal-terms list-unstyled"
+          role="listbox"
+          aria-label="Search modal terms"
+          ref="searchModalTerms">
+            {% for link in settings.search_modal_terms.links %}
+              <li class="search-modal-term">
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
       <div
         class="recently-viewed-wrapper"
         ref="recentlyViewedWrapper"
       >
-        <h4
+        <h3
           class="predictive-search-results__title"
           ref="recentlyViewedTitle[]"
         >
@@ -50,7 +55,7 @@
           >
             {{ 'actions.clear' | t }}
           </button>
-        </h4>
+        </h3>
         <ul
           class="predictive-search-results__list predictive-search-results__wrapper-products predictive-search-results__wrapper-products--recent list-unstyled"
           role="listbox"
@@ -222,8 +227,8 @@
   .search-modal-left {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-lg);
-    max-width: 40%;
+    gap: var(--gap-3xl);
+    max-width: 30%;
   }
 
   .empty-state-collections {

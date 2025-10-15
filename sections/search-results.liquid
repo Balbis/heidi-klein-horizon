@@ -20,9 +20,8 @@
         {% content_for 'block', type: 'filters', id: 'filters', results: search, results_size: search.results_count %}
         {% assign products = search.results | where: 'object_type', 'product' %}
       {% else %}
-        {% assign collection = settings.empty_state_collection | default: collections.all %}
-        {% assign default_title = 'content.search_results_resource_products' | t %}
-        {% assign title = settings.empty_state_collection.title | default: default_title %}
+        {% assign collection = collections.all %}
+        {% assign title = 'content.search_results_resource_products' | t %}
         {% assign products = collection.products %}
       {% endif %}
 
