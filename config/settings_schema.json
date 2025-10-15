@@ -2187,16 +2187,16 @@
     "name": "t:names.search",
     "settings": [
       {
-        "type": "collection",
-        "id": "empty_state_collection",
-        "label": "t:settings.empty_state_collection",
-        "info": "t:settings.empty_state_collection_info"
-      },
-      {
         "type": "collection_list",
         "id": "empty_state_collection_list",
         "label": "Empty state collection list",
         "info": "Choose collections to display in the empty state"
+      },
+      {
+        "type": "link_list",
+        "id": "search_modal_terms",
+        "label": "Search modal terms",
+        "info": "Choose links to display in the search modal on load"
       },
       {
         "type": "header",

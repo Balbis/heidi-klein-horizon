@@ -20,10 +20,19 @@
 >
   {% if title == recently_viewed_title_text %}
     <div class="search-modal-left">
-      <div class="search-modal-terms">
-        <a href="{{ routes.root_url }}" class="search-modal-term">
-          Test
-        </a>
+      <div class="search-modal-terms-wrapper">
+        <ul class="search-modal-terms"
+        role="listbox"
+        aria-label="Search modal terms"
+        ref="searchModalTerms">
+          {% for link in settings.search_modal_terms %}
+            <li class="search-modal-term">
+              <a href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
       <div
         class="recently-viewed-wrapper"
@@ -55,7 +64,7 @@
             The order here comes from the search terms, and we display the products in the order of the ids.
           {% endcomment %}
           {% if order_ids != blank %}
-            {% for _id in order_ids %}
+            {% for _id in order_ids limit: 3 %}
               {% assign int_id = _id | times: 1 %}
               {% assign product = products | find: 'id', int_id %}
               <li
@@ -72,7 +81,7 @@
               </li>
             {% endfor %}
           {% else %}
-            {% for product in products limit: limit %}
+            {% for product in products limit: 3 %}
               <li
                 class="predictive-search-results__card predictive-search-results__card--product"
                 ref="recentlyViewedItems[]"
@@ -214,7 +223,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-lg);
-    max-width: 50%;
+    max-width: 40%;
   }
 
   .empty-state-collections {
