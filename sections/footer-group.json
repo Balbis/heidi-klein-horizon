@@ -170,7 +170,7 @@
                 "vertical_alignment_flex_direction_column": "center",
                 "grid_column": 4,
                 "grid_mobile_column": 4,
-                "gap": 30,
+                "gap": 50,
                 "width": "custom",
                 "custom_width": 40,
                 "width_mobile": "fill",
