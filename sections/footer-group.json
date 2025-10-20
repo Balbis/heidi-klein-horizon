@@ -130,7 +130,7 @@
                   "settings": {
                     "width": "custom",
                     "custom_width": 100,
-                    "max_width": 220,
+                    "max_width": 400,
                     "inherit_color_scheme": true,
                     "heading": "",
                     "heading_preset": "h3",
