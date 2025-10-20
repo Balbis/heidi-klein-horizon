@@ -45,6 +45,13 @@
     }
   }
 
+  .footer-utilities__group-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+
   /* Dynamic positioning based on block order */
   @media screen and (min-width: 750px) {
     .utilities {
@@ -159,6 +166,11 @@
       .footer-utilities__icons:nth-child(1) {
         justify-self: start;
       }
+    }
+
+    .footer-utilities__group-copyright {
+      flex-direction: row;
+      justify-content: left;
     }
   }
 {% endstylesheet %}
