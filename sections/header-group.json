@@ -86,7 +86,7 @@
           },
           "blocks": {
             "menu_item_8cAyVK": {
-              "type": "menu-item",
+              "type": "_menu-item",
               "name": "Menu Item",
               "settings": {
                 "menu_index": 2,
@@ -182,7 +182,7 @@
               ]
             },
             "menu_item_bq449m": {
-              "type": "menu-item",
+              "type": "_menu-item",
               "name": "Menu Item",
               "settings": {
                 "menu_index": 1,
@@ -278,7 +278,7 @@
               ]
             },
             "menu_item_gPPiky": {
-              "type": "menu-item",
+              "type": "_menu-item",
               "name": "Menu Item",
               "settings": {
                 "menu_index": 2,
@@ -374,7 +374,7 @@
               ]
             },
             "menu_item_KQNLKU": {
-              "type": "menu-item",
+              "type": "_menu-item",
               "name": "Menu Item",
               "settings": {
                 "menu_index": 1,
@@ -470,7 +470,7 @@
               ]
             },
             "menu_item_jJxpqD": {
-              "type": "menu-item",
+              "type": "_menu-item",
               "name": "Menu Item",
               "settings": {
                 "menu_index": 3,
