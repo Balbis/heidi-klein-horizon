@@ -1,7 +1,7 @@
 {% assign block_settings = block.settings %}
 <email-signup-block
   class="email-signup-block size-style spacing-style"
-  style="{% render 'size-style', settings: block_settings %}{% render 'spacing-style', settings: block_settings %}"
+  style="{% render 'size-style', settings: block_settings %}{% render 'spacing-style', settings: block_settings %} --size-style-max-width: {{ block_settings.max_width }}px;"
   {{ block.shopify_attributes }}
 >
   {% if block_settings.heading != blank %}
