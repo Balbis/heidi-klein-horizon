@@ -2423,6 +2423,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 .shopify-policy__title {
   :is(h1, h2, h3, h4, h5, h6) {
     margin-block: clamp(1.5rem, 1em * 3.3, 2.5rem) clamp(1rem, 1em * 0.25, 2rem);
+    font-size: var(--font-h4--size);
+    font-family: var(--font-h1--family);
   }
 
   :first-child:is(p, h1, h2, h3, h4, h5, h6),
