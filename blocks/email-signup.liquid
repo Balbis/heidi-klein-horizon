@@ -111,6 +111,7 @@
     @media screen and (max-width: 749px) {
       width: 100%;
       min-width: unset;
+      max-width: var(--size-style-max-width);
     }
   }
 
@@ -347,6 +348,17 @@
       "max": 100,
       "step": 1,
       "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width == \"custom\" }}"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 4,
+      "max": 400,
+      "step": 4,
+      "unit": "px",
       "default": 100,
       "visible_if": "{{ block.settings.width == \"custom\" }}"
     },
