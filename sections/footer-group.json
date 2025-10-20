@@ -245,8 +245,8 @@
                   "type": "menu",
                   "name": "t:names.menu",
                   "settings": {
-                    "menu": "footer-policies",
-                    "heading": "Info",
+                    "menu": "footer-socials",
+                    "heading": "Follow us",
                     "menu_spacing": 12,
                     "show_as_accordion": false,
                     "accordion_icon": "caret",
