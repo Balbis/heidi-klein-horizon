@@ -544,13 +544,12 @@
       }
     },
     "section_LpFFby": {
-      "type": "section",
+      "type": "product-details",
       "blocks": {
         "text_YBYUFP": {
-          "type": "text",
+          "type": "_pdp-details-heading",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Intelligent Design</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -573,7 +572,7 @@
           "blocks": {}
         },
         "pdp_detail_wrapper_VwegrJ": {
-          "type": "pdp-detail-wrapper",
+          "type": "_pdp-details-wrapper",
           "name": "PDP details",
           "settings": {
             "content_direction": "row",

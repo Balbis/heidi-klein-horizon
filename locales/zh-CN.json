@@ -209,6 +209,7 @@
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "结账时计算的税费和运费。",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "已含税费。结账时计算运费。",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "已含税费。结账时计算运费。",
+    "product_details_heading": "智能设计",
     "view_more_details": "查看更多详细信息",
     "inventory_low_stock": "低库存",
     "inventory_in_stock": "现货",

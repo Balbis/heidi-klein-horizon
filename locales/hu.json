@@ -209,6 +209,7 @@
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "Az adókat és a szállítási díjat a pénztárnál számítjuk ki.",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "Tartalmazza az adókat. A szállítási díjat a pénztárnál számítjuk ki.",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "Tartalmazza az adókat. A szállítási díjat a pénztárnál számítjuk ki.",
+    "product_details_heading": "Okos Tervezés",
     "view_more_details": "További részletek megtekintése",
     "inventory_low_stock": "Alacsony készlet",
     "inventory_in_stock": "Készleten",

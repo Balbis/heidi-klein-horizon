@@ -209,6 +209,7 @@
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "ภาษีและค่าจัดส่งที่คิดคำนวณในระหว่างขั้นตอนการชำระเงิน",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "รวมภาษีแล้ว ค่าจัดส่งจะคำนวณในขั้นตอนชำระเงิน",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "รวมภาษีแล้ว ค่าจัดส่งจะคำนวณในขั้นตอนชำระเงิน",
+    "product_details_heading": "การออกแบบอัจฉริยะ",
     "view_more_details": "ดูรายละเอียดเพิ่มเติม",
     "inventory_low_stock": "สต็อกสินค้าเหลือน้อย",
     "inventory_in_stock": "มีในสต็อก",

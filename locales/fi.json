@@ -208,6 +208,7 @@
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "Verot ja toimituskulut lasketaan kassalla.",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "Sisältää verot. Toimituskulut lasketaan kassalla.",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "Sisältää verot. Toimituskulut lasketaan kassalla.",
+    "product_details_heading": "Älykäs Suunnittelu",
     "wrong_password": "Väärä salasana",
     "view_more_details": "Katso lisätietoja",
     "inventory_low_stock": "Varasto vähissä",

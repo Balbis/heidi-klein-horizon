@@ -211,6 +211,7 @@
     "taxes_at_checkout_shipping_at_checkout_with_policy_without_discounts_html": "Los impuestos y los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la página de pago.",
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "Los impuestos y los gastos de envío se calculan en la página de pago.",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "Impuestos incluidos. Los gastos de envío se calculan en la página de pago.",
+    "product_details_heading": "Diseño Inteligente",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "Impuestos incluidos. Los gastos de envío se calculan en la página de pago.",
     "wrong_password": "Contraseña incorrecta",
     "view_more_details": "Ver más información",

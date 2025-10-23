@@ -208,6 +208,7 @@
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "結帳時計算稅額和運費。",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "已包含稅額。結帳時計算運費。",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "已包含稅額。結帳時計算運費。",
+    "product_details_heading": "智能設計",
     "view_more_details": "檢視更多詳細資訊",
     "wrong_password": "密碼錯誤",
     "inventory_low_stock": "庫存不足",

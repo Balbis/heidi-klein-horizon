@@ -209,6 +209,7 @@
     "taxes_at_checkout_shipping_at_checkout_without_policy_without_discounts": "세금 및 배송료는 결제 시 계산됩니다.",
     "taxes_included_shipping_at_checkout_with_policy_without_discounts_html": "세금이 포함된 가격입니다. 배송료는 결제 시 계산됩니다.",
     "taxes_included_shipping_at_checkout_without_policy_without_discounts": "세금이 포함된 가격입니다. 배송료는 결제 시 계산됩니다.",
+    "product_details_heading": "지능형 디자인",
     "view_more_details": "더 많은 세부 정보 보기",
     "powered_by": "상점 제공:",
     "store_owner_link_html": "스토어 소유자이신가요? <a href=\"{{ link }}\">여기에서 로그인</a>하세요.",

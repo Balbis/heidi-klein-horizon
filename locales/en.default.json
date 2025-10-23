@@ -209,6 +209,7 @@
     "price_regular": "Regular price",
     "price_sale": "Sale price",
     "price_filter_html": "The highest price is {{ price }}",
+    "product_details_heading": "Intelligent Design",
     "product_image": "Product image",
     "product_information": "Product information",
     "product_total": "Product total",
