@@ -373,6 +373,69 @@
               },
               "blocks": {}
             },
+            "product_accordion_MdPMBX": {
+              "type": "_product-accordion",
+              "name": "PDP accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion-row": {
+                  "type": "_accordion-row",
+                  "static": true,
+                  "settings": {
+                    "heading": "{{ closest.metaobject.product_page_accordions.title.value }}",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_fdGHjC": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "{{ closest.metaobject.product_page_accordions.content | metafield_tag }}",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_fdGHjC"
+                  ]
+                }
+              },
+              "block_order": []
+            },
             "accordion_3f9itz": {
               "type": "accordion",
               "name": "t:names.accordion",
@@ -525,6 +588,7 @@
             "buy_buttons_eYQEYi",
             "text_JEfyUM",
             "text_aEtTtq",
+            "product_accordion_MdPMBX",
             "accordion_3f9itz"
           ]
         }
