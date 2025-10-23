@@ -551,7 +551,7 @@
           "name": "t:names.text",
           "settings": {
             "width": "100%",
-            "max_width": "normal",
+            "max_width": "none",
             "alignment": "center",
             "type_preset": "custom",
             "font": "var(--font-accent--family)",
