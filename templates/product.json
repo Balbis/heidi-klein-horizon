@@ -548,7 +548,7 @@
       "blocks": {
         "text_YBYUFP": {
           "type": "_pdp-details-heading",
-          "name": "t:names.text",
+          "name": "Details heading",
           "settings": {
             "width": "100%",
             "max_width": "none",
