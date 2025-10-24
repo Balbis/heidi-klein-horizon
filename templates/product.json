@@ -691,7 +691,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 48
+        "padding-block-end": 36
       }
     },
     "wear_with_section_KrV8jK": {
@@ -1027,7 +1027,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 36,
+        "padding-block-start": 0,
         "padding-block-end": 36
       }
     },
