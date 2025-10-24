@@ -3,25 +3,27 @@
   assign product_accordions = product.metafields.custom.pdp_accordions.value
 %}
 
-<div
-  class="accordion accordion--{{ block.id }} accordion--{{ block_settings.icon }} border-style spacing-style{% if block_settings.inherit_color_scheme == false %} color-{{ block_settings.color_scheme }}{% endif %}{% if block_settings.dividers %} accordion--dividers{% endif %}"
-  style="
-    --summary-font-family: var(--font-{{ block_settings.type_preset }}--family);
-     --summary-font-style: var(--font-{{ block_settings.type_preset }}--style);
-     --summary-font-weight: var(--font-{{ block_settings.type_preset }}--weight);
-     --summary-font-size: var(--font-{{ block_settings.type_preset }}--size);
-     --summary-font-line-height: var(--font-{{ block_settings.type_preset }}--line-height);
-     --summary-font-case: var(--font-{{ block_settings.type_preset }}--case);
-    {% render 'spacing-style', settings: block_settings %}
-    {% render 'border-override', settings: block_settings %}
-  "
-  {{ block.shopify_attributes }}
->
-  {% for accordion in product_accordions %}
-    {% assign icon = accordion.icon.value | default: 'none' %}
-    {% content_for 'block', type: '_accordion-row', id: 'accordion-row', closest.metaobject.product_page_accordions: accordion, custom_icon: icon %}
-  {% endfor %}
-</div>
+{% if product_accordions != blank %}
+  <div
+    class="accordion accordion--{{ block.id }} accordion--{{ block_settings.icon }} border-style spacing-style{% if block_settings.inherit_color_scheme == false %} color-{{ block_settings.color_scheme }}{% endif %}{% if block_settings.dividers %} accordion--dividers{% endif %}"
+    style="
+      --summary-font-family: var(--font-{{ block_settings.type_preset }}--family);
+      --summary-font-style: var(--font-{{ block_settings.type_preset }}--style);
+      --summary-font-weight: var(--font-{{ block_settings.type_preset }}--weight);
+      --summary-font-size: var(--font-{{ block_settings.type_preset }}--size);
+      --summary-font-line-height: var(--font-{{ block_settings.type_preset }}--line-height);
+      --summary-font-case: var(--font-{{ block_settings.type_preset }}--case);
+      {% render 'spacing-style', settings: block_settings %}
+      {% render 'border-override', settings: block_settings %}
+    "
+    {{ block.shopify_attributes }}
+  >
+    {% for accordion in product_accordions %}
+      {% assign icon = accordion.icon.value | default: 'none' %}
+      {% content_for 'block', type: '_accordion-row', id: 'accordion-row', closest.metaobject.product_page_accordions: accordion, custom_icon: icon %}
+    {% endfor %}
+  </div>
+{% endif %}
 
 {% stylesheet %}
   .accordion {
