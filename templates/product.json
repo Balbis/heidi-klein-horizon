@@ -769,7 +769,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p><a href=\"/collections/core-one-pieces\" title=\"Core Swimsuits\">View all</a></p>",
+                "text": "",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
