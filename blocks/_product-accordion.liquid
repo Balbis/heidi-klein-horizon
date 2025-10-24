@@ -18,7 +18,8 @@
   {{ block.shopify_attributes }}
 >
   {% for accordion in product_accordions %}
-    {% content_for 'block', type: '_accordion-row', id: 'accordion-row', closest.metaobject.product_page_accordions: accordion  %}
+    {% assign icon = accordion.icon.value | default: 'none' %}
+    {% content_for 'block', type: '_accordion-row', id: 'accordion-row', closest.metaobject.product_page_accordions: accordion, custom_icon: icon %}
   {% endfor %}
 </div>
 
