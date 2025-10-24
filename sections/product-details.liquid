@@ -2,7 +2,9 @@
   {% content_for 'blocks' %}
 {% endcapture %}
 
-{% render 'section', section: section, children: children %}
+{% if product.metafields.custom.pdp_details_section != blank %}
+  {% render 'section', section: section, children: children %}
+{% endif %}
 
 {% schema %}
 {
