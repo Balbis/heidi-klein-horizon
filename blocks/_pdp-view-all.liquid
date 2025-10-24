@@ -1,10 +1,11 @@
 {% liquid
   assign view_all_collection = product.metafields.custom.pdp_wear_with_link.value
   assign view_all_url = view_all_collection.url
+  assign fallback_text = '<a href="' | append: view_all_url | append: '">View all</a>'
 %}
 
 {% if product.metafields.custom.pdp_wear_with_link != blank %}
-  {% render 'text', block: block, fallback_text: '<a href="{{ view_all_url }}">View all</a>' %}
+  {% render 'text', block: block, fallback_text: fallback_text %}
 {% endif %}
 
 {% schema %}
