@@ -1,4 +1,6 @@
-{% render 'text', block: block, fallback_text: '<a href="{{ product.metafields.custom.pdp_wear_with_link.value }}">View all</a>' %}
+{% if product.metafields.custom.pdp_wear_with_link != blank %}
+  {% render 'text', block: block, fallback_text: '<a href="{{ product.metafields.custom.pdp_wear_with_link.value }}">View all</a>' %}
+{% endif %}
 
 {% schema %}
 {
